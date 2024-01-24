@@ -3,15 +3,15 @@
 importer="texture"
 type="CompressedTexture2D"
 uid="uid://gerpdaqfb04q"
-path="res://.godot/imported/fire-droid-logo-static-transparent-bg.png-ec225a1f0ef765797b9978e2bb2f7900.ctex"
+path="res://.godot/imported/fire-droid-logo-static-transparent-bg.png-fe44350e78322b22e8e18e84b03f4be7.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://fire_droid_core/fire-droid-logo-static-transparent-bg.png"
-dest_files=["res://.godot/imported/fire-droid-logo-static-transparent-bg.png-ec225a1f0ef765797b9978e2bb2f7900.ctex"]
+source_file="res://fire_droid_core/media/fire-droid-logo-static-transparent-bg.png"
+dest_files=["res://.godot/imported/fire-droid-logo-static-transparent-bg.png-fe44350e78322b22e8e18e84b03f4be7.ctex"]
 
 [params]
 
