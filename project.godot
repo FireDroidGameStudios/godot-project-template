@@ -11,8 +11,18 @@ config_version=5
 [application]
 
 config/name="Project Template"
+run/main_scene="res://scenes/fire_droid_core/fd_core.tscn"
 config/features=PackedStringArray("4.2", "GL Compatibility")
 config/icon="res://icon.svg"
+
+[autoload]
+
+EzTransitions="*res://addons/ez_transitions/objects/plugin_singleton/plugin_singleton_script.gd"
+FDCore="*res://fire_droid_core/fd_core.gd"
+
+[editor_plugins]
+
+enabled=PackedStringArray("res://addons/ez_transitions/plugin.cfg")
 
 [rendering]
 
