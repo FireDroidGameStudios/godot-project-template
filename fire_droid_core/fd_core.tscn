@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk7vw85pio8ya"]
+
+[ext_resource type="Script" path="res://fire_droid_core/fd_core.gd" id="1_cuv7n"]
+
+[node name="FdCore" type="Node"]
+script = ExtResource("1_cuv7n")

@@ -99,6 +99,10 @@ const _DefaultValues: Dictionary = {
 	},
 }
 #endregion
+#region LogosIntro
+const GodotAnimatedLogo = preload("res://fire_droid_core/intro/godot_animated_logo.tscn")
+const FireDroidAnimatedLogo = preload("res://fire_droid_core/intro/fire_droid_animated_logo.tscn")
+#endregion
 
 
 func _ready() -> void:
