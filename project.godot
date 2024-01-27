@@ -18,7 +18,6 @@ config/icon="res://icon.svg"
 [autoload]
 
 EzTransitions="*res://addons/ez_transitions/objects/plugin_singleton/plugin_singleton_script.gd"
-FDCore_="res://fire_droid_core/fd_core.gd"
 FDCore="*res://fire_droid_core/fd_core.tscn"
 
 [display]
