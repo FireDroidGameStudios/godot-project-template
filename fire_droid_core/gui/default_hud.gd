@@ -32,7 +32,8 @@ var _tween: Tween = null
 
 
 func _ready() -> void:
-	play_transition(false)
+	_set_initial_offset()
+	play_transition() # DEBUG
 	pass
 
 
@@ -55,6 +56,21 @@ func play_transition(animated: bool = true) -> void:
 		AnimationStyle.SLIDE_TO_LEFT: _animation_slide_to_left(animated)
 		AnimationStyle.SLIDE_TO_UP: _animation_slide_to_up(animated)
 		AnimationStyle.SLIDE_TO_BOTTOM: _animation_slide_to_bottom(animated)
+
+
+func _set_initial_offset() -> void:
+	var hud_size: Vector2 = get_viewport().get_visible_rect().size
+	match animation_in:
+		AnimationStyle.SLIDE_TO_RIGHT:
+			offset = Vector2(-hud_size.x, 0)
+		AnimationStyle.SLIDE_TO_LEFT:
+			offset = Vector2(hud_size.x, 0)
+		AnimationStyle.SLIDE_TO_UP:
+			offset = Vector2(0, hud_size.y)
+		AnimationStyle.SLIDE_TO_BOTTOM:
+			offset = Vector2(0, -hud_size.y)
+		AnimationStyle.FADE:
+			offset = Vector2(0, 0)
 
 
 func _slide_animation(target: Vector2) -> void:
