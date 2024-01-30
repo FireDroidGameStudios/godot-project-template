@@ -1,3 +1,4 @@
+class_name DefaultHUD
 extends CanvasLayer
 
 
@@ -65,6 +66,12 @@ func play_transition(animated: bool = true) -> void:
 			return
 	else:
 		await _play_single_transition(animated)
+
+
+func trigger_action(action_name: String) -> void:
+	if action_name.is_empty():
+		return
+	action_triggered.emit(action_name)
 
 
 func _play_single_transition(animated: bool = true) -> void:
@@ -173,10 +180,6 @@ func _toggle_animation_state() -> void:
 		_animation_state = _AnimationState.OUT
 	else:
 		_animation_state = _AnimationState.IN
-
-
-func _on_button_pressed(action_name: String) -> void:
-	button_pressed.emit(action_name)
 
 
 func _on_tween_finished() -> void:
