@@ -1,0 +1,10 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0ex33ow728ou"]
+
+[ext_resource type="Script" path="res://fire_droid_core/gui/default_button.gd" id="1_732f6"]
+
+[node name="DefaultButton" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_732f6")
+
+[connection signal="toggled" from="." to="." method="_trigger_action_on_toggled"]

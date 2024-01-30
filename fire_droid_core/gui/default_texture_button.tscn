@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://yofatrudp18t"]
+
+[ext_resource type="Script" path="res://fire_droid_core/gui/default_texture_button.gd" id="1_4vus2"]
+
+[node name="DefaultTextureButton" type="TextureButton"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_4vus2")
