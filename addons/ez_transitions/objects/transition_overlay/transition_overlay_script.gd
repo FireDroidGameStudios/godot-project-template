@@ -7,12 +7,12 @@ class_name TransitionOverlay
 ## If you want to change scenes, use Transition instead.
 
 # Signals:
-signal intro_finished # Emitted when the intro animation is over.
-signal outro_finished # Emitted when the outro animation is over.
+signal intro_finished ## Emitted when the intro animation is over.
+signal outro_finished ## Emitted when the outro animation is over.
 
 @export_group("Intro")
 @export var INTRO_EASE: Tween.EaseType = Tween.EASE_IN_OUT ## The intro easing type. Determines how the intro animation will occur.
-@export var INTRO_TRANS: Tween.TransitionType = Tween.TRANS_SINE # The intro transition type. Determines how the intro animation will occur. Changes based on the INTRO_EASE.
+@export var INTRO_TRANS: Tween.TransitionType = Tween.TRANS_SINE ## The intro transition type. Determines how the intro animation will occur. Changes based on the INTRO_EASE.
 @export var INTRO_TYPE: int = 0 ## The transition type. Determines what animation is going to be displayed in the intro.
 @export var INTRO_DURATION: float = 1.0 ## The intro duration. Determines how long it will take the intro animation to finish.
 @export var DELAY_TO_PROCEED: float = 1.0 ## How long it will take to the outro animation starts playing after the intro animation is over.
