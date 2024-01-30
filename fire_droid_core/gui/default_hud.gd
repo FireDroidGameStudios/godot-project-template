@@ -1,7 +1,7 @@
 extends CanvasLayer
 
 
-signal button_pressed(action_name: String)
+signal action_triggered(action_name: String)
 signal animation_finished(state_is_out: bool)
 
 enum AnimationStyle {
