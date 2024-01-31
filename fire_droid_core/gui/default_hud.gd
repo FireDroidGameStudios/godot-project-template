@@ -32,6 +32,7 @@ var _tween: Tween = null
 @export var transition_out: Tween.TransitionType = Tween.TRANS_CUBIC
 
 @export_group("More Options")
+@export var hide_at_begin: bool = true
 @export var enable_autohide: bool = false
 @export_range(0.0, 10.0, 0.01, "or_greater") var autohide_delay: float = DefaultAutohideDelay
 
@@ -92,6 +93,9 @@ func _play_single_transition(animated: bool = true) -> void:
 
 
 func _set_initial_offset() -> void:
+	if not hide_at_begin:
+		offset = Vector2(0, 0)
+		return
 	var hud_size: Vector2 = get_viewport().get_visible_rect().size
 	match animation_in:
 		AnimationStyle.SLIDE_TO_RIGHT:
