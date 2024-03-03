@@ -23,6 +23,10 @@ FDCore="*res://addons/fire_droid_core/scenes/fd_core.gd"
 
 enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/fire_droid_core/plugin.cfg")
 
+[fd_core]
+
+project_manager="res://tests/scenes/project_manager.gd"
+
 [rendering]
 
 renderer/rendering_method="gl_compatibility"

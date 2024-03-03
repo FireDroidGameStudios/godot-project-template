@@ -3,6 +3,10 @@ extends Node
 
 signal scene_changed
 
+enum ErrorCodes {
+	DEFAULT_ERROR,
+}
+
 const GodotLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn")
 const FireDroidLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn")
 const TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
@@ -25,6 +29,7 @@ var transition_defaults: Dictionary = {
 
 var _current_scene = null
 var _permanent_nodes: Dictionary = {}
+var _project_manager: FDProjectManager = null
 
 @onready var _permanent_fore_layer = get_node("PermanentForeLayer")
 @onready var _temporary_layer = get_node("TemporaryLayer")
@@ -43,7 +48,7 @@ func _init() -> void:
 	var permanent_fore_layer: Node = Node.new()
 	permanent_fore_layer.set_name("PermanentForeLayer")
 	# Transition Layer
-	var transition_layer: Node = Node.new()
+	var transition_layer: CanvasLayer = CanvasLayer.new()
 	transition_layer.set_name("TransitionLayer")
 
 	add_child(permanent_back_layer)
@@ -53,14 +58,21 @@ func _init() -> void:
 
 
 func _ready() -> void:
+	var enable_debug_mode: bool = ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	if enable_debug_mode:
+		return
+
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
+	_initialize_project_manager()
 
-	await change_scene_to(GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
-	await _current_scene.finished
+	#await change_scene_to(GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
+	#await _current_scene.finished
+#
+	#await change_scene_to(FireDroidLogoIntroScene.instantiate())
+	#await _current_scene.finished
 
-	await change_scene_to(FireDroidLogoIntroScene.instantiate())
-	await _current_scene.finished
+	await change_scene_to(_project_manager.initial_scene.instantiate())
 
 
 func _process(delta: float) -> void:
@@ -93,18 +105,30 @@ func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {})
 
 ## Load a scene from [code]path[/code] and turn it the current scene, applying a transition.
 func change_scene(path: String, override_transition_defaults: Dictionary = {}) -> void:
-	if not path.is_valid_filename():
-		return
+	log_message("Changing scene to path " + str(path), "gray")
 	var packed_scene: PackedScene = load(path) as PackedScene
+	if packed_scene == null:
+		critical_error("Could not load scene located at <" + path + ">")
+		return
 	await change_scene_to(packed_scene.instantiate(), override_transition_defaults)
 
 
 ## Clear all children of the given node.
-func clear_children(node: Node) -> void:
+static func clear_children(node: Node) -> void:
 	if node == null:
 		return
 	for child in node.get_children():
 		child.queue_free()
+
+
+## Print an error with code [param error_code], displaying a message given by
+## [param message]. After printing the error, the program is terminated and return
+## code [param exit_code] to system.
+func critical_error(
+	message: String, error_code: int = ErrorCodes.DEFAULT_ERROR, exit_code: int = 1
+):
+	log_message("Error (" + str(error_code) + "): " + message, "red")
+	get_tree().quit(exit_code)
 
 
 ## Update a property of the default transition values. Those values will be using
@@ -120,7 +144,7 @@ func set_transition_default_value(property: String, value) -> void:
 ## Color values: [code]black[/code], [code]red[/code], [code]green[/code], [code]yellow[/code],
 ## [code]blue[/code], [code]magenta[/code], [code]pink[/code], [code]purple[/code],
 ## [code]cyan[/code], [code]white[/code], [code]orange[/code], [code]gray[/code]
-func log_message(message: String, color: String = "white") -> void:
+static func log_message(message: String, color: String = "white") -> void:
 	var timestamp: String = Time.get_time_string_from_system()
 	print_rich("[color=%s][%s]: %s[/color]" % [color, timestamp, message])
 
@@ -169,6 +193,34 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 		_permanent_nodes[id].queue_free()
 	_permanent_nodes.erase(id)
 	return true
+
+
+func trigger_action(action: String, context: String = "") -> void:
+	if _project_manager == null:
+		critical_error("Internal error")
+		return
+	if _project_manager:
+		_project_manager.on_action_triggered(action, context)
+
+
+func _initialize_project_manager() -> void:
+	var project_manager_path: String = (
+		ProjectSettings.get_setting("fd_core/project_manager", "")
+	)
+	FDCore.log_message(
+		"Project Manager path: " + project_manager_path, "cyan"
+	)
+	if not project_manager_path.is_absolute_path():
+		critical_error("Project Manager not defined!")
+		return
+	var loaded_script: GDScript = load(project_manager_path)
+	if loaded_script == null:
+		critical_error("Invalid Project Manager path!")
+		return
+	_project_manager = loaded_script.new()
+	_project_manager.set_name("ProjectManager")
+	_project_manager.process_mode = Node.PROCESS_MODE_DISABLED
+	add_child(_project_manager)
 
 
 func _new_transition(override_defaults: Dictionary = {}) -> Transition:
