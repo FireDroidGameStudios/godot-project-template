@@ -2,7 +2,7 @@ class_name ActionHUD
 extends CanvasLayer
 
 
-signal action_triggered(action_name: String)
+signal action_triggered(action_name: String, context: String)
 signal animation_finished(state_is_out: bool)
 
 enum AnimationStyle {
@@ -14,10 +14,14 @@ enum AnimationStyle {
 }
 enum _AnimationState { IN = 0, OUT = 1 }
 const DefaultAnimationDuration: float = 1.2
+const DefaultAutoshowDelay: float = 0.3
 const DefaultAutohideDelay: float = 1.5
 
 var _animation_state: _AnimationState = _AnimationState.IN
 var _tween: Tween = null
+
+## Context to distinguish actions by a specified context. Example: "main_screen", "game_menu" etc.
+@export var action_context: String = ""
 
 @export_group("Animation In")
 @export var animation_in: AnimationStyle = AnimationStyle.NO_ANIMATION
@@ -33,6 +37,8 @@ var _tween: Tween = null
 
 @export_group("More Options")
 @export var hide_at_begin: bool = true ## Begin with hidden state
+@export var enable_autoshow: bool = false ## Autoshow after [member autoshow_delay] seconds. Timer starts when the node is added to tree.
+@export_range(0.0, 10.0, 0.01, "or_greater") var autoshow_delay: float = DefaultAutoshowDelay
 @export var enable_autohide: bool = false ## Autohide after [member autohide_delay] seconds. Timer starts when shown (manually or by keypress).
 @export_range(0.0, 10.0, 0.01, "or_greater") var autohide_delay: float = DefaultAutohideDelay
 @export var enable_trigger_key: bool = true	## If enabled, [member key_trigger] key will play animation when pressed.
@@ -40,7 +46,9 @@ var _tween: Tween = null
 
 
 func _ready() -> void:
+	_set_initial_state()
 	_set_initial_offset()
+	_autoshow()
 	pass
 
 
@@ -60,7 +68,7 @@ func _input(event: InputEvent) -> void:
 
 
 ## Play the animation interpolating from current state (in or out) to next state.[br]
-## If [code]animated[/code] is false, the animation will not be interpolated.[br]
+## If [param animated] is [code]false[/code], the animation will not be interpolated.[br]
 ## Interpolation of the animation is based on values of properties
 ## [member animation_in], [member duration_in], [member ease_in], [member transition_in],
 ## [member animation_out], [member duration_out], [member ease_out] and
@@ -78,13 +86,22 @@ func play_animation(animated: bool = true) -> void:
 		await _play_single_animation(animated)
 
 
-## Trigger action with the given name. Signal [member action_triggered] can be
-## connected to an external function.
+## Trigger action with the given name. Signal [signal action_triggered] can be
+## connected to an external function. When callled, this method also calls
+## [member @FDCore.trigger_action]
 func trigger_action(action_name: String) -> void:
 	if action_name.is_empty():
 		return
-	action_triggered.emit(action_name)
+	action_triggered.emit(action_name, action_context)
+	FDCore.trigger_action(action_name, action_context)
 	FDCore.log_message(str(self) + ": Action triggered: " + action_name, "gray")
+
+
+func _autoshow() -> void:
+	if enable_autoshow and hide_at_begin:
+		if autoshow_delay > 0.0:
+			await get_tree().create_timer(autoshow_delay).timeout
+		await _play_single_animation()
 
 
 func _play_single_animation(animated: bool = true) -> void:
@@ -118,6 +135,13 @@ func _set_initial_offset() -> void:
 			offset = Vector2(0, hud_size.y)
 		AnimationStyle.SLIDE_TO_BOTTOM:
 			offset = Vector2(0, -hud_size.y)
+
+
+func _set_initial_state() -> void:
+	if hide_at_begin:
+		_animation_state = _AnimationState.IN
+	else:
+		_animation_state = _AnimationState.OUT
 
 
 func _slide_animation(target: Vector2) -> void:
