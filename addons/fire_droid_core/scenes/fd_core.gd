@@ -31,6 +31,18 @@ extends Node
 ## [member FDProjectManager.initial_scene] by calling [method FDProjectManager.set_initial_scene]
 ## inside it's [method Object._init] function, and override method
 ## [method FDProjectManager._on_action_triggered] (where all the handlers will work).
+##
+## [br][br]Every project must have a project manager, wich consists in a handler
+## of triggered actions. It can manage screen changes and the flow of the project,
+## calling functions based on received actions (see [FDProjectManager]).
+## [br][br]To create it, inherit a new script from [FDProjectManager] and
+## follow the steps on its parent class' documentation.[br][br]After created and,
+## implemented, it must be specified in project settings.[br]
+## To do it, go to [code]Project->Project Settings->FD Core->Project Manager[/code]
+## and specify the project manager's path.[br][br]
+## There is also a debug mode that can be enabled to prevent current scene to be
+## replaced on run. Enable or disable it on
+## [code]Project->Project Settings->FD Core->Enable Debug Mode[/code].
 
 
 ## Emitted when scene has been fully changed, after [method change_scene]

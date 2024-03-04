@@ -1,10 +1,42 @@
 class_name FDProjectManager
 extends Node
+## A base class for a project manager of Fire-Droid Game Studios projects.
+##
+## This class works as a template, and all project managers compatible with FDCore
+## must inherit from this.[br]There are two mandatory actions for a project
+## manager creation:[br][br]
+## 1. Set [member initial_scene]: this can be done by calling [method set_initial_scene]
+## inside [method Object._init].[br][br][b]Example:[/b]
+## [codeblock]
+## func _init() -> void:
+##     set_initial_scene("res://scenes/main_screen.tscn")
+## [/codeblock]
+## 2. Override [method _on_action_triggered]: this method is the main handler for
+## all triggered actions coming from FDCore. Override this to define interactions
+## over the project.[br][br][b]Example:[/b]
+## [codeblock]
+## func _on_action_triggered(action: String, context: String = "") -> void:
+##     match context:
+##         "main_screen": _main_screen_handler(action)
+##         "level": _level_handler(action)
+##
+## func _main_screen_handler(action: String) -> void:
+##     match action:
+##         "play": FDCore.change_screen("res://scenes/level.tscn")
+##         "quit": get_tree().quit()
+##
+## func _level_handler(action: String) -> void:
+##     match action:
+##         "main_screen": FDCore.change_screen("res://scenes/main_screen.tscn")
+##         "restart": FDCore.change_screen("res://scenes/level.tscn")
+##         "quit": get_tree().quit()
+## [/codeblock]
 
-
-# A Project Manager must inherit from this class.
 
 ## FDCore will auto change to this scene after logo intros animation.
+
+## This is the first scene that will be loaded after the logo intros animations.
+## This value cannot be assigned as [code]null[/code].
 var initial_scene: PackedScene = null
 
 
