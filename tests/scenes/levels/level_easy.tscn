@@ -10,7 +10,7 @@ position = Vector2(576, 648)
 scale = Vector2(9.16, 1)
 
 [node name="Exit" parent="Actors" index="2"]
-position = Vector2(1120, 538)
+position = Vector2(142, 538)
 
 [node name="Player" parent="Actors" index="3"]
 position = Vector2(50, 560)

@@ -1,11 +1,9 @@
-[gd_scene load_steps=4 format=3 uid="uid://cmyasyrolvi65"]
+[gd_scene load_steps=3 format=3 uid="uid://cmyasyrolvi65"]
 
-[ext_resource type="Script" path="res://tests/scenes/levels/level.gd" id="1_sv3jw"]
 [ext_resource type="PackedScene" uid="uid://crjor4w2senp4" path="res://tests/scenes/levels/player.tscn" id="2_tuqt2"]
 [ext_resource type="PackedScene" uid="uid://ts2lj6av6jkd" path="res://tests/scenes/levels/exit.tscn" id="3_y0luh"]
 
 [node name="Level" type="Node2D"]
-script = ExtResource("1_sv3jw")
 
 [node name="Actors" type="Node2D" parent="."]
 
@@ -17,5 +15,3 @@ anchor_mode = 0
 [node name="Exit" parent="Actors" instance=ExtResource("3_y0luh")]
 
 [node name="Player" parent="Actors" instance=ExtResource("2_tuqt2")]
-
-[connection signal="body_entered" from="Actors/Exit" to="." method="_on_exit_body_entered"]

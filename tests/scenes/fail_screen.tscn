@@ -39,12 +39,12 @@ theme_override_constants/separation = 10
 layout_mode = 2
 text = "Return to Main Screen"
 script = ExtResource("2_i7c1m")
-parent_hud = NodePath("")
+parent_hud = NodePath("../../../../..")
 action_on_pressed = "return"
 
 [node name="ButtonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("parent_hud")]
 layout_mode = 2
 text = "Quit Game"
 script = ExtResource("2_i7c1m")
-parent_hud = NodePath("")
+parent_hud = NodePath("../../../../..")
 action_on_pressed = "quit"
