@@ -13,38 +13,44 @@ extends Node
 ## [/codeblock]
 ##
 ## ▪ [code]TemporaryLayer[/code] is where the scene change occurs. This layer can
-## only have one child at time, wich is changed every [func change_scene] or [func change_scene_to]
+## only have one child at time, wich is changed every [method change_scene] or [method change_scene_to]
 ## call, and replaced by a new scene.[br][br]
 ##
 ## ▪ [code]PermanentBackLayer[/code] and [code]PermanentBackLayer[/code] are permanent
 ## layers, and all nodes added to them can only be removed manually. The difference
 ## between both is that the second overlays current scenes (useful for HUDs). Both can be
 ## used to keep nodes during scene changes. To add, remove, get or check if a permanent
-## node exists, call [func add_permanent_node], [func remove_permanent_node],
-## [func get_permanent_node] and [func has_permanent_node] respectively.[br][br]
+## node exists, call [method add_permanent_node], [method remove_permanent_node],
+## [method get_permanent_node] and [method has_permanent_node] respectively.[br][br]
 ##
 ## ▪ [code]TransitionLayer[/code] is the layer to play transitions during scene changes.
 ## This layer overlays all other layers.[br][br]
 ##
 ## ▪ [code]ProjectManager[/code] this is the main manager for a project. It must
 ## inherit from class [FDProjectManager], override property
-## [member FDProjectManager.initial_scene] by calling [member FDProjectManager.set_initial_scene]
-## inside it's [code]_init[/code] function, and override method
-## [code]_on_action_triggered[/code] (where all the handlers will work). See
-## [func FDProjectManager.on_action_triggered].
-##
+## [member FDProjectManager.initial_scene] by calling [method FDProjectManager.set_initial_scene]
+## inside it's [method Object._init] function, and override method
+## [method FDProjectManager._on_action_triggered] (where all the handlers will work).
 
 
+## Emitted when scene has been fully changed, after [method change_scene]
+## and [method change_scene_to] calls.
 signal scene_changed
 
+## Error codes to detail the type of an error. See [method critical_error].
 enum ErrorCodes {
-	DEFAULT_ERROR,
+	DEFAULT_ERROR, ## Default error for general purposes.
 }
 
-const GodotLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn")
-const FireDroidLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn")
-const TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
+const _GodotLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn")
+const _FireDroidLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn")
+const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
 
+## Default values for every transition. Some functions allows overriding these values.[br][br]
+## [b]Required fields:[/b] [code]style_in[/code], [code]trans_type_in[/code], [code]ease_type_in[/code],
+## [code]duration_in[/code], [code]style_out[/code], [code]trans_type_out[/code],
+## [code]ease_type_out[/code], [code]duration_out[/code], [code]fill_type[/code],
+## [code]color_1[/code], [code]color_2[/code], [code]texture_1[/code] and [code]texture_2[/code].
 var transition_defaults: Dictionary = {
 	"style_in": Transition.TransitionStyle.FADE,
 	"trans_type_in": Tween.TRANS_LINEAR,
@@ -100,11 +106,11 @@ func _ready() -> void:
 	get_tree().current_scene = self			# Experimental
 	_initialize_project_manager()
 
-	#await change_scene_to(GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
-	#await _current_scene.finished
-#
-	#await change_scene_to(FireDroidLogoIntroScene.instantiate())
-	#await _current_scene.finished
+	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
+	await _current_scene.finished
+
+	await change_scene_to(_FireDroidLogoIntroScene.instantiate())
+	await _current_scene.finished
 
 	await change_scene_to(_project_manager.initial_scene.instantiate())
 
@@ -120,8 +126,15 @@ func _physics_process(delta: float) -> void:
 ## Change current scene to [code]scene[/code], applying a transition. Default
 ## transition values can be overwritten by optional
 ## [code]override_transition_defaults[/code] values (as a [Dictionary]).
+## [br][br][b]Example:[/b][codeblock]
+##     # Without overriding transition values
+## await change_scene_to(MainMenu.instantiate())
+##
+##     # Overriding transition value
+## await change_scene_to(LevelScene.instantiate(), {"color_1": Color.WHITE, "duration_out": 0.8})
+## [/codeblock]
 func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {}) -> void:
-	log_message("Changing scene to " + str(scene), "gray")
+	log_message("Changing scene to " + str(scene))
 	var transition: Transition = _new_transition(override_transition_defaults)
 	_transition_layer.add_child(transition)
 	if _current_scene:
@@ -131,15 +144,24 @@ func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {})
 		transition.set_forced_status(Transition.Status.OUT)
 	_temporary_layer.add_child(scene)
 	_current_scene = scene
-	log_message("Changed scene to " + str(_current_scene), "gray")
+	log_message("Changed scene to " + str(_current_scene))
 	await transition.play()
 	clear_children(_transition_layer)
 	scene_changed.emit()
 
 
 ## Load a scene from [code]path[/code] and turn it the current scene, applying a transition.
+## Default transition values can be overwritten by optional
+## [code]override_transition_defaults[/code] values (as a [Dictionary]).
+## [br][br][b]Example:[/b][codeblock]
+##     # Without overriding transition values
+## await change_scene_to("res://scenes/main_menu.tscn")
+##
+##     # Overriding transition values
+## await change_scene_to("res://scenes/level_1.tscn", {"color_1": Color.WHITE, "duration_out": 0.8})
+## [/codeblock]
 func change_scene(path: String, override_transition_defaults: Dictionary = {}) -> void:
-	log_message("Changing scene to path " + str(path), "gray")
+	log_message("Changing scene to path " + str(path))
 	var packed_scene: PackedScene = load(path) as PackedScene
 	if packed_scene == null:
 		critical_error("Could not load scene located at <" + path + ">")
@@ -158,6 +180,12 @@ static func clear_children(node: Node) -> void:
 ## Print an error with code [param error_code], displaying a message given by
 ## [param message]. After printing the error, the program is terminated and return
 ## code [param exit_code] to system.
+## [br][br][b]Example:[/b][codeblock]
+## var important_file = load("res://important_file.txt")
+## if important_file == null:
+##     FDCore.critical_error("Missing important file. Cannot continue processing.")
+##     return
+## [/codeblock]
 func critical_error(
 	message: String, error_code: int = ErrorCodes.DEFAULT_ERROR, exit_code: int = 1
 ):
@@ -173,24 +201,33 @@ func set_transition_default_value(property: String, value) -> void:
 		transition_defaults[property] = value
 
 
-## Log a message prefixed with a timestamp of current time of printed message.[br]
-## Optional argument [code]color[/code] can be provided to change message color.
-## Color values: [code]black[/code], [code]red[/code], [code]green[/code], [code]yellow[/code],
-## [code]blue[/code], [code]magenta[/code], [code]pink[/code], [code]purple[/code],
-## [code]cyan[/code], [code]white[/code], [code]orange[/code], [code]gray[/code]
-static func log_message(message: String, color: String = "white") -> void:
+## Print [param message] prefixed with a timestamp of current time of printed message.[br]
+## Optional argument [param color] can be provided to change message color.[br][br]
+## [b]Available color values:[b] [code]black[/code], [code]red[/code], [code]green[/code],
+## [code]yellow[/code], [code]blue[/code], [code]magenta[/code], [code]pink[/code],
+## [code]purple[/code], [code]cyan[/code], [code]white[/code],
+## [code]orange[/code], [code]gray[/code]
+static func log_message(message: String, color: String = "gray") -> void:
 	var timestamp: String = Time.get_time_string_from_system()
 	print_rich("[color=%s][%s]: %s[/color]" % [color, timestamp, message])
 
 
-## Adds a new node as permanent. A permanent node is not deleted during scene changes,
-## and can only be removed manually by calling [member remove_permanent_node].[br]
-## If optional argument [code]overlap_current_scene[/code] value is [code]false[/code],
-## the node will be added in the layer that is not overlapped by current scene.[br]
-## If [code]id[/code] is already the id of a permanent node, the new node will not be
-## added.[br]
-## If [code]node[/code] has been added, [code]true[/code] is returned. Otherwise
-## [code]false[/code] is returned.
+## Add [param node] as a permanent node with identifier [param id]. A permanent node
+## can only be removed manually by calling [member remove_permanent_node].[br][br]
+## If [param id] is already taken by another node, then [param node] is not added
+## and [code]false[/code] is returned. Otherwise, [code]true[/code] is returned
+## if [param node] has been successfully added as permanent node.[br][br]
+## By default, the added node will overlap the current scene. To prevent it,
+## set [param overlap_current_scene] to [code]false[/code].
+## [br][br][b]Example:[/b][codeblock]
+##     # Add a new Button overlapping current scene
+## add_permanent_node("button", Button.new())
+##
+##     # Add a new Button behind current scene
+## add_permanent_node("background", ForestBackground.instantiate(), false)
+##
+##     # Attempt to add a new Button with id "button", but it already exists
+## print(add_permanent_node("button", Button.new())) # prints false
 func add_permanent_node(id: String, node: Node, overlap_current_scene: bool = true) -> bool:
 	if _permanent_nodes.has(id):
 		return false
@@ -202,24 +239,23 @@ func add_permanent_node(id: String, node: Node, overlap_current_scene: bool = tr
 	return true
 
 
-## If there is a permanent node that matches [code]id[/code], the node is returned.
-## Otherwise [code]null[code] is returned.
+## Search and return the permanent node with identifier [param id]. If it doesn't
+## exists, [code]null[/code] is returned.
 func get_permanent_node(id: String) -> Node:
 	if not has_permanent_node(id):
 		return null
 	return _permanent_nodes[id]
 
 
-## Return [code]true[/code] if any permanent node has the given id. Otherwise
-## return [code]false[/code].
+## Return [code]true[/code] if a permanent node with identifier [param id] exists,
+## or [code]false[/code] if it doesn't.
 func has_permanent_node(id: String) -> bool:
 	return (id in _permanent_nodes.keys())
 
 
-## Remove a node from PermanentLayer, by the given id. If it doesn't exists,
-## nothing is removed and [code]false[/code] is returned. If id exists,
-## [code]true[/code] is returned.[br]
-## Set [code]delete_node[/code] to [code]true[/code] to avoid node deletion.
+## Remove a permanent node with identifier [param id] from the PermanentLayer, or
+## does nothing if it doesn't exist.[br][br]If [param delete_node] is
+## [code]true[/code], also delete the node (by calling [method Node.queue_free]).
 func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 	if not _permanent_nodes.has(id):
 		return false
@@ -231,13 +267,13 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 
 ## Trigger an action on current project manager. [param action] is the name of
 ## the action, and [param context] is an optional context to distinguish actions
-## with same name.[br]Example:
-## [codeblock]
+## with same name.
+## [br][br][b]Example:[/b][codeblock]
 ## if player.health <= 0:
 ##     FDCore.trigger_action("player_died", "level")
 ## [/codeblock]
 func trigger_action(action: String, context: String = "") -> void:
-	log_message("Action triggered: <" + context + "#" + action + ">", "gray")
+	log_message("Action triggered: <" + context + "#" + action + ">")
 	if _project_manager == null:
 		critical_error("Internal error")
 		return
@@ -265,7 +301,7 @@ func _initialize_project_manager() -> void:
 
 
 func _new_transition(override_defaults: Dictionary = {}) -> Transition:
-	var transition: Transition = TransitionScene.instantiate()
+	var transition: Transition = _TransitionScene.instantiate()
 	for property in transition_defaults.keys():
 		transition.set(property, transition_defaults[property])
 	for override in override_defaults:

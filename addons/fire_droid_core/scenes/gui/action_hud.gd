@@ -88,7 +88,7 @@ func play_animation(animated: bool = true) -> void:
 
 ## Trigger action with the given name. Signal [signal action_triggered] can be
 ## connected to an external function. When callled, this method also calls
-## [member @FDCore.trigger_action]
+## [method FDCore.trigger_action]
 func trigger_action(action_name: String) -> void:
 	if action_name.is_empty():
 		return
