@@ -196,6 +196,7 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 
 
 func trigger_action(action: String, context: String = "") -> void:
+	log_message("Action triggered: <" + context + "#" + action + ">", "gray")
 	if _project_manager == null:
 		critical_error("Internal error")
 		return

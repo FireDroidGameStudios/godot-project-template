@@ -94,7 +94,6 @@ func trigger_action(action_name: String) -> void:
 		return
 	action_triggered.emit(action_name, action_context)
 	FDCore.trigger_action(action_name, action_context)
-	FDCore.log_message(str(self) + ": Action triggered: " + action_name, "gray")
 
 
 func _autoshow() -> void:
