@@ -1,4 +1,38 @@
 extends Node
+## Core class to Fire-Droid Game Studios projects.
+##
+## This class is the core for projects of [b]Fire-Droid Game Studios[/b]. It
+## includes the base project organization as folowing:
+## [codeblock]
+## ▪ FDCore
+##     ▪ PermanentBackLayer
+##     ▪ TemporaryLayer
+##     ▪ PermanentForeLayer
+##     ▪ TransitionLayer
+##     ▪ ProjectManager
+## [/codeblock]
+##
+## ▪ [code]TemporaryLayer[/code] is where the scene change occurs. This layer can
+## only have one child at time, wich is changed every [func change_scene] or [func change_scene_to]
+## call, and replaced by a new scene.[br][br]
+##
+## ▪ [code]PermanentBackLayer[/code] and [code]PermanentBackLayer[/code] are permanent
+## layers, and all nodes added to them can only be removed manually. The difference
+## between both is that the second overlays current scenes (useful for HUDs). Both can be
+## used to keep nodes during scene changes. To add, remove, get or check if a permanent
+## node exists, call [func add_permanent_node], [func remove_permanent_node],
+## [func get_permanent_node] and [func has_permanent_node] respectively.[br][br]
+##
+## ▪ [code]TransitionLayer[/code] is the layer to play transitions during scene changes.
+## This layer overlays all other layers.[br][br]
+##
+## ▪ [code]ProjectManager[/code] this is the main manager for a project. It must
+## inherit from class [FDProjectManager], override property
+## [member FDProjectManager.initial_scene] by calling [member FDProjectManager.set_initial_scene]
+## inside it's [code]_init[/code] function, and override method
+## [code]_on_action_triggered[/code] (where all the handlers will work). See
+## [func FDProjectManager.on_action_triggered].
+##
 
 
 signal scene_changed
@@ -195,13 +229,19 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 	return true
 
 
+## Trigger an action on current project manager. [param action] is the name of
+## the action, and [param context] is an optional context to distinguish actions
+## with same name.[br]Example:
+## [codeblock]
+## if player.health <= 0:
+##     FDCore.trigger_action("player_died", "level")
+## [/codeblock]
 func trigger_action(action: String, context: String = "") -> void:
 	log_message("Action triggered: <" + context + "#" + action + ">", "gray")
 	if _project_manager == null:
 		critical_error("Internal error")
 		return
-	if _project_manager:
-		_project_manager.on_action_triggered(action, context)
+	_project_manager.on_action_triggered(action, context)
 
 
 func _initialize_project_manager() -> void:
