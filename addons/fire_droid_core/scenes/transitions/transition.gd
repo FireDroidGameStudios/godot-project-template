@@ -54,16 +54,24 @@ const _Shaders: Dictionary = {
 }
 
 @export_group("Transition In")
-@export var style_in: TransitionStyle = TransitionStyle.FADE ## Style of transition when appearing. See [enum TransitionStyle].
-@export var trans_type_in: Tween.TransitionType = Tween.TRANS_LINEAR ## Trans type of tween when appearing. See [enum Tween.TransitionType].
-@export var ease_type_in: Tween.EaseType = Tween.EASE_IN ## Ease type of tween when appearing. See [enum Tween.EaseType].
-@export_range(0.0, 5.0, 0.01, "or_greater") var duration_in: float = 1.2 ## Duration of transition when appearing.
+## Style of transition when appearing. See [enum TransitionStyle].
+@export var style_in: TransitionStyle = TransitionStyle.FADE
+## Trans type of tween when appearing. See [enum Tween.TransitionType].
+@export var trans_type_in: Tween.TransitionType = Tween.TRANS_LINEAR
+## Ease type of tween when appearing. See [enum Tween.EaseType].
+@export var ease_type_in: Tween.EaseType = Tween.EASE_IN
+## Duration of transition when appearing.
+@export_range(0.0, 5.0, 0.01, "or_greater") var duration_in: float = 1.2
 
 @export_group("Transition Out")
-@export var style_out: TransitionStyle = TransitionStyle.FADE ## Style of transition when disappearing. See [enum TransitionStyle].
-@export var trans_type_out: Tween.TransitionType = Tween.TRANS_LINEAR ## Trans type of tween when disappearing. See [enum Tween.TransitionType].
-@export var ease_type_out: Tween.EaseType = Tween.EASE_IN ## Ease type of tween when disappearing. See [enum Tween.EaseType].
-@export_range(0.0, 5.0, 0.01, "or_greater") var duration_out: float = 1.2 ## Duration of transition when disappearing.
+## Style of transition when disappearing. See [enum TransitionStyle].
+@export var style_out: TransitionStyle = TransitionStyle.FADE
+## Trans type of tween when disappearing. See [enum Tween.TransitionType].
+@export var trans_type_out: Tween.TransitionType = Tween.TRANS_LINEAR
+## Ease type of tween when disappearing. See [enum Tween.EaseType].
+@export var ease_type_out: Tween.EaseType = Tween.EASE_IN
+## Duration of transition when disappearing.
+@export_range(0.0, 5.0, 0.01, "or_greater") var duration_out: float = 1.2
 
 @export_group("Fill")
 ## The type of fill for this transition.[br][br]If value is [code]COLOR[/code],

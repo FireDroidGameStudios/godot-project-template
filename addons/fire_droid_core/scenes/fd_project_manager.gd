@@ -33,10 +33,9 @@ extends Node
 ## [/codeblock]
 
 
-## FDCore will auto change to this scene after logo intros animation.
-
 ## This is the first scene that will be loaded after the logo intros animations.
-## This value cannot be assigned as [code]null[/code].
+## If this is [code]null[/code] at begin of execution, the program will be
+## terminated with exit code 1.
 var initial_scene: PackedScene = null
 
 

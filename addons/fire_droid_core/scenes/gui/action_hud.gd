@@ -1,48 +1,81 @@
 class_name ActionHUD
 extends CanvasLayer
+## Basic node to create interactive HUDs capable to trigger actions on [FDCore].
+##
+## This node can be used to trigger actions on FDCore singleton. Specify an
+## [member action_context] to distinguish actions from this HUD from those
+## of another HUDS.[br][br]You can also setup animations, autoshow/autohide,
+## and enable or disable animation by using a trigger key (see [enum Key]).
+## [br][br]Use this node in conjunction with [ActionButton] to achieve
+## better results with less code.
 
 
+## Emitted when an action has been triggered. Only connect this to a method if
+## you want to add extra handlers ([FDCore] action handler is called automatically
+## every [method trigger_action] call)
 signal action_triggered(action_name: String, context: String)
+
+## Emitted when the animation has finished showing or hiding HUD. If animation
+## is currently hiding, [param state_is_out] is [code]true[/code].
 signal animation_finished(state_is_out: bool)
 
 enum AnimationStyle {
-	NO_ANIMATION,
-	SLIDE_TO_RIGHT,
-	SLIDE_TO_LEFT,
-	SLIDE_TO_UP,
-	SLIDE_TO_BOTTOM,
+	NO_ANIMATION, ## Will show/hide HUD without any animation.
+	SLIDE_TO_RIGHT, ## Will show/hide HUD sliding to right.
+	SLIDE_TO_LEFT, ## Will show/hide HUD sliding to left.
+	SLIDE_TO_UP, ## Will show/hide HUD sliding to up.
+	SLIDE_TO_BOTTOM, ## Will show/hide HUD sliding to bottom.
 }
-enum _AnimationState { IN = 0, OUT = 1 }
-const DefaultAnimationDuration: float = 1.2
-const DefaultAutoshowDelay: float = 0.3
-const DefaultAutohideDelay: float = 1.5
+enum _AnimationState {
+	IN = 0, ## Indicates that animation state is showing on viewport.
+	OUT = 1 ## Indicates that animation state is hiding on Viewport.
+}
+const DefaultAnimationDuration: float = 1.2 ## Default value for animation duration (in seconds).
+const DefaultAutoshowDelay: float = 0.3 ## Default value for animation autoshow delay (in seconds).
+const DefaultAutohideDelay: float = 1.5 ## Default value for animation autohide delay (in seconds).
 
 var _animation_state: _AnimationState = _AnimationState.IN
 var _tween: Tween = null
 
-## Context to distinguish actions by a specified context. Example: "main_screen", "game_menu" etc.
+## Context to distinguish actions by a specified context. [b]Example:[/b]
+## [code]"main_screen"[/code], [code]"game_menu"[/code], [code]"level"[/code] etc.
 @export var action_context: String = ""
 
 @export_group("Animation In")
+## Animation style when showing. See [enum AnimationStyle].
 @export var animation_in: AnimationStyle = AnimationStyle.NO_ANIMATION
+## Animation duration when showing (in seconds).
 @export_range(0.0, 10.0, 0.05, "or_greater") var duration_in: float = DefaultAnimationDuration
+## Animation ease when showing. See [enum Tween.EaseType].
 @export var ease_in: Tween.EaseType = Tween.EASE_OUT
+## Animation transition type when showing. See [enum Tween.TransitionType].
 @export var transition_in: Tween.TransitionType = Tween.TRANS_CUBIC
 
 @export_group("Animation Out")
+## Animation style when hiding. See [enum AnimationStyle].
 @export var animation_out: AnimationStyle = AnimationStyle.NO_ANIMATION
+## Animation duration when hiding (in seconds).
 @export_range(0.0, 10.0, 0.05, "or_greater") var duration_out: float = DefaultAnimationDuration
+## Animation ease when hiding. See [enum Tween.EaseType].
 @export var ease_out: Tween.EaseType = Tween.EASE_OUT
+## Animation transition type when hiding. See [enum Tween.TransitionType].
 @export var transition_out: Tween.TransitionType = Tween.TRANS_CUBIC
 
 @export_group("More Options")
-@export var hide_at_begin: bool = true ## Begin with hidden state
-@export var enable_autoshow: bool = false ## Autoshow after [member autoshow_delay] seconds. Timer starts when the node is added to tree.
+## HUD will begin with hidden state
+@export var hide_at_begin: bool = true
+## Autoshow after [member autoshow_delay] seconds. Timer starts when the node is added to tree.
+@export var enable_autoshow: bool = false
+## Delay before autoshowing this HUD (only if [member enable_autoshow] is enabled).
 @export_range(0.0, 10.0, 0.01, "or_greater") var autoshow_delay: float = DefaultAutoshowDelay
-@export var enable_autohide: bool = false ## Autohide after [member autohide_delay] seconds. Timer starts when shown (manually or by keypress).
+## Autohide after [member autohide_delay] seconds. Timer starts when shown (manually or by keypress).
+@export var enable_autohide: bool = false
+## Delay before autohiding this HUD (only if [member enable_autohide] is enabled).
 @export_range(0.0, 10.0, 0.01, "or_greater") var autohide_delay: float = DefaultAutohideDelay
-@export var enable_trigger_key: bool = true	## If enabled, [member key_trigger] key will play animation when pressed.
-@export var trigger_key: Key = KEY_ESCAPE ## Key used to play animation (only if [member enable_trigger_key] is enabled).
+## If enabled, [member key_trigger] key will play animation when pressed.
+@export var enable_trigger_key: bool = true
+## Key used to play animation (only if [member enable_trigger_key] is enabled).
+@export var trigger_key: Key = KEY_ESCAPE
 
 
 func _ready() -> void:

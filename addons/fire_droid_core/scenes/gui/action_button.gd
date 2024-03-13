@@ -1,16 +1,36 @@
 class_name ActionButton
 extends Button
+## Basic button capable of triggering actions on a parent [ActionHUD].
+##
+## Use this button instead of built-in [Button] to communicate with [FDCore]
+## singleton.[br][br]This button node must be inside the hierarchy of an [ActionHUD]
+## node, and it must be setted in [member parent_hud].[br][br]
+## When setted, the parent HUD from [member parent_hud] will trigger an action
+## every signal emission from thisaction button, if an action has been specified.
+## [br][br]To specify an action for the action button, change values of
+## [member action_on_pressed], [member action_on_release], [member action_on_button_down],
+## [member action_on_button_up], [member action_on_toggled_true]
+## and [member action_on_toggled_false].[br][br]Leave a value empty to ignore it's
+## button signal and don't trigger action to that signal.
 
 
 @export var parent_hud: ActionHUD = null
 
 @export_group("Actions")
-@export var action_on_pressed: String = "" ## Leave empty to ignore.
-@export var action_on_release: String = ""  ## Leave empty to ignore.
-@export var action_on_button_down: String = ""  ## Leave empty to ignore.
-@export var action_on_button_up: String = ""  ## Leave empty to ignore.
-@export var action_on_toggled_true: String = ""  ## Leave empty to ignore.
-@export var action_on_toggled_false: String = ""  ## Leave empty to ignore.
+## Will trigger this action when button is pressed. Leave empty to ignore.
+@export var action_on_pressed: String = ""
+## Will trigger this action when button is released. Leave empty to ignore.
+@export var action_on_release: String = ""
+## Will trigger this action when button is pressed down. Leave empty to ignore.
+@export var action_on_button_down: String = ""
+## Will trigger this action when button is pressed up. Leave empty to ignore.
+@export var action_on_button_up: String = ""
+## Will trigger this action when button toggle state is set to true (only if
+## [member toggle_mode] is enabled). Leave empty to ignore.
+@export var action_on_toggled_true: String = ""
+## Will trigger this action when button toggle state is set to true (only if
+## [member toggle_mode] is enabled). Leave empty to ignore.
+@export var action_on_toggled_false: String = ""
 
 
 func _ready() -> void:

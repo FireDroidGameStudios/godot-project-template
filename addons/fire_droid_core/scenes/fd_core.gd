@@ -63,6 +63,7 @@ const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transition
 ## [code]duration_in[/code], [code]style_out[/code], [code]trans_type_out[/code],
 ## [code]ease_type_out[/code], [code]duration_out[/code], [code]fill_type[/code],
 ## [code]color_1[/code], [code]color_2[/code], [code]texture_1[/code] and [code]texture_2[/code].
+## [br][br]See [Transition].
 var transition_defaults: Dictionary = {
 	"style_in": Transition.TransitionStyle.FADE,
 	"trans_type_in": Tween.TRANS_LINEAR,
@@ -205,7 +206,7 @@ func critical_error(
 	get_tree().quit(exit_code)
 
 
-## Update a property of the default transition values. Those values will be using
+## Update a property of [member transition_defaults]. Those values will be using
 ## every new transition (unless override dictionary is passed as argument of
 ## transition creation function call).
 func set_transition_default_value(property: String, value) -> void:
@@ -218,7 +219,11 @@ func set_transition_default_value(property: String, value) -> void:
 ## [b]Available color values:[b] [code]black[/code], [code]red[/code], [code]green[/code],
 ## [code]yellow[/code], [code]blue[/code], [code]magenta[/code], [code]pink[/code],
 ## [code]purple[/code], [code]cyan[/code], [code]white[/code],
-## [code]orange[/code], [code]gray[/code]
+## [code]orange[/code], [code]gray[/code].
+## [codeblock]
+##     # Print message "[21:06:39]: Player reached a new checkpoint." colored yellow
+## FDCore.log_message("Player reached a new checkpoint.", "yellow")
+## [/codeblock]
 static func log_message(message: String, color: String = "gray") -> void:
 	var timestamp: String = Time.get_time_string_from_system()
 	print_rich("[color=%s][%s]: %s[/color]" % [color, timestamp, message])
