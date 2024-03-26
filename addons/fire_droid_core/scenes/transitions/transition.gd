@@ -16,8 +16,10 @@ extends Control
 ## [/codeblock]
 
 
-signal started ## Emitted when any transition animation ([code]IN[/code] or [code]OUT[/code]) has started.
-signal finished ## Emitted when any transition animation ([code]IN[/code] or [code]OUT[/code]) has finished.
+## Emitted when any transition animation ([code]IN[/code] or [code]OUT[/code]) has started.
+signal started
+## Emitted when any transition animation ([code]IN[/code] or [code]OUT[/code]) has finished.
+signal finished
 
 enum Status {
 	IN, ## On next animation, transition will appear.
