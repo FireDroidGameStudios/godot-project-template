@@ -21,7 +21,7 @@ FDCore="*res://addons/fire_droid_core/scenes/fd_core.gd"
 
 [editor_plugins]
 
-enabled=PackedStringArray("res://addons/AS2P/plugin.cfg", "res://addons/fire_droid_core/plugin.cfg")
+enabled=PackedStringArray("res://addons/fire_droid_core/plugin.cfg")
 
 [fd_core]
 
