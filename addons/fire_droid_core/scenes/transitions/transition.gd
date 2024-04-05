@@ -197,7 +197,7 @@ func set_forced_status(status: Status) -> void:
 
 ## Return [code]true[/code] if there is a transition in progress, or [code]false[/code]
 ## if no transition is in progress.
-func has_transition_in_progress() -> bool:
+func is_in_progress() -> bool:
 	return _has_transition_in_progress
 
 

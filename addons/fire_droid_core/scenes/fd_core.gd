@@ -49,6 +49,9 @@ extends Node
 ## and [method change_scene_to] calls.
 signal scene_changed
 
+## Emitted when a transition has finished after calling method [method play_transition].
+signal transition_finished
+
 ## Error codes to detail the type of an error. See [method critical_error].
 enum ErrorCodes {
 	DEFAULT_ERROR, ## Default error for general purposes.
@@ -163,6 +166,40 @@ func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {})
 	scene_changed.emit()
 
 
+## Play a transition and call a method between transition's [code]IN[/code] and
+## [code]OUT[/code] states. When transition fully appears, a method [param to_call]
+## is called passing [param args] (optional) as arguments. To await [param to_call]
+## execution, pass [param await_call] as [code]true[/code] (default is [code]false[/code].
+## Default values of transition can be overwritten by
+## setting [param override_transition_defaults] values, as a [Dictionary].
+## [br][br][b]Example:[/b][codeblock]
+## func _next_room(items: PackedStringArray, room_size: Vector2) -> void:
+##     _room_number += 1
+##     room.clear_items()
+##     room.set_items(items)
+##
+## func _on_player_interacted_with_door() -> void:
+##     await play_transition(
+##         _next_room, [["Desk", "Candle", "Bed"], Vector2(5, 4)], false, {"duration_out": 0.8}
+##     )
+## [/codeblock]
+func play_transition(
+	to_call: Callable, args: Array = [],
+	await_call: bool = false, override_transition_defaults: Dictionary = {}
+) -> void:
+	log_message("Playing transition")
+	var transition: Transition = _new_transition(override_transition_defaults)
+	_transition_layer.add_child(transition)
+	await transition.play()
+	if await_call:
+		await to_call.callv(args)
+	else:
+		to_call.callv(args)
+	await transition.play()
+	clear_children(_transition_layer)
+	transition_finished.emit()
+
+
 ## Load a scene from [code]path[/code] and turn it the current scene, applying a transition.
 ## Default transition values can be overwritten by optional
 ## [code]override_transition_defaults[/code] values (as a [Dictionary]).
@@ -182,7 +219,7 @@ func change_scene(path: String, override_transition_defaults: Dictionary = {}) -
 	await change_scene_to(packed_scene.instantiate(), override_transition_defaults)
 
 
-## Clear all children of the given node.
+## Clear all children of [param node].
 static func clear_children(node: Node) -> void:
 	if node == null:
 		return
@@ -295,6 +332,14 @@ func trigger_action(action: String, context: String = "") -> void:
 		critical_error("Internal error")
 		return
 	_project_manager.on_action_triggered(action, context)
+
+## Print a warning displaying a message given by [param message].
+## [br][br][b]Example:[/b][codeblock]
+## if not len(player.inventory) < player.InventorySlots:
+##     warning("Player inventory is full!")
+## [/codeblock]
+func warning(message: String) -> void:
+	log_message("Warning: " + message, "yellow")
 
 
 func _initialize_project_manager() -> void:
