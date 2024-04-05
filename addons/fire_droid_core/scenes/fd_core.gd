@@ -307,6 +307,15 @@ func has_permanent_node(id: String) -> bool:
 	return (id in _permanent_nodes.keys())
 
 
+## Call a method of Project Manager, by passing the method's name [param method_name]
+## and parameters as an array of values as [param args] (optional).
+func pmcall(method_name: String, args: Array = []):
+	if not _project_manager.has_method(method_name):
+		warning("Project Manager has no method named " + method_name)
+		return
+	_project_manager.callv(method_name, args)
+
+
 ## Remove a permanent node with identifier [param id] from the PermanentLayer, or
 ## does nothing if it doesn't exist.[br][br]If [param delete_node] is
 ## [code]true[/code], also delete the node (by calling [method Node.queue_free]).
