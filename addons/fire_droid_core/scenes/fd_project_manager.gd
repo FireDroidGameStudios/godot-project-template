@@ -35,7 +35,16 @@ extends Node
 
 ## This is the first scene that will be loaded after the logo intros animations.
 ## If this is [code]null[/code] at begin of execution, the program will be
-## terminated with exit code 1.
+## terminated with exit code 1. To prevent it, set the property value during the
+## node initialization
+## [codeblock]
+## func _init():
+##     # Set initial_scene by calling method
+##     set_initial_scene("res://scenes/main_screen.tscn")
+##
+##     # Set initial_scene by direct assign
+##     initial_scene = load("res://scenes/main_screen.tscn")
+## [/codeblock]
 var initial_scene: PackedScene = null
 
 
