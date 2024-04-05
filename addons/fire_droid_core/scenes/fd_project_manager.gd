@@ -5,11 +5,11 @@ extends Node
 ## This class works as a template, and all project managers compatible with FDCore
 ## must inherit from this.[br]There are two mandatory actions for a project
 ## manager creation:[br][br]
-## 1. Set [member initial_scene]: this can be done by calling [method set_initial_scene]
-## inside [method Object._init].[br][br][b]Example:[/b]
+## 1. Set [member initial_scene]: this can be done by assigning a [PackedScene]
+## to [member initial_scene] inside [method Object._init].[br][br][b]Example:[/b]
 ## [codeblock]
 ## func _init() -> void:
-##     set_initial_scene("res://scenes/main_screen.tscn")
+##     initial_scene = preload("res://scenes/main_screen.tscn")
 ## [/codeblock]
 ## 2. Override [method _on_action_triggered]: this method is the main handler for
 ## all triggered actions coming from FDCore. Override this to define interactions
@@ -35,15 +35,11 @@ extends Node
 
 ## This is the first scene that will be loaded after the logo intros animations.
 ## If this is [code]null[/code] at begin of execution, the program will be
-## terminated with exit code 1. To prevent it, set the property value during the
-## node initialization
+## terminated with exit code 1. To prevent it, set the property value inside the
+## built-in method [method _init].[br][br][b]Example:[/b]
 ## [codeblock]
 ## func _init():
-##     # Set initial_scene by calling method
-##     set_initial_scene("res://scenes/main_screen.tscn")
-##
-##     # Set initial_scene by direct assign
-##     initial_scene = load("res://scenes/main_screen.tscn")
+##     initial_scene = preload("res://scenes/main_screen.tscn")
 ## [/codeblock]
 var initial_scene: PackedScene = null
 
@@ -66,13 +62,6 @@ func _physics_process(delta: float) -> void:
 ## To change how this function handles actions, override [method _on_action_triggered].
 func on_action_triggered(action: String, context: String = "") -> void:
 	_on_action_triggered(action, context)
-
-
-## Load a scene located at [param path] and assign it to [member initial_scene].
-## If [param path] is not valid path to a scene, [memeber initial_scene]
-## receives [code]null[/code] as value.
-func set_initial_scene(path: String) -> void:
-	initial_scene = load(path)
 
 
 ## This is an overridable method.[br][br]
