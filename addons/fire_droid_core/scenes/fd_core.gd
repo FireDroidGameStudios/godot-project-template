@@ -318,12 +318,17 @@ func pmcall(method_name: String, args: Array = []):
 	if not _project_manager.has_method(method_name):
 		warning("Project Manager has no method named " + method_name)
 		return
-	_project_manager.callv(method_name, args)
+	return _project_manager.callv(method_name, args)
 
 
 ## Return a reference to the current Project Manager.
 func get_project_manager() -> FDProjectManager:
 	return _project_manager
+
+
+## Return a reference to the current scene on TemporaryLayer.
+func get_current_scene():
+	return _current_scene
 
 
 ## Remove a permanent node with identifier [param id] from the PermanentLayer, or
