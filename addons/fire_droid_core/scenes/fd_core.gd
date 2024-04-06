@@ -115,13 +115,17 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var enable_debug_mode: bool = ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	var enable_debug_mode: bool = (
+		ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	)
 	if enable_debug_mode:
 		return
 
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
-	_setup_project_manager(ProjectSettings.get_setting("fd_core/project_manager", ""))
+	_setup_project_manager(
+		ProjectSettings.get_setting("fd_core/project_manager", "")
+	)
 
 	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
 	await _current_scene.finished
