@@ -1,0 +1,50 @@
+[gd_scene load_steps=3 format=3 uid="uid://chih0sc3bvyw5"]
+
+[ext_resource type="Script" path="res://addons/fire_droid_core/scenes/gui/action_hud.gd" id="1_jl2xd"]
+[ext_resource type="Script" path="res://addons/fire_droid_core/scenes/gui/action_button.gd" id="2_p3flo"]
+
+[node name="MainScreen" type="CanvasLayer"]
+script = ExtResource("1_jl2xd")
+action_context = "main_screen"
+animation_in = 1
+enable_autoshow = true
+enable_trigger_key = false
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+offset_right = 1152.0
+offset_bottom = 648.0
+theme_override_constants/margin_left = 50
+theme_override_constants/margin_top = 15
+theme_override_constants/margin_right = 15
+theme_override_constants/margin_bottom = 15
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 50
+alignment = 1
+
+[node name="Label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 91
+text = "Title"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ButtonPlay" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("parent_hud")]
+layout_mode = 2
+text = "Play"
+script = ExtResource("2_p3flo")
+parent_hud = NodePath("../../../../..")
+action_on_pressed = "play"
+
+[node name="ButtonQuit" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer/VBoxContainer" node_paths=PackedStringArray("parent_hud")]
+layout_mode = 2
+text = "Quit"
+script = ExtResource("2_p3flo")
+parent_hud = NodePath("../../../../..")
+action_on_pressed = "quit"

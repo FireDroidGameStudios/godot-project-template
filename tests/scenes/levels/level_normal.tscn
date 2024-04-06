@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://pcqi1h1i52ga"]
+
+[ext_resource type="PackedScene" uid="uid://cmyasyrolvi65" path="res://tests/scenes/levels/level.tscn" id="1_d4j0n"]
+[ext_resource type="PackedScene" uid="uid://dagjnti04ykay" path="res://tests/scenes/levels/solid.tscn" id="2_ao1t2"]
+
+[node name="LevelNormal" instance=ExtResource("1_d4j0n")]
+
+[node name="Solid" parent="Actors/Solids" index="0" instance=ExtResource("2_ao1t2")]
+position = Vector2(260, 648)
+scale = Vector2(4.8, 1)
+
+[node name="Solid2" parent="Actors/Solids" index="1" instance=ExtResource("2_ao1t2")]
+position = Vector2(965, 648)
+scale = Vector2(4.8, 1)
+
+[node name="Exit" parent="Actors" index="2"]
+position = Vector2(1115, 535)
