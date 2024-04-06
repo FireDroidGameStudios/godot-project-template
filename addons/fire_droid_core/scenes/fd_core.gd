@@ -85,7 +85,8 @@ var transition_defaults: Dictionary = {
 
 var _current_scene = null
 var _permanent_nodes: Dictionary = {}
-var _project_manager: FDProjectManager = null
+var _project_manager: FDProjectManager = null:
+	set = _set_project_manager
 
 @onready var _permanent_fore_layer = get_node("PermanentForeLayer")
 @onready var _temporary_layer = get_node("TemporaryLayer")
@@ -120,7 +121,7 @@ func _ready() -> void:
 
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
-	_initialize_project_manager()
+	_setup_project_manager(ProjectSettings.get_setting("fd_core/project_manager", ""))
 
 	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
 	await _current_scene.finished
@@ -316,6 +317,11 @@ func pmcall(method_name: String, args: Array = []):
 	_project_manager.callv(method_name, args)
 
 
+## Return a reference to the current Project Manager.
+func get_project_manager() -> FDProjectManager:
+	return _project_manager
+
+
 ## Remove a permanent node with identifier [param id] from the PermanentLayer, or
 ## does nothing if it doesn't exist.[br][br]If [param delete_node] is
 ## [code]true[/code], also delete the node (by calling [method Node.queue_free]).
@@ -351,10 +357,14 @@ func warning(message: String) -> void:
 	log_message("Warning: " + message, "yellow")
 
 
-func _initialize_project_manager() -> void:
-	var project_manager_path: String = (
-		ProjectSettings.get_setting("fd_core/project_manager", "")
-	)
+func _set_project_manager(new_value: FDProjectManager) -> void:
+	if not _project_manager == null:
+		warning("Attempting to set a new Project Manager, but it is already set!")
+		return
+	_project_manager = new_value
+
+
+func _setup_project_manager(project_manager_path: String) -> void:
 	FDCore.log_message(
 		"Project Manager path: " + project_manager_path, "cyan"
 	)
