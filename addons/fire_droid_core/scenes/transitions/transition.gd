@@ -100,6 +100,7 @@ const _Shaders: Dictionary = {
 var _status: Status = Status.IN
 var _tween: Tween = null
 var _thereshold: float = 0.0
+var _has_transition_in_progress: bool = false
 
 @onready var _color_rect = get_node("ColorRect")
 
@@ -151,8 +152,31 @@ func play() -> void:
 			finished.emit()
 
 
-## Forces a new status, updating thereshold to maximum (if status is
-## [code]OUT[/code]) or minimum (if status is IN) value.[br][br][b]Example:[/b]
+## Force a transition to begin with status [code]IN[/code] and play appearing
+## animation. Once finished, emit [signal finished] signal.[br][br]See [enum Status].
+func play_in() -> void:
+	_status = Status.IN
+	await _play_transition(
+		ease_type_in, trans_type_in,
+		duration_in, 0.0, 1.0
+	)
+	finished.emit()
+
+
+## Force a transition to begin with status [code]OUT[/code] and play disappearing
+## animation. Once finished, emit [signal finished] signal.[br][br]See [enum Status].
+func play_out() -> void:
+	_status = Status.OUT
+	await _play_transition(
+		ease_type_out, trans_type_out,
+		duration_out, 1.0, 0.0
+	)
+	finished.emit()
+
+
+## Forces a new status, updating thereshold to maximum (if [param status] is
+## [code]OUT[/code]) or minimum (if [param status] is [code]IN[/code])
+## value.[br][br][b]Example:[/b]
 ## [codeblock]
 ##     # Set transition to fully disappear, so it can begin appear animation
 ## transition.set_forced_status(Transition.Status.IN)
@@ -168,6 +192,13 @@ func set_forced_status(status: Status) -> void:
 			_set_transition_thereshold(0.0)
 		Status.OUT:
 			_set_transition_thereshold(1.0)
+	_has_transition_in_progress = false
+
+
+## Return [code]true[/code] if there is a transition in progress, or [code]false[/code]
+## if no transition is in progress.
+func is_in_progress() -> bool:
+	return _has_transition_in_progress
 
 
 func _play_transition(
@@ -185,7 +216,9 @@ func _play_transition(
 	_tween.tween_method(_set_transition_thereshold, initial_value, final_value, duration)
 	_tween.play()
 	started.emit()
+	_has_transition_in_progress = true
 	await _tween.finished
+	_has_transition_in_progress = false
 	match _status:
 		Status.IN:
 			_status = Status.OUT

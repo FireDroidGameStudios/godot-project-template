@@ -49,6 +49,9 @@ extends Node
 ## and [method change_scene_to] calls.
 signal scene_changed
 
+## Emitted when a transition has finished after calling method [method play_transition].
+signal transition_finished
+
 ## Error codes to detail the type of an error. See [method critical_error].
 enum ErrorCodes {
 	DEFAULT_ERROR, ## Default error for general purposes.
@@ -82,7 +85,8 @@ var transition_defaults: Dictionary = {
 
 var _current_scene = null
 var _permanent_nodes: Dictionary = {}
-var _project_manager: FDProjectManager = null
+var _project_manager: FDProjectManager = null:
+	set = _set_project_manager
 
 @onready var _permanent_fore_layer = get_node("PermanentForeLayer")
 @onready var _temporary_layer = get_node("TemporaryLayer")
@@ -111,13 +115,17 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var enable_debug_mode: bool = ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	var enable_debug_mode: bool = (
+		ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	)
 	if enable_debug_mode:
 		return
 
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
-	_initialize_project_manager()
+	_setup_project_manager(
+		ProjectSettings.get_setting("fd_core/project_manager", "")
+	)
 
 	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
 	await _current_scene.finished
@@ -163,6 +171,40 @@ func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {})
 	scene_changed.emit()
 
 
+## Play a transition and call a method between transition's [code]IN[/code] and
+## [code]OUT[/code] states. When transition fully appears, a method [param to_call]
+## is called passing [param args] (optional) as arguments. To await [param to_call]
+## execution, pass [param await_call] as [code]true[/code] (default is [code]false[/code].
+## Default values of transition can be overwritten by
+## setting [param override_transition_defaults] values, as a [Dictionary].
+## [br][br][b]Example:[/b][codeblock]
+## func _next_room(items: PackedStringArray, room_size: Vector2) -> void:
+##     _room_number += 1
+##     room.clear_items()
+##     room.set_items(items)
+##
+## func _on_player_interacted_with_door() -> void:
+##     await play_transition(
+##         _next_room, [["Desk", "Candle", "Bed"], Vector2(5, 4)], false, {"duration_out": 0.8}
+##     )
+## [/codeblock]
+func play_transition(
+	to_call: Callable, args: Array = [],
+	await_call: bool = false, override_transition_defaults: Dictionary = {}
+) -> void:
+	log_message("Playing transition")
+	var transition: Transition = _new_transition(override_transition_defaults)
+	_transition_layer.add_child(transition)
+	await transition.play()
+	if await_call:
+		await to_call.callv(args)
+	else:
+		to_call.callv(args)
+	await transition.play()
+	clear_children(_transition_layer)
+	transition_finished.emit()
+
+
 ## Load a scene from [code]path[/code] and turn it the current scene, applying a transition.
 ## Default transition values can be overwritten by optional
 ## [code]override_transition_defaults[/code] values (as a [Dictionary]).
@@ -182,7 +224,7 @@ func change_scene(path: String, override_transition_defaults: Dictionary = {}) -
 	await change_scene_to(packed_scene.instantiate(), override_transition_defaults)
 
 
-## Clear all children of the given node.
+## Clear all children of [param node].
 static func clear_children(node: Node) -> void:
 	if node == null:
 		return
@@ -270,6 +312,43 @@ func has_permanent_node(id: String) -> bool:
 	return (id in _permanent_nodes.keys())
 
 
+## Call a method of Project Manager, by passing the method's name [param method_name]
+## and parameters as an array of values as [param args] (optional). If
+## [param await_call] is [code]true[/code], the call will be awaited before returning.
+func pmcall(method_name: String, args: Array = [], await_call: bool = false):
+	if not _project_manager.has_method(method_name):
+		warning("Project Manager has no method named " + method_name)
+		return
+	if await_call:
+		return await _project_manager.callv(method_name, args)
+	return _project_manager.callv(method_name, args)
+
+
+## Return a reference to the current Project Manager.
+func get_project_manager() -> FDProjectManager:
+	return _project_manager
+
+
+## Call a method of Current Scene, by passing the method's name [param method_name]
+## and parameters as an array of values as [param args] (optional). If
+## [param await_call] is [code]true[/code], the call will be awaited before returning.
+func cscall(method_name: String, args: Array = [], await_call: bool = false):
+	if _current_scene == null:
+		warning("Current scene is null and no method can be called on it!")
+		return
+	elif not _current_scene.has_method(method_name):
+		warning("Current scene has no method named " + method_name)
+		return
+	if await_call:
+		return await _current_scene.callv(method_name, args)
+	return _current_scene.callv(method_name, args)
+
+
+## Return a reference to the current scene on TemporaryLayer.
+func get_current_scene():
+	return _current_scene
+
+
 ## Remove a permanent node with identifier [param id] from the PermanentLayer, or
 ## does nothing if it doesn't exist.[br][br]If [param delete_node] is
 ## [code]true[/code], also delete the node (by calling [method Node.queue_free]).
@@ -296,11 +375,23 @@ func trigger_action(action: String, context: String = "") -> void:
 		return
 	_project_manager.on_action_triggered(action, context)
 
+## Print a warning displaying a message given by [param message].
+## [br][br][b]Example:[/b][codeblock]
+## if not len(player.inventory) < player.InventorySlots:
+##     warning("Player inventory is full!")
+## [/codeblock]
+func warning(message: String) -> void:
+	log_message("Warning: " + message, "yellow")
 
-func _initialize_project_manager() -> void:
-	var project_manager_path: String = (
-		ProjectSettings.get_setting("fd_core/project_manager", "")
-	)
+
+func _set_project_manager(new_value: FDProjectManager) -> void:
+	if not _project_manager == null:
+		warning("Attempting to set a new Project Manager, but it is already set!")
+		return
+	_project_manager = new_value
+
+
+func _setup_project_manager(project_manager_path: String) -> void:
 	FDCore.log_message(
 		"Project Manager path: " + project_manager_path, "cyan"
 	)
