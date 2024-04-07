@@ -7,6 +7,8 @@
 script = ExtResource("1_iwkox")
 action_context = "mode_selection"
 animation_in = 1
+animation_out = 2
+ease_out = 0
 enable_autoshow = true
 enable_trigger_key = false
 

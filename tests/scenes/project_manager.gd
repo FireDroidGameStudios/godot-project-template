@@ -42,6 +42,8 @@ func _on_action_triggered(action: String, context: String = "") -> void:
 
 
 func _main_screen_handler(action: String) -> void:
+	FDCore.cscall("play_animation", [true], true) # Hide menu
+	#FDCore.get_current_scene().play_animation() # Another way to hide menu
 	match action:
 		"play": FDCore.change_scene("res://tests/scenes/mode_selection.tscn")
 		"quit": get_tree().quit()
@@ -49,6 +51,8 @@ func _main_screen_handler(action: String) -> void:
 
 func _mode_selection_handler(action: String) -> void:
 	enable_player_movement()
+	FDCore.cscall("play_animation", [true], true) # Hide menu
+	#FDCore.get_current_scene().play_animation() # Another way to hide menu
 	match action:
 		"easy": FDCore.change_scene("res://tests/scenes/levels/level_easy.tscn")
 		"normal": FDCore.change_scene("res://tests/scenes/levels/level_normal.tscn")
@@ -63,12 +67,16 @@ func _level_handler(action: String) -> void:
 
 
 func _success_screen_handler(action: String) -> void:
+	FDCore.cscall("play_animation", [true], true) # Hide menu
+	#FDCore.get_current_scene().play_animation() # Another way to hide menu
 	match action:
 		"return": FDCore.change_scene("res://tests/scenes/main_menu.tscn")
 		"quit": get_tree().quit()
 
 
 func _fail_screen_handler(action: String) -> void:
+	FDCore.cscall("play_animation", [true], true) # Hide menu
+	#FDCore.get_current_scene().play_animation() # Another way to hide menu
 	match action:
 		"return": FDCore.change_scene("res://tests/scenes/main_menu.tscn")
 		"quit": get_tree().quit()

@@ -11,7 +11,8 @@ var gravity: int = ProjectSettings.get_setting("physics/2d/default_gravity")
 
 
 func _physics_process(delta: float) -> void:
-	var is_movement_enabled: bool = FDCore.get_project_manager().is_player_movement_enabled()
+	#var is_movement_enabled: bool = FDCore.get_project_manager().is_player_movement_enabled()
+	var is_movement_enabled: bool = await FDCore.pmcall("is_player_movement_enabled")
 	if not is_movement_enabled:
 		return
 

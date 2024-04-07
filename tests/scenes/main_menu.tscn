@@ -7,6 +7,8 @@
 script = ExtResource("1_jl2xd")
 action_context = "main_screen"
 animation_in = 1
+animation_out = 2
+ease_out = 0
 enable_autoshow = true
 enable_trigger_key = false
 
