@@ -313,17 +313,35 @@ func has_permanent_node(id: String) -> bool:
 
 
 ## Call a method of Project Manager, by passing the method's name [param method_name]
-## and parameters as an array of values as [param args] (optional).
-func pmcall(method_name: String, args: Array = []):
+## and parameters as an array of values as [param args] (optional). If
+## [param await_call] is [code]true[/code], the call will be awaited before returning.
+func pmcall(method_name: String, args: Array = [], await_call: bool = false):
 	if not _project_manager.has_method(method_name):
 		warning("Project Manager has no method named " + method_name)
 		return
+	if await_call:
+		return await _project_manager.callv(method_name, args)
 	return _project_manager.callv(method_name, args)
 
 
 ## Return a reference to the current Project Manager.
 func get_project_manager() -> FDProjectManager:
 	return _project_manager
+
+
+## Call a method of Current Scene, by passing the method's name [param method_name]
+## and parameters as an array of values as [param args] (optional). If
+## [param await_call] is [code]true[/code], the call will be awaited before returning.
+func cscall(method_name: String, args: Array = [], await_call: bool = false):
+	if _current_scene == null:
+		warning("Current scene is null and no method can be called on it!")
+		return
+	elif not _current_scene.has_method(method_name):
+		warning("Current scene has no method named " + method_name)
+		return
+	if await_call:
+		return await _current_scene.callv(method_name, args)
+	return _current_scene.callv(method_name, args)
 
 
 ## Return a reference to the current scene on TemporaryLayer.
