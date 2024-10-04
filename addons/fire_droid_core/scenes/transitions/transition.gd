@@ -128,11 +128,11 @@ func update_values() -> void:
 	_color_rect.material = ShaderMaterial.new()
 	_update_shader_style()
 	var use_texture: bool = (fill_type == FillType.TEXTURE)
-	_color_rect.material.set_shader_parameter("color_1", color_1)
-	_color_rect.material.set_shader_parameter("color_2", color_2)
-	_color_rect.material.set_shader_parameter("use_texture", use_texture)
-	_color_rect.material.set_shader_parameter("texture_1", texture_1)
-	_color_rect.material.set_shader_parameter("texture_2", texture_2)
+	_color_rect.material.set_shader_parameter(&"color_1", color_1)
+	_color_rect.material.set_shader_parameter(&"color_2", color_2)
+	_color_rect.material.set_shader_parameter(&"use_texture", use_texture)
+	_color_rect.material.set_shader_parameter(&"texture_1", texture_1)
+	_color_rect.material.set_shader_parameter(&"texture_2", texture_2)
 
 
 ## Play the transition with current setting values.
@@ -240,5 +240,4 @@ func _update_shader_style() -> void:
 
 func _set_transition_thereshold(thereshold: float) -> void:
 	_thereshold = thereshold
-	_color_rect.material.set_shader_parameter("thereshold", _thereshold)
-
+	_color_rect.material.set_shader_parameter(&"thereshold", _thereshold)

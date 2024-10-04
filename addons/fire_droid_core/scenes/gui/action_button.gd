@@ -18,19 +18,19 @@ extends Button
 
 @export_group("Actions")
 ## Will trigger this action when button is pressed. Leave empty to ignore.
-@export var action_on_pressed: String = ""
+@export var action_on_pressed: StringName = &""
 ## Will trigger this action when button is released. Leave empty to ignore.
-@export var action_on_release: String = ""
+@export var action_on_release: StringName = &""
 ## Will trigger this action when button is pressed down. Leave empty to ignore.
-@export var action_on_button_down: String = ""
+@export var action_on_button_down: StringName = &""
 ## Will trigger this action when button is pressed up. Leave empty to ignore.
-@export var action_on_button_up: String = ""
+@export var action_on_button_up: StringName = &""
 ## Will trigger this action when button toggle state is set to true (only if
 ## [member toggle_mode] is enabled). Leave empty to ignore.
-@export var action_on_toggled_true: String = ""
+@export var action_on_toggled_true: StringName = &""
 ## Will trigger this action when button toggle state is set to true (only if
 ## [member toggle_mode] is enabled). Leave empty to ignore.
-@export var action_on_toggled_false: String = ""
+@export var action_on_toggled_false: StringName = &""
 
 
 func _ready() -> void:
