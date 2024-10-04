@@ -215,7 +215,7 @@ func play_transition(
 ##     # Overriding transition values
 ## await change_scene_to("res://scenes/level_1.tscn", {&"color_1": Color.WHITE, &"duration_out": 0.8})
 ## [/codeblock]
-func change_scene(path: StringName, override_transition_defaults: Dictionary = {}) -> void:
+func change_scene(path: String, override_transition_defaults: Dictionary = {}) -> void:
 	log_message("Changing scene to path " + str(path))
 	var packed_scene: PackedScene = load(path) as PackedScene
 	if packed_scene == null:
