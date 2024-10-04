@@ -68,19 +68,19 @@ const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transition
 ## [code]color_1[/code], [code]color_2[/code], [code]texture_1[/code] and [code]texture_2[/code].
 ## [br][br]See [Transition].
 var transition_defaults: Dictionary = {
-	"style_in": Transition.TransitionStyle.FADE,
-	"trans_type_in": Tween.TRANS_LINEAR,
-	"ease_type_in": Tween.EASE_IN,
-	"duration_in": 1.2,
-	"style_out": Transition.TransitionStyle.FADE,
-	"trans_type_out": Tween.TRANS_LINEAR,
-	"ease_type_out": Tween.EASE_OUT,
-	"duration_out": 1.2,
-	"fill_type": Transition.FillType.COLOR,
-	"color_1": Color.BLACK,
-	"color_2": Color.WHITE,
-	"texture_1": null,
-	"texture_2": null,
+	&"style_in": Transition.TransitionStyle.FADE,
+	&"trans_type_in": Tween.TRANS_LINEAR,
+	&"ease_type_in": Tween.EASE_IN,
+	&"duration_in": 1.2,
+	&"style_out": Transition.TransitionStyle.FADE,
+	&"trans_type_out": Tween.TRANS_LINEAR,
+	&"ease_type_out": Tween.EASE_OUT,
+	&"duration_out": 1.2,
+	&"fill_type": Transition.FillType.COLOR,
+	&"color_1": Color.BLACK,
+	&"color_2": Color.WHITE,
+	&"texture_1": null,
+	&"texture_2": null,
 }
 
 var _current_scene = null
@@ -124,7 +124,7 @@ func _ready() -> void:
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
 	_setup_project_manager(
-		ProjectSettings.get_setting("fd_core/project_manager", "")
+		StringName(ProjectSettings.get_setting("fd_core/project_manager", ""))
 	)
 
 	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
@@ -213,9 +213,9 @@ func play_transition(
 ## await change_scene_to("res://scenes/main_menu.tscn")
 ##
 ##     # Overriding transition values
-## await change_scene_to("res://scenes/level_1.tscn", {"color_1": Color.WHITE, "duration_out": 0.8})
+## await change_scene_to("res://scenes/level_1.tscn", {&"color_1": Color.WHITE, &"duration_out": 0.8})
 ## [/codeblock]
-func change_scene(path: String, override_transition_defaults: Dictionary = {}) -> void:
+func change_scene(path: StringName, override_transition_defaults: Dictionary = {}) -> void:
 	log_message("Changing scene to path " + str(path))
 	var packed_scene: PackedScene = load(path) as PackedScene
 	if packed_scene == null:
@@ -251,7 +251,7 @@ func critical_error(
 ## Update a property of [member transition_defaults]. Those values will be using
 ## every new transition (unless override dictionary is passed as argument of
 ## transition creation function call).
-func set_transition_default_value(property: String, value) -> void:
+func set_transition_default_value(property: StringName, value) -> void:
 	if property in transition_defaults.keys():
 		transition_defaults[property] = value
 
@@ -280,14 +280,14 @@ static func log_message(message: String, color: String = "gray") -> void:
 ## set [param overlap_current_scene] to [code]false[/code].
 ## [br][br][b]Example:[/b][codeblock]
 ##     # Add a new Button overlapping current scene
-## add_permanent_node("button", Button.new())
+## add_permanent_node(&"button", Button.new())
 ##
 ##     # Add a new Button behind current scene
-## add_permanent_node("background", ForestBackground.instantiate(), false)
+## add_permanent_node(&"background", ForestBackground.instantiate(), false)
 ##
 ##     # Attempt to add a new Button with id "button", but it already exists
 ## print(add_permanent_node("button", Button.new())) # prints false
-func add_permanent_node(id: String, node: Node, overlap_current_scene: bool = true) -> bool:
+func add_permanent_node(id: StringName, node: Node, overlap_current_scene: bool = true) -> bool:
 	if _permanent_nodes.has(id):
 		return false
 	_permanent_nodes[id] = node
@@ -300,7 +300,7 @@ func add_permanent_node(id: String, node: Node, overlap_current_scene: bool = tr
 
 ## Search and return the permanent node with identifier [param id]. If it doesn't
 ## exists, [code]null[/code] is returned.
-func get_permanent_node(id: String) -> Node:
+func get_permanent_node(id: StringName) -> Node:
 	if not has_permanent_node(id):
 		return null
 	return _permanent_nodes[id]
@@ -308,14 +308,14 @@ func get_permanent_node(id: String) -> Node:
 
 ## Return [code]true[/code] if a permanent node with identifier [param id] exists,
 ## or [code]false[/code] if it doesn't.
-func has_permanent_node(id: String) -> bool:
+func has_permanent_node(id: StringName) -> bool:
 	return (id in _permanent_nodes.keys())
 
 
 ## Call a method of Project Manager, by passing the method's name [param method_name]
 ## and parameters as an array of values as [param args] (optional). If
 ## [param await_call] is [code]true[/code], the call will be awaited before returning.
-func pmcall(method_name: String, args: Array = [], await_call: bool = false):
+func pmcall(method_name: StringName, args: Array = [], await_call: bool = false):
 	if not _project_manager.has_method(method_name):
 		warning("Project Manager has no method named " + method_name)
 		return
@@ -368,7 +368,7 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 ## if player.health <= 0:
 ##     FDCore.trigger_action("player_died", "level")
 ## [/codeblock]
-func trigger_action(action: String, context: String = "") -> void:
+func trigger_action(action: StringName, context: StringName = &"") -> void:
 	log_message("Action triggered: <" + context + "#" + action + ">")
 	if _project_manager == null:
 		critical_error("Internal error")
@@ -391,7 +391,7 @@ func _set_project_manager(new_value: FDProjectManager) -> void:
 	_project_manager = new_value
 
 
-func _setup_project_manager(project_manager_path: String) -> void:
+func _setup_project_manager(project_manager_path: StringName) -> void:
 	FDCore.log_message(
 		"Project Manager path: " + project_manager_path, "cyan"
 	)
@@ -416,4 +416,3 @@ func _new_transition(override_defaults: Dictionary = {}) -> Transition:
 		if override in transition_defaults.keys():
 			transition.set(override, override_defaults[override])
 	return transition
-

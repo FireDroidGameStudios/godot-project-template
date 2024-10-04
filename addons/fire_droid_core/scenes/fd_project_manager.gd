@@ -60,7 +60,7 @@ func _physics_process(delta: float) -> void:
 ## [param action] is the action received, [param context] is an optional
 ## argument that can be used to distinguish actions with same name.[br][br]
 ## To change how this function handles actions, override [method _on_action_triggered].
-func on_action_triggered(action: String, context: String = "") -> void:
+func on_action_triggered(action: StringName, context: StringName = &"") -> void:
 	_on_action_triggered(action, context)
 
 
@@ -69,22 +69,22 @@ func on_action_triggered(action: String, context: String = "") -> void:
 ## [param action] is the action received, [param context] is an optional
 ## argument that can be used to distinguish actions with same name.
 ## [codeblock]
-## func _on_action_triggered(action: String, context: String = "") -> void:
+## func _on_action_triggered(action: StringName, context: StringName = "") -> void:
 ##     match context:
-##          "main_screen": _main_screen_handler(action)
-##          "level": _level_handler(action)
+##          &"main_screen": _main_screen_handler(action)
+##          &"level": _level_handler(action)
 ##
-## func _main_screen_handler(action: String) -> void:
+## func _main_screen_handler(action: StringName) -> void:
 ##     match action:
-##         "play": FDCore.change_scene_to("res://scenes/first_level.gd")
-##         "load": SaveSystem.load_game()
-##         "quit": get_tree().quit() # Same action, different context
+##         &"play": FDCore.change_scene_to("res://scenes/first_level.gd")
+##         &"load": SaveSystem.load_game()
+##         &"quit": get_tree().quit() # Same action, different context
 ##
-## func _level_handler(action: String) -> void:
+## func _level_handler(action: StringName) -> void:
 ##     match action:
-##         "pause": level.pause()
-##         "unpause": level.unpause()
-##         "quit": FDCore.change_scene_to("res://scenes/main_screen.gd") # Same action, different context
+##         &"pause": level.pause()
+##         &"unpause": level.unpause()
+##         &"quit": FDCore.change_scene_to("res://scenes/main_screen.gd") # Same action, different context
 ## [/codeblock]
-func _on_action_triggered(action: String, context: String = "") -> void:
+func _on_action_triggered(action: StringName, context: StringName = &"") -> void:
 	pass

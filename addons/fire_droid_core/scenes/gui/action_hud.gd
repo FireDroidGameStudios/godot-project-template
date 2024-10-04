@@ -13,7 +13,7 @@ extends CanvasLayer
 ## Emitted when an action has been triggered. Only connect this to a method if
 ## you want to add extra handlers ([FDCore] action handler is called automatically
 ## every [method trigger_action] call)
-signal action_triggered(action_name: String, context: String)
+signal action_triggered(action_name: StringName, context: StringName)
 
 ## Emitted when the animation has finished showing or hiding HUD. If animation
 ## is currently hiding, [param state_is_out] is [code]true[/code].
@@ -39,7 +39,7 @@ var _tween: Tween = null
 
 ## Context to distinguish actions by a specified context. [b]Example:[/b]
 ## [code]"main_screen"[/code], [code]"game_menu"[/code], [code]"level"[/code] etc.
-@export var action_context: String = ""
+@export var action_context: StringName = &""
 
 @export_group("Animation In")
 ## Animation style when showing. See [enum AnimationStyle].
@@ -122,7 +122,7 @@ func play_animation(animated: bool = true) -> void:
 ## Trigger action with the given name. Signal [signal action_triggered] can be
 ## connected to an external function. When callled, this method also calls
 ## [method FDCore.trigger_action]
-func trigger_action(action_name: String) -> void:
+func trigger_action(action_name: StringName) -> void:
 	if action_name.is_empty():
 		return
 	action_triggered.emit(action_name, action_context)
