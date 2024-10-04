@@ -152,7 +152,7 @@ func _physics_process(delta: float) -> void:
 ## await change_scene_to(MainMenu.instantiate())
 ##
 ##     # Overriding transition value
-## await change_scene_to(LevelScene.instantiate(), {"color_1": Color.WHITE, "duration_out": 0.8})
+## await change_scene_to(LevelScene.instantiate(), {&"color_1": Color.WHITE, &"duration_out": 0.8})
 ## [/codeblock]
 func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {}) -> void:
 	log_message("Changing scene to " + str(scene))
@@ -185,7 +185,7 @@ func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {})
 ##
 ## func _on_player_interacted_with_door() -> void:
 ##     await play_transition(
-##         _next_room, [["Desk", "Candle", "Bed"], Vector2(5, 4)], false, {"duration_out": 0.8}
+##         _next_room, [["Desk", "Candle", "Bed"], Vector2(5, 4)], false, {&"duration_out": 0.8}
 ##     )
 ## [/codeblock]
 func play_transition(
