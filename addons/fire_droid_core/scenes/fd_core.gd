@@ -391,7 +391,7 @@ func _set_project_manager(new_value: FDProjectManager) -> void:
 	_project_manager = new_value
 
 
-func _setup_project_manager(project_manager_path: StringName) -> void:
+func _setup_project_manager(project_manager_path: String) -> void:
 	FDCore.log_message(
 		"Project Manager path: " + project_manager_path, "cyan"
 	)
