@@ -88,13 +88,24 @@ var _permanent_nodes: Dictionary = {}
 var _project_manager: FDProjectManager = null:
 	set = _set_project_manager
 
-@onready var _permanent_fore_layer = get_node("PermanentForeLayer")
-@onready var _temporary_layer = get_node("TemporaryLayer")
-@onready var _permanent_back_layer = get_node("PermanentBackLayer")
-@onready var _transition_layer = get_node("TransitionLayer")
+@onready var _permanent_fore_layer = (
+	get_node("PermanentForeLayer") if not is_debug_mode_enabled() else null
+)
+@onready var _temporary_layer = (
+	get_node("TemporaryLayer") if not is_debug_mode_enabled() else null
+)
+@onready var _permanent_back_layer = (
+	get_node("PermanentBackLayer") if not is_debug_mode_enabled() else null
+)
+@onready var _transition_layer = (
+	get_node("TransitionLayer") if not is_debug_mode_enabled() else null
+)
 
 
 func _init() -> void:
+	if is_debug_mode_enabled():
+		return
+
 	# Permanent Back Layer
 	var permanent_back_layer: Node = Node.new()
 	permanent_back_layer.set_name("PermanentBackLayer")
@@ -115,10 +126,7 @@ func _init() -> void:
 
 
 func _ready() -> void:
-	var enable_debug_mode: bool = (
-		ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
-	)
-	if enable_debug_mode:
+	if is_debug_mode_enabled():
 		return
 
 	get_tree().current_scene.queue_free()	# Experimental
@@ -142,6 +150,13 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
+
+
+## Checks if debug mode is enabled in Project Settings.
+func is_debug_mode_enabled() -> bool:
+	return (
+		ProjectSettings.get_setting("fd_core/enable_debug_mode", false)
+	)
 
 
 ## Change current scene to [code]scene[/code], applying a transition. Default
