@@ -413,6 +413,9 @@ func _setup_project_manager(project_manager_path: String) -> void:
 	if not project_manager_path.is_absolute_path():
 		critical_error("Project Manager not defined!")
 		return
+	elif not FileAccess.file_exists(project_manager_path):
+		critical_error("Invalid Project Manager path!")
+		return
 	var loaded_script: GDScript = load(project_manager_path)
 	if loaded_script == null:
 		critical_error("Invalid Project Manager path!")
