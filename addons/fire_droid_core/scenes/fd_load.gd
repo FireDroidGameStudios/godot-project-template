@@ -14,6 +14,7 @@ var default_cache_mode: ResourceLoader.CacheMode = (
 
 var abort_on_failure: bool = false
 var batch_size: int = 10
+var keep_unloaded_on_fail: bool = false
 var _load_queue: Array[FDLoadRequest] = []
 var _batches: Array[FDLoadBatch] = []
 var _current_batch_index: int = 0
@@ -92,6 +93,7 @@ func start() -> void:
 		return
 	_clear_all_batches()
 	_is_loading = true
+	started.emit()
 	if _load_queue.is_empty():
 		finished.emit()
 		_is_loading = false
@@ -163,12 +165,17 @@ func _append_failure(path: String) -> void:
 	_current_failure_index += 1
 
 
-func _clear_all_batches() -> void:
+func _abort_all_batches() -> void:
+	for batch: FDLoadBatch in _batches:
+		batch.abort()
+
+
+func _clear_all_batches(free_requests: bool = false) -> void:
 	if _is_loading:
 		FDCore.warning("Cannot clear batches when loading is in progress.")
 		return
 	for batch: FDLoadBatch in _batches:
-		batch.clear()
+		batch.clear(free_requests)
 		batch.queue_free()
 	_batches.clear()
 
@@ -178,7 +185,7 @@ func _on_batch_finished() -> void:
 	_current_batch_index += 1
 	if _current_batch_index >= _batches.size():
 		finished.emit()
-		_clear_all_batches()
+		_clear_all_batches(true)
 		_load_queue.clear()
 		_is_loading = false
 		return
@@ -187,12 +194,13 @@ func _on_batch_finished() -> void:
 	_batches[_current_batch_index].start_load()
 
 
-func _on_batch_failed(batch: FDLoadBatch) -> void:
-
-	# [PAREI AQUI]: Estou decidindo se vou limpar ou não a fila de load quando
-	# algum batch retornar com falha e a opção de abortar com falha estiver
-	# habilitada.
-	pass
+func _on_batch_failed(_failure_batch: FDLoadBatch) -> void:
+	var can_clear_requests: bool = (not keep_unloaded_on_fail)
+	_failure_batch.clear(can_clear_requests)
+	if abort_on_failure:
+		_clear_all_batches(can_clear_requests)
+		failed.emit()
+		return
 
 
 class FDLoadRequest extends Node:
@@ -274,7 +282,6 @@ class FDLoadBatch extends Node:
 
 	var _requests: Array[FDLoadRequest] = []
 	var _is_aborted: bool = false
-	var _has_started: bool = false
 	var _progress_sum: int = 0
 	var _finished_count: int = 0
 
@@ -296,9 +303,10 @@ class FDLoadBatch extends Node:
 		_is_aborted = true
 
 
-	func clear() -> void:
-		for request: FDLoadRequest in _requests:
-			request.queue_free()
+	func clear(free_requests: bool = false) -> void:
+		if free_requests:
+			for request: FDLoadRequest in _requests:
+				request.queue_free()
 		_requests.clear()
 
 
