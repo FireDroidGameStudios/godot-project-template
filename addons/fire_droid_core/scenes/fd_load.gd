@@ -42,7 +42,7 @@ func add_to_queue(
 	cache_mode: ResourceLoader.CacheMode = default_cache_mode
 ) -> void:
 	if _is_loading:
-		FDCore.warning("Cannot add to load queue when loading is in progress.")
+		FDCore.warning("Cannot add to load queue when loading is in progress")
 		return
 	var request: FDLoadRequest = FDLoadRequest.new()
 	request.path = path
@@ -70,7 +70,7 @@ func queue_remove_by_index(index: int) -> void:
 
 func queue_remove_by_path(path: String) -> void:
 	if _is_loading:
-		FDCore.warning("Cannot remove from load queue when loading is in progress.")
+		FDCore.warning("Cannot remove from load queue when loading is in progress")
 		return
 	var index: int = _find_request_index_by_path(path)
 	if index < 0:
@@ -80,7 +80,7 @@ func queue_remove_by_path(path: String) -> void:
 
 func clear_queue() -> void:
 	if _is_loading:
-		FDCore.warning("Cannot clear load queue when loading is in progress.")
+		FDCore.warning("Cannot clear load queue when loading is in progress")
 		return
 	for request: FDLoadRequest in _load_queue:
 		request.queue_free()
@@ -93,22 +93,27 @@ func start() -> void:
 		return
 	_clear_all_batches()
 	_is_loading = true
+	FDCore.log_message("Started the loading of %d resources" % _load_queue.size())
 	started.emit()
+	progress_changed.emit(0.0)
 	if _load_queue.is_empty():
+		FDCore.log_message("Loading finished with empty queue")
 		finished.emit()
 		_is_loading = false
 		return
 	var batches_count: int = ceil(float(_load_queue.size()) / float(batch_size))
 	_batches.resize(batches_count)
+	FDCore.log_message("Initializing %d batches" % batches_count)
 	for i: int in _batches.size():
 		_batches[i] = FDLoadBatch.new(i, _load_queue)
 		_batches[i].finished.connect(_on_batch_finished)
 		_batches[i].failed.connect(_on_batch_failed)
+		_batches[i].progress_sum_changed.connect(_on_batch_progress_sum_changed)
 	_current_batch_index = 0
 	_current_failure_index = 0
 	_failure_paths.clear()
+	FDCore.log_message("Adding batch %d to scene tree" % _current_batch_index)
 	add_child(_batches[0])
-	await _batches[0].ready
 	_batches[0].start_load()
 
 
@@ -118,7 +123,7 @@ func get_progress() -> float:
 	var total_sum: int = 0
 	for batch: FDLoadBatch in _batches:
 		total_sum += batch.get_progress_sum()
-	return float(total_sum) / float(_load_queue.size())
+	return float(total_sum) / float(_load_queue.size() * 100)
 
 
 func has_loaded(path: String) -> bool:
@@ -137,7 +142,7 @@ func get_loaded(
 		path, type_hint, use_subthread, cache_mode
 	)
 	if error:
-		FDCore.warning("Failed to load resource at \"%s\"." % path)
+		FDCore.warning("Failed to load resource at \"%s\"" % path)
 		return null
 	var loaded: Resource = await ResourceLoader.load_threaded_get(path)
 	return loaded
@@ -182,14 +187,18 @@ func _clear_all_batches(free_requests: bool = false) -> void:
 
 func _on_batch_finished() -> void:
 	remove_child(_batches[_current_batch_index])
+	FDCore.log_message("Finished to load batch %d" % _current_batch_index)
 	_current_batch_index += 1
 	if _current_batch_index >= _batches.size():
+		FDCore.log_message("Finished to load all batches")
 		finished.emit()
 		_clear_all_batches(true)
 		_load_queue.clear()
 		_is_loading = false
+		progress_changed.emit(1.0)
 		return
 	add_child(_batches[_current_batch_index])
+	FDCore.log_message("Adding batch %d to scene tree" % _current_batch_index)
 	await _batches[_current_batch_index].ready
 	_batches[_current_batch_index].start_load()
 
@@ -201,6 +210,10 @@ func _on_batch_failed(_failure_batch: FDLoadBatch) -> void:
 		_clear_all_batches(can_clear_requests)
 		failed.emit()
 		return
+
+
+func _on_batch_progress_sum_changed(_progress_sum: int) -> void:
+	progress_changed.emit(get_progress())
 
 
 class FDLoadRequest extends Node:
@@ -228,6 +241,7 @@ class FDLoadRequest extends Node:
 		if not _previous_progress == _current_progress:
 			progress_changed.emit(_previous_progress, _current_progress)
 		if is_loaded():
+			FDCore.log_message("FDLoadRequest finished to load path \"%s\"" % path)
 			finished.emit()
 			set_process(false)
 
@@ -237,6 +251,7 @@ class FDLoadRequest extends Node:
 
 
 	func start_load() -> void:
+		FDCore.log_message("Request started to load path \"%s\"" % path)
 		if path.is_empty():
 			_progress_array[0] = 1.0
 			_current_progress = 100
@@ -282,6 +297,7 @@ class FDLoadBatch extends Node:
 
 	var _requests: Array[FDLoadRequest] = []
 	var _is_aborted: bool = false
+	var _has_started: bool = false
 	var _progress_sum: int = 0
 	var _finished_count: int = 0
 
@@ -315,6 +331,13 @@ class FDLoadBatch extends Node:
 
 
 	func start_load() -> void:
+		if _has_started:
+			FDCore.log_message(
+				"Restarting a batch is forbidden. Try creating a new one!"
+			)
+			return
+		_has_started = true
+		FDCore.log_message("Batch started to load %d requests" % _requests.size())
 		if _is_aborted:
 			return
 		for request: FDLoadRequest in _requests:
@@ -328,7 +351,7 @@ class FDLoadBatch extends Node:
 	func _on_request_finished() -> void:
 		_finished_count += 1
 		if _finished_count == _requests.size():
-			finished.emit(self)
+			finished.emit()
 
 
 	func _on_request_failed(request: FDLoadRequest) -> void:
