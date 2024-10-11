@@ -1,0 +1,1510 @@
+[gd_scene load_steps=367 format=3 uid="uid://q8onstwswrp4"]
+
+[ext_resource type="PackedScene" uid="uid://x3ky66ytp5je" path="res://addons/fire_droid_core/scenes/logo_intro/logo_intro.tscn" id="1_8yiqw"]
+[ext_resource type="Texture2D" uid="uid://be0wrl01tkj2b" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00000.png" id="2_0kasx"]
+[ext_resource type="Texture2D" uid="uid://bgqmayylo8bat" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00001.png" id="3_h3q6q"]
+[ext_resource type="Texture2D" uid="uid://hh0d6hrjrqhi" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00002.png" id="4_bpf4s"]
+[ext_resource type="Texture2D" uid="uid://beoqgsssprsx1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00003.png" id="5_bx4vy"]
+[ext_resource type="Texture2D" uid="uid://cgklh7a4o0cil" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00004.png" id="6_jjtuo"]
+[ext_resource type="Texture2D" uid="uid://dhnjqlhv3f0og" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00005.png" id="7_r4gn6"]
+[ext_resource type="Texture2D" uid="uid://dg0sw3nfyr3s7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00006.png" id="8_wicit"]
+[ext_resource type="Texture2D" uid="uid://d0erijfn0tvvq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00007.png" id="9_ujbhn"]
+[ext_resource type="Texture2D" uid="uid://bclbmwepu2t7w" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00008.png" id="10_ra3t6"]
+[ext_resource type="Texture2D" uid="uid://ds1ku02djo6ui" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00009.png" id="11_oaa4r"]
+[ext_resource type="Texture2D" uid="uid://b5jvse5svnhhx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00010.png" id="12_xyqbo"]
+[ext_resource type="Texture2D" uid="uid://dd6xfn240y0bk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00011.png" id="13_0hx71"]
+[ext_resource type="Texture2D" uid="uid://daeexmef056nd" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00012.png" id="14_ectjx"]
+[ext_resource type="Texture2D" uid="uid://k4lqndkc3acd" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00013.png" id="15_gl3xj"]
+[ext_resource type="Texture2D" uid="uid://dw4tyufi3grq5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00014.png" id="16_lcrfp"]
+[ext_resource type="Texture2D" uid="uid://42rajulxq1nl" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00015.png" id="17_m4j56"]
+[ext_resource type="Texture2D" uid="uid://cmdgwug1ovvms" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00016.png" id="18_ylq0x"]
+[ext_resource type="Texture2D" uid="uid://bhq56i8gsulub" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00017.png" id="19_atxu0"]
+[ext_resource type="Texture2D" uid="uid://cxptw8pyk3w1b" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00018.png" id="20_ha4j0"]
+[ext_resource type="Texture2D" uid="uid://1k1cko33etic" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00019.png" id="21_a4njr"]
+[ext_resource type="Texture2D" uid="uid://mlg8mwnbvr2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00020.png" id="22_5x5xw"]
+[ext_resource type="Texture2D" uid="uid://dmlq6waeacigk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00021.png" id="23_ic0rw"]
+[ext_resource type="Texture2D" uid="uid://bniei320k5d07" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00022.png" id="24_x1ue1"]
+[ext_resource type="Texture2D" uid="uid://bltmldovwom7o" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00023.png" id="25_nogog"]
+[ext_resource type="Texture2D" uid="uid://bna7g21qut0k2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00024.png" id="26_8em1k"]
+[ext_resource type="Texture2D" uid="uid://ccf74konwgo6l" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00025.png" id="27_3csoi"]
+[ext_resource type="Texture2D" uid="uid://ctfrgchf13wen" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00026.png" id="28_qooxb"]
+[ext_resource type="Texture2D" uid="uid://5fedty3rjutv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00027.png" id="29_jdkl2"]
+[ext_resource type="Texture2D" uid="uid://ds2ncxykjjtok" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00028.png" id="30_x3of2"]
+[ext_resource type="Texture2D" uid="uid://b1ncniaxg6hm7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00029.png" id="31_07f7s"]
+[ext_resource type="Texture2D" uid="uid://btpfbtfot3ndb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00030.png" id="32_hhw50"]
+[ext_resource type="Texture2D" uid="uid://nxwm7rnb3yjo" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00031.png" id="33_ok5sd"]
+[ext_resource type="Texture2D" uid="uid://bb6gfg7ahhaf3" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00032.png" id="34_6n2ql"]
+[ext_resource type="Texture2D" uid="uid://dcek6bu61ymu6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00033.png" id="35_yrk1r"]
+[ext_resource type="Texture2D" uid="uid://du2c65tis3ffe" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00034.png" id="36_3u176"]
+[ext_resource type="Texture2D" uid="uid://qqbeymvr25he" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00035.png" id="37_c30ge"]
+[ext_resource type="Texture2D" uid="uid://r36ku1al6ppu" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00036.png" id="38_nigma"]
+[ext_resource type="Texture2D" uid="uid://l8c2gnb3y5r6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00037.png" id="39_e7c3o"]
+[ext_resource type="Texture2D" uid="uid://b58ywolbruqlk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00038.png" id="40_4eavt"]
+[ext_resource type="Texture2D" uid="uid://dq3q0psrykwv1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00039.png" id="41_swc6s"]
+[ext_resource type="Texture2D" uid="uid://qnc7naewetka" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00040.png" id="42_26qla"]
+[ext_resource type="Texture2D" uid="uid://cocn1ta1ig6ty" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00041.png" id="43_i1tau"]
+[ext_resource type="Texture2D" uid="uid://3n3urh112b6y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00042.png" id="44_kjn8m"]
+[ext_resource type="Texture2D" uid="uid://cjb8rjhk5kk56" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00043.png" id="45_uaheq"]
+[ext_resource type="Texture2D" uid="uid://bahhjycpoqgvx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00044.png" id="46_316su"]
+[ext_resource type="Texture2D" uid="uid://dnredn7c317jy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00045.png" id="47_0hdmr"]
+[ext_resource type="Texture2D" uid="uid://2ka7slxirwtr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00046.png" id="48_ufxqg"]
+[ext_resource type="Texture2D" uid="uid://ba4euasxsvl8u" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00047.png" id="49_0sqgc"]
+[ext_resource type="Texture2D" uid="uid://b0p1mb4l5gdpm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00048.png" id="50_8w3cp"]
+[ext_resource type="Texture2D" uid="uid://dh74agv1axtf0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00049.png" id="51_ak08b"]
+[ext_resource type="Texture2D" uid="uid://bsif02q1qt2uf" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00050.png" id="52_0iwox"]
+[ext_resource type="Texture2D" uid="uid://c65e5tkx12ed6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00051.png" id="53_bbtih"]
+[ext_resource type="Texture2D" uid="uid://corg4dstnnqdx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00052.png" id="54_6532a"]
+[ext_resource type="Texture2D" uid="uid://cc3fffg3l0ie4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00053.png" id="55_q3w08"]
+[ext_resource type="Texture2D" uid="uid://cwmygfis4mjcg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00054.png" id="56_cx5fb"]
+[ext_resource type="Texture2D" uid="uid://x4u87jx6k6k2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00055.png" id="57_7qvdi"]
+[ext_resource type="Texture2D" uid="uid://bypfftv8dg6rt" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00056.png" id="58_arojg"]
+[ext_resource type="Texture2D" uid="uid://cpp3gl6k31en" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00057.png" id="59_alrtx"]
+[ext_resource type="Texture2D" uid="uid://f0be3o0nw11f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00058.png" id="60_m1ua7"]
+[ext_resource type="Texture2D" uid="uid://dbe1r5mv32s04" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00059.png" id="61_143xb"]
+[ext_resource type="Texture2D" uid="uid://dn5660kdgcl06" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00060.png" id="62_f1few"]
+[ext_resource type="Texture2D" uid="uid://ba1hbg0srf8t5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00061.png" id="63_5awb2"]
+[ext_resource type="Texture2D" uid="uid://dtmpsplsuake1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00062.png" id="64_61j5h"]
+[ext_resource type="Texture2D" uid="uid://dtm5hhh7t6vvp" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00063.png" id="65_376vl"]
+[ext_resource type="Texture2D" uid="uid://dxb8pmt2cd4sb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00064.png" id="66_tloak"]
+[ext_resource type="Texture2D" uid="uid://61bt2vjt2gu6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00065.png" id="67_5kkg7"]
+[ext_resource type="Texture2D" uid="uid://ca0g447rbwdl3" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00066.png" id="68_emai6"]
+[ext_resource type="Texture2D" uid="uid://ddd3bfjkny1bi" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00067.png" id="69_eu3u5"]
+[ext_resource type="Texture2D" uid="uid://roxsfh3fee3" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00068.png" id="70_6sojb"]
+[ext_resource type="Texture2D" uid="uid://h1ymklcnwrjb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00069.png" id="71_h7im6"]
+[ext_resource type="Texture2D" uid="uid://cktlnrokjnfn5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00070.png" id="72_gt0iw"]
+[ext_resource type="Texture2D" uid="uid://biy308c72txuy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00071.png" id="73_7h8ab"]
+[ext_resource type="Texture2D" uid="uid://ceavu4wi5cx0q" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00072.png" id="74_2gpug"]
+[ext_resource type="Texture2D" uid="uid://b11gmmk1ulb2y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00073.png" id="75_0bflp"]
+[ext_resource type="Texture2D" uid="uid://dgajftkllf0el" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00074.png" id="76_pvwyt"]
+[ext_resource type="Texture2D" uid="uid://4jycivw4x3rr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00075.png" id="77_q6ao4"]
+[ext_resource type="Texture2D" uid="uid://beqkx50sihha7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00076.png" id="78_dduxl"]
+[ext_resource type="Texture2D" uid="uid://dpvghcfhtqh81" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00077.png" id="79_2xtfj"]
+[ext_resource type="Texture2D" uid="uid://b46122cslwyqw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00078.png" id="80_hjpxh"]
+[ext_resource type="Texture2D" uid="uid://d2gv2brce0efu" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00079.png" id="81_r2lax"]
+[ext_resource type="Texture2D" uid="uid://dagltuo48r4ks" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00080.png" id="82_jwddp"]
+[ext_resource type="Texture2D" uid="uid://dc1cp88vps31l" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00081.png" id="83_m8hkw"]
+[ext_resource type="Texture2D" uid="uid://b20h1wkhm7hs1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00082.png" id="84_t0vj4"]
+[ext_resource type="Texture2D" uid="uid://bgjnvvjwfillv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00083.png" id="85_pspul"]
+[ext_resource type="Texture2D" uid="uid://brcvq0t1pede2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00084.png" id="86_d82ef"]
+[ext_resource type="Texture2D" uid="uid://cl1av67ul7bwm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00085.png" id="87_sn2xw"]
+[ext_resource type="Texture2D" uid="uid://biqx1o2ijcxls" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00086.png" id="88_p1twj"]
+[ext_resource type="Texture2D" uid="uid://x6ubyxwo4jl" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00087.png" id="89_kygfn"]
+[ext_resource type="Texture2D" uid="uid://b6yhghxtn0uir" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00088.png" id="90_j75d6"]
+[ext_resource type="Texture2D" uid="uid://dvwgqlpy4bltm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00089.png" id="91_ghu1a"]
+[ext_resource type="Texture2D" uid="uid://dda3v8fs1oy7p" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00090.png" id="92_e61hd"]
+[ext_resource type="Texture2D" uid="uid://c38ytvb31a3om" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00091.png" id="93_bwg6a"]
+[ext_resource type="Texture2D" uid="uid://bwvbcxm4tq5m1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00092.png" id="94_xtbd1"]
+[ext_resource type="Texture2D" uid="uid://dwrw62jkf5d7v" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00093.png" id="95_1hvcv"]
+[ext_resource type="Texture2D" uid="uid://cro6eo6tg0dv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00094.png" id="96_rbeua"]
+[ext_resource type="Texture2D" uid="uid://pwbqujxy26x1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00095.png" id="97_4qkbu"]
+[ext_resource type="Texture2D" uid="uid://rlpwvxbl6x1a" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00096.png" id="98_hiobr"]
+[ext_resource type="Texture2D" uid="uid://daa6an8mr7jin" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00097.png" id="99_sy21o"]
+[ext_resource type="Texture2D" uid="uid://byb5batjgwkqk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00098.png" id="100_lb7tp"]
+[ext_resource type="Texture2D" uid="uid://cxltnx5uqfk0l" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00099.png" id="101_gca2a"]
+[ext_resource type="Texture2D" uid="uid://8knp6wlgrodk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00100.png" id="102_qph55"]
+[ext_resource type="Texture2D" uid="uid://i513atkhblwc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00101.png" id="103_sgic4"]
+[ext_resource type="Texture2D" uid="uid://vkompt0nj4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00102.png" id="104_anuyv"]
+[ext_resource type="Texture2D" uid="uid://vg5am14rrw54" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00103.png" id="105_3h684"]
+[ext_resource type="Texture2D" uid="uid://bo7hnk0y61580" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00104.png" id="106_dhsdj"]
+[ext_resource type="Texture2D" uid="uid://d1t7ubp5t67me" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00105.png" id="107_dpwvd"]
+[ext_resource type="Texture2D" uid="uid://b3dliwqqdc8jy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00106.png" id="108_s5j8w"]
+[ext_resource type="Texture2D" uid="uid://bs8aes6ael81r" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00107.png" id="109_if2io"]
+[ext_resource type="Texture2D" uid="uid://bpx6rn83x542w" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00108.png" id="110_8lfr2"]
+[ext_resource type="Texture2D" uid="uid://dwqip6p5sin88" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00109.png" id="111_cow4t"]
+[ext_resource type="Texture2D" uid="uid://dfcme7bprmuqk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00110.png" id="112_wbq0d"]
+[ext_resource type="Texture2D" uid="uid://bbwfr461lkmxv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00111.png" id="113_7p5us"]
+[ext_resource type="Texture2D" uid="uid://bhqm0cwvu2ovu" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00112.png" id="114_ixj28"]
+[ext_resource type="Texture2D" uid="uid://n105r0nge25w" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00113.png" id="115_o7wpc"]
+[ext_resource type="Texture2D" uid="uid://d2gxx2bdwv7ge" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00114.png" id="116_c6nao"]
+[ext_resource type="Texture2D" uid="uid://cuh5g5wj5d1j5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00115.png" id="117_ll4rd"]
+[ext_resource type="Texture2D" uid="uid://dukuviwpbe5pg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00116.png" id="118_py16e"]
+[ext_resource type="Texture2D" uid="uid://cebjbix6df8tx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00117.png" id="119_01gve"]
+[ext_resource type="Texture2D" uid="uid://057lacohkt4o" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00118.png" id="120_n5bg2"]
+[ext_resource type="Texture2D" uid="uid://cw4retwfj508g" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00119.png" id="121_yb7yc"]
+[ext_resource type="Texture2D" uid="uid://deyjnewd4kbdn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00120.png" id="122_qosm2"]
+[ext_resource type="Texture2D" uid="uid://cupmu0fniqdxy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00121.png" id="123_4a64d"]
+[ext_resource type="Texture2D" uid="uid://h7r7aqbk4odi" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00122.png" id="124_3dbu0"]
+[ext_resource type="Texture2D" uid="uid://bdm0iab1fv7po" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00123.png" id="125_f138o"]
+[ext_resource type="Texture2D" uid="uid://odl7wuwrbswc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00124.png" id="126_38nw6"]
+[ext_resource type="Texture2D" uid="uid://fx5rxahcrl3g" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00125.png" id="127_oi83x"]
+[ext_resource type="Texture2D" uid="uid://c4egja52w46rd" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00126.png" id="128_6dsa1"]
+[ext_resource type="Texture2D" uid="uid://twn4ky3ek4g" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00127.png" id="129_eglyj"]
+[ext_resource type="Texture2D" uid="uid://c3rs6gp5lqkb0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00128.png" id="130_t0gqg"]
+[ext_resource type="Texture2D" uid="uid://bdq7grk8ereru" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00129.png" id="131_3fh47"]
+[ext_resource type="Texture2D" uid="uid://siqb8ucqnvdr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00130.png" id="132_3umsc"]
+[ext_resource type="Texture2D" uid="uid://cmfin4umxm6ui" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00131.png" id="133_4pscc"]
+[ext_resource type="Texture2D" uid="uid://ccimu7q0ayy02" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00132.png" id="134_hjrwe"]
+[ext_resource type="Texture2D" uid="uid://bs02jke7qm2lb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00133.png" id="135_ydsu3"]
+[ext_resource type="Texture2D" uid="uid://dqaswly71yedk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00134.png" id="136_5oxbr"]
+[ext_resource type="Texture2D" uid="uid://bgx5yum7tc8lv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00135.png" id="137_bhtql"]
+[ext_resource type="Texture2D" uid="uid://bs2rimbf3jsfo" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00136.png" id="138_imcho"]
+[ext_resource type="Texture2D" uid="uid://b16ch5a2680sb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00137.png" id="139_08jlj"]
+[ext_resource type="Texture2D" uid="uid://bthhkp44n31hm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00138.png" id="140_u2bco"]
+[ext_resource type="Texture2D" uid="uid://tsoflpugchu6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00139.png" id="141_vjamy"]
+[ext_resource type="Texture2D" uid="uid://fe07fae1meuh" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00140.png" id="142_53ywa"]
+[ext_resource type="Texture2D" uid="uid://c1nvracvnk0yy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00141.png" id="143_x2kkx"]
+[ext_resource type="Texture2D" uid="uid://b2wu0g8qdm0ed" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00142.png" id="144_6q0lp"]
+[ext_resource type="Texture2D" uid="uid://beu1e5n4bjjnc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00143.png" id="145_865jr"]
+[ext_resource type="Texture2D" uid="uid://d3nq6huwljhud" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00144.png" id="146_gprgb"]
+[ext_resource type="Texture2D" uid="uid://ds2gj0gad4ccg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00145.png" id="147_kkhw4"]
+[ext_resource type="Texture2D" uid="uid://ov124l1j41i1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00146.png" id="148_t2874"]
+[ext_resource type="Texture2D" uid="uid://b2uapop1xaprn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00147.png" id="149_ypanc"]
+[ext_resource type="Texture2D" uid="uid://4jil1od3majr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00148.png" id="150_nubmh"]
+[ext_resource type="Texture2D" uid="uid://cl0kmkvr7wpu6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00149.png" id="151_rw5bq"]
+[ext_resource type="Texture2D" uid="uid://wc7uayntcprc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00150.png" id="152_870w3"]
+[ext_resource type="Texture2D" uid="uid://xohjy4l6fit1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00151.png" id="153_vy0xr"]
+[ext_resource type="Texture2D" uid="uid://6ypeq4c06mgn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00152.png" id="154_vpcev"]
+[ext_resource type="Texture2D" uid="uid://duautxctpx84n" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00153.png" id="155_lni2p"]
+[ext_resource type="Texture2D" uid="uid://dvj2utsncb0hw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00154.png" id="156_fwgy3"]
+[ext_resource type="Texture2D" uid="uid://bym87fkrxnjbx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00155.png" id="157_q3lc3"]
+[ext_resource type="Texture2D" uid="uid://bd5y0qrrlta3v" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00156.png" id="158_i8kde"]
+[ext_resource type="Texture2D" uid="uid://bsuuu5rtwu08s" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00157.png" id="159_rhbxd"]
+[ext_resource type="Texture2D" uid="uid://bi2cfew6ttj7y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00158.png" id="160_ptkh3"]
+[ext_resource type="Texture2D" uid="uid://bee6i07c8jdoc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00159.png" id="161_8d8r0"]
+[ext_resource type="Texture2D" uid="uid://bi8b6nan67veq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00160.png" id="162_an5h0"]
+[ext_resource type="Texture2D" uid="uid://b25nvme7on8vh" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00161.png" id="163_ksdo2"]
+[ext_resource type="Texture2D" uid="uid://cl836atqv26a1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00162.png" id="164_aiop1"]
+[ext_resource type="Texture2D" uid="uid://diy4h5dt1hg1d" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00163.png" id="165_iipj5"]
+[ext_resource type="Texture2D" uid="uid://dohly2dm6vy62" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00164.png" id="166_g3ura"]
+[ext_resource type="Texture2D" uid="uid://o05b0p4c3vu0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00165.png" id="167_cmm6b"]
+[ext_resource type="Texture2D" uid="uid://2bam6hoy735f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00166.png" id="168_8wykb"]
+[ext_resource type="Texture2D" uid="uid://dramugf2whlbj" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00167.png" id="169_lfnok"]
+[ext_resource type="Texture2D" uid="uid://bnkrbxfrxui8y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00168.png" id="170_h6tu7"]
+[ext_resource type="Texture2D" uid="uid://blmi5310jcm2f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00169.png" id="171_e0trb"]
+[ext_resource type="Texture2D" uid="uid://b0ujwaqxgx1bq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00170.png" id="172_p7vqp"]
+[ext_resource type="Texture2D" uid="uid://dxx7uuwfs1641" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00171.png" id="173_371sw"]
+[ext_resource type="Texture2D" uid="uid://b7xvg5ddnj4w3" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00172.png" id="174_7yxyq"]
+[ext_resource type="Texture2D" uid="uid://bpd31kn6ytpxt" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00173.png" id="175_uiyru"]
+[ext_resource type="Texture2D" uid="uid://pwyi0o7j8f02" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00174.png" id="176_n2enx"]
+[ext_resource type="Texture2D" uid="uid://c8aor2xs3yav4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00175.png" id="177_h6mn6"]
+[ext_resource type="Texture2D" uid="uid://blm0q3dfkv7hn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00176.png" id="178_ccx8h"]
+[ext_resource type="Texture2D" uid="uid://nq1htqeyv6l3" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00177.png" id="179_jcgi0"]
+[ext_resource type="Texture2D" uid="uid://cxyq8utug0rtv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00178.png" id="180_v25dq"]
+[ext_resource type="Texture2D" uid="uid://hlf8cmnr5u4t" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00179.png" id="181_n65dh"]
+[ext_resource type="Texture2D" uid="uid://b76mup4f6sxku" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00180.png" id="182_7u8mh"]
+[ext_resource type="Texture2D" uid="uid://7gh2hknm3n8b" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00181.png" id="183_fof3i"]
+[ext_resource type="Texture2D" uid="uid://d21johw5id58v" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00182.png" id="184_ag67c"]
+[ext_resource type="Texture2D" uid="uid://d13eh3vm3okbj" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00183.png" id="185_imyq8"]
+[ext_resource type="Texture2D" uid="uid://v4uwy4ginkbc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00184.png" id="186_nyh4n"]
+[ext_resource type="Texture2D" uid="uid://c06k3u3ciypxn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00185.png" id="187_vnuw1"]
+[ext_resource type="Texture2D" uid="uid://c4ynmcbbru22e" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00186.png" id="188_dncyr"]
+[ext_resource type="Texture2D" uid="uid://xq58lt3wx40b" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00187.png" id="189_eo8em"]
+[ext_resource type="Texture2D" uid="uid://c3gtmiggsuuu" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00188.png" id="190_gntdu"]
+[ext_resource type="Texture2D" uid="uid://ct8k7o8s8ca4f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00189.png" id="191_3y3hv"]
+[ext_resource type="Texture2D" uid="uid://cxma5abrk6ykk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00190.png" id="192_4q756"]
+[ext_resource type="Texture2D" uid="uid://w8e4gm26d5gw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00191.png" id="193_fx61a"]
+[ext_resource type="Texture2D" uid="uid://csejal6yngp8c" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00192.png" id="194_2x15u"]
+[ext_resource type="Texture2D" uid="uid://cmexa6wn8xk06" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00193.png" id="195_s6lgg"]
+[ext_resource type="Texture2D" uid="uid://cgikpvtlaek7l" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00194.png" id="196_6ic1n"]
+[ext_resource type="Texture2D" uid="uid://fnopa3rhk08f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00195.png" id="197_23gg2"]
+[ext_resource type="Texture2D" uid="uid://ckhwvfdcx7w6k" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00196.png" id="198_6v1wp"]
+[ext_resource type="Texture2D" uid="uid://bhuy0av00u2pw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00197.png" id="199_l2ghl"]
+[ext_resource type="Texture2D" uid="uid://bon4xoan1sdns" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00198.png" id="200_evj7w"]
+[ext_resource type="Texture2D" uid="uid://bdv5efqmtrvkm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00199.png" id="201_20qjd"]
+[ext_resource type="Texture2D" uid="uid://y5ktj0munfqm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00200.png" id="202_5l0l8"]
+[ext_resource type="Texture2D" uid="uid://imht1pq16pgj" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00201.png" id="203_hikuw"]
+[ext_resource type="Texture2D" uid="uid://df774gi4wpbh6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00202.png" id="204_ppxd0"]
+[ext_resource type="Texture2D" uid="uid://cvdi3bltjvl57" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00203.png" id="205_vcuo0"]
+[ext_resource type="Texture2D" uid="uid://08rl1o3ujuqr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00204.png" id="206_ovvyh"]
+[ext_resource type="Texture2D" uid="uid://cbpgqy7bc0sop" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00205.png" id="207_5owkq"]
+[ext_resource type="Texture2D" uid="uid://dea24yauwjmrs" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00206.png" id="208_lg3ja"]
+[ext_resource type="Texture2D" uid="uid://b3mr87h0fpdw6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00207.png" id="209_jqiwb"]
+[ext_resource type="Texture2D" uid="uid://bhkpnlwbdy72v" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00208.png" id="210_ya1ny"]
+[ext_resource type="Texture2D" uid="uid://ckelmxbd4h8jq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00209.png" id="211_d2xxh"]
+[ext_resource type="Texture2D" uid="uid://cakvhr4niersu" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00210.png" id="212_uj36v"]
+[ext_resource type="Texture2D" uid="uid://bqytv1jkpjcbv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00211.png" id="213_omgpn"]
+[ext_resource type="Texture2D" uid="uid://durwp855kin7c" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00212.png" id="214_6qka1"]
+[ext_resource type="Texture2D" uid="uid://db7owp6e3j8ko" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00213.png" id="215_5i7sr"]
+[ext_resource type="Texture2D" uid="uid://bo52vxkd5rmue" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00214.png" id="216_poaeo"]
+[ext_resource type="Texture2D" uid="uid://ciohg3h8aso47" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00215.png" id="217_khwyl"]
+[ext_resource type="Texture2D" uid="uid://bkvvn7asx383t" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00216.png" id="218_ginv7"]
+[ext_resource type="Texture2D" uid="uid://bxe65wklk7fw0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00217.png" id="219_rwamd"]
+[ext_resource type="Texture2D" uid="uid://b8g7li3u0gwsv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00218.png" id="220_w58l8"]
+[ext_resource type="Texture2D" uid="uid://d1gdmjp6g4tj4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00219.png" id="221_elin2"]
+[ext_resource type="Texture2D" uid="uid://b7xvb8c6vh3pg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00220.png" id="222_ha64a"]
+[ext_resource type="Texture2D" uid="uid://b1wpe34ivwrcx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00221.png" id="223_u84w5"]
+[ext_resource type="Texture2D" uid="uid://cyt2hrcx6t4mg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00222.png" id="224_8lknn"]
+[ext_resource type="Texture2D" uid="uid://d2renvdk46uwv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00223.png" id="225_sx228"]
+[ext_resource type="Texture2D" uid="uid://r0l2fbif1s01" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00224.png" id="226_cwk0w"]
+[ext_resource type="Texture2D" uid="uid://2js8i3qu2me4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00225.png" id="227_r8p4u"]
+[ext_resource type="Texture2D" uid="uid://dcrs88s0qh503" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00226.png" id="228_4icce"]
+[ext_resource type="Texture2D" uid="uid://jqac7vnm4hay" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00227.png" id="229_g63nq"]
+[ext_resource type="Texture2D" uid="uid://dpk41opxhairv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00228.png" id="230_2142w"]
+[ext_resource type="Texture2D" uid="uid://ds2axggftrqa6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00229.png" id="231_dxm0q"]
+[ext_resource type="Texture2D" uid="uid://ctshow2irqjq6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00230.png" id="232_rla88"]
+[ext_resource type="Texture2D" uid="uid://dunj3i1r252nj" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00231.png" id="233_l022o"]
+[ext_resource type="Texture2D" uid="uid://c0knlks0ppdks" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00232.png" id="234_buy78"]
+[ext_resource type="Texture2D" uid="uid://biccnn5od8ccy" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00233.png" id="235_jsfug"]
+[ext_resource type="Texture2D" uid="uid://cvmo4x8hier2p" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00234.png" id="236_gbryj"]
+[ext_resource type="Texture2D" uid="uid://7wixho7nltbl" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00235.png" id="237_oxhwf"]
+[ext_resource type="Texture2D" uid="uid://hlp85wel0b77" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00236.png" id="238_fdvo6"]
+[ext_resource type="Texture2D" uid="uid://crtlfg261umpe" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00237.png" id="239_a0h5w"]
+[ext_resource type="Texture2D" uid="uid://htmpvy3x4k85" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00238.png" id="240_jwsa7"]
+[ext_resource type="Texture2D" uid="uid://b2d13qmivwx1n" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00239.png" id="241_gwg52"]
+[ext_resource type="Texture2D" uid="uid://cd8hjf1ubgk1m" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00240.png" id="242_1mbjp"]
+[ext_resource type="Texture2D" uid="uid://c6nbsuowtvx62" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00241.png" id="243_y5ih3"]
+[ext_resource type="Texture2D" uid="uid://cp45cxrr3xvpo" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00242.png" id="244_svus5"]
+[ext_resource type="Texture2D" uid="uid://baknodmwgthht" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00243.png" id="245_6m56a"]
+[ext_resource type="Texture2D" uid="uid://c5ssjs4fnshjh" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00244.png" id="246_6xpww"]
+[ext_resource type="Texture2D" uid="uid://bp3ield6qfeh0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00245.png" id="247_q08tm"]
+[ext_resource type="Texture2D" uid="uid://dcebrvind3mva" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00246.png" id="248_u1gm7"]
+[ext_resource type="Texture2D" uid="uid://dylie3ggt385y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00247.png" id="249_wuy36"]
+[ext_resource type="Texture2D" uid="uid://vunvkg4u0hm1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00248.png" id="250_g5odm"]
+[ext_resource type="Texture2D" uid="uid://bbnbsmn1lbapm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00249.png" id="251_db2le"]
+[ext_resource type="Texture2D" uid="uid://crmj57uguhswk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00250.png" id="252_fsx4d"]
+[ext_resource type="Texture2D" uid="uid://bd4muk36m73df" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00251.png" id="253_b0jg1"]
+[ext_resource type="Texture2D" uid="uid://dk2njgnxj3834" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00252.png" id="254_burxd"]
+[ext_resource type="Texture2D" uid="uid://biyjd8pqvks8a" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00253.png" id="255_lhjjy"]
+[ext_resource type="Texture2D" uid="uid://dsy8jvfqq7fp4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00254.png" id="256_8036e"]
+[ext_resource type="Texture2D" uid="uid://csiucpp73tnjc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00255.png" id="257_fmi0e"]
+[ext_resource type="Texture2D" uid="uid://bmjsvwt1m3ag5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00256.png" id="258_i7j3f"]
+[ext_resource type="Texture2D" uid="uid://7f35wn5rsg6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00257.png" id="259_wycv6"]
+[ext_resource type="Texture2D" uid="uid://dfcdogivwld0c" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00258.png" id="260_psm7x"]
+[ext_resource type="Texture2D" uid="uid://xpu2l0n53wko" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00259.png" id="261_dh25d"]
+[ext_resource type="Texture2D" uid="uid://b367egjr8mepg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00260.png" id="262_ttjnn"]
+[ext_resource type="Texture2D" uid="uid://c5pyq7upk0ijr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00261.png" id="263_kh6qj"]
+[ext_resource type="Texture2D" uid="uid://dcy1rmxtfo7t7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00262.png" id="264_2i64c"]
+[ext_resource type="Texture2D" uid="uid://ddeugfnm1qeb8" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00263.png" id="265_kio4u"]
+[ext_resource type="Texture2D" uid="uid://bpl0ktqow13n2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00264.png" id="266_nrdj2"]
+[ext_resource type="Texture2D" uid="uid://cbxhynvyui7c7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00265.png" id="267_hwr03"]
+[ext_resource type="Texture2D" uid="uid://cc8a7bk864q65" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00266.png" id="268_57spe"]
+[ext_resource type="Texture2D" uid="uid://b44dotgclbve5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00267.png" id="269_d8tcc"]
+[ext_resource type="Texture2D" uid="uid://pms4jgxwiftn" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00268.png" id="270_mnim8"]
+[ext_resource type="Texture2D" uid="uid://cyux2rfln56dh" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00269.png" id="271_retqm"]
+[ext_resource type="Texture2D" uid="uid://u1lant5fbeha" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00270.png" id="272_bui5t"]
+[ext_resource type="Texture2D" uid="uid://i11n1xjgakwf" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00271.png" id="273_03olb"]
+[ext_resource type="Texture2D" uid="uid://vxeiviku5s77" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00272.png" id="274_rd2de"]
+[ext_resource type="Texture2D" uid="uid://dculbrgbicpe" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00273.png" id="275_7xydc"]
+[ext_resource type="Texture2D" uid="uid://b37pc1dd3fpud" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00274.png" id="276_m3d3p"]
+[ext_resource type="Texture2D" uid="uid://bcb3c3holnwm2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00275.png" id="277_dnf57"]
+[ext_resource type="Texture2D" uid="uid://cdp0iiw3h0aua" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00276.png" id="278_sfbab"]
+[ext_resource type="Texture2D" uid="uid://drmds57ku1k7c" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00277.png" id="279_uyoxy"]
+[ext_resource type="Texture2D" uid="uid://r77fiyxpp4he" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00278.png" id="280_kclq8"]
+[ext_resource type="Texture2D" uid="uid://b10mr85tn1duh" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00279.png" id="281_e6e8u"]
+[ext_resource type="Texture2D" uid="uid://bq4h5uqtt1fa1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00280.png" id="282_2q0mt"]
+[ext_resource type="Texture2D" uid="uid://bsxc5qwd7lcj" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00281.png" id="283_7k26o"]
+[ext_resource type="Texture2D" uid="uid://civuvxw0jwlwb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00282.png" id="284_54lq8"]
+[ext_resource type="Texture2D" uid="uid://ms1e5vc7k57y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00283.png" id="285_cr1df"]
+[ext_resource type="Texture2D" uid="uid://bxy1270c8em0k" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00284.png" id="286_0qovk"]
+[ext_resource type="Texture2D" uid="uid://bkemfqawhmpb6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00285.png" id="287_bwv38"]
+[ext_resource type="Texture2D" uid="uid://ba1ydnsw5vtps" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00286.png" id="288_by3lx"]
+[ext_resource type="Texture2D" uid="uid://b46un32oa5dtm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00287.png" id="289_q83dt"]
+[ext_resource type="Texture2D" uid="uid://cxxv0juk35c62" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00288.png" id="290_7crwg"]
+[ext_resource type="Texture2D" uid="uid://d1g4d0fcy234f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00289.png" id="291_u4jul"]
+[ext_resource type="Texture2D" uid="uid://b1qbqg0hjqal" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00290.png" id="292_f53iy"]
+[ext_resource type="Texture2D" uid="uid://b0aueajfmoe4m" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00291.png" id="293_t0bnr"]
+[ext_resource type="Texture2D" uid="uid://ccraxsmnnr7vg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00292.png" id="294_w77s0"]
+[ext_resource type="Texture2D" uid="uid://dclk7qbhs072p" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00293.png" id="295_xhtqh"]
+[ext_resource type="Texture2D" uid="uid://cnxfhmx3cl8bf" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00294.png" id="296_6nbm8"]
+[ext_resource type="Texture2D" uid="uid://re2mnr2ufckq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00295.png" id="297_flwgj"]
+[ext_resource type="Texture2D" uid="uid://bgweyqh7o0j1" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00296.png" id="298_kskev"]
+[ext_resource type="Texture2D" uid="uid://c73nuwpixkngi" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00297.png" id="299_xr0tv"]
+[ext_resource type="Texture2D" uid="uid://0nvg6mecvkxg" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00298.png" id="300_2jyex"]
+[ext_resource type="Texture2D" uid="uid://c1ps1v2occqro" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00299.png" id="301_o5vit"]
+[ext_resource type="Texture2D" uid="uid://cd00d2h0qihr6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00300.png" id="302_ds0bm"]
+[ext_resource type="Texture2D" uid="uid://keh644fmrnte" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00301.png" id="303_0te3i"]
+[ext_resource type="Texture2D" uid="uid://4xilsbchm1bw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00302.png" id="304_mrhcj"]
+[ext_resource type="Texture2D" uid="uid://dp2gj1uteqsjx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00303.png" id="305_hspek"]
+[ext_resource type="Texture2D" uid="uid://dv4puv57dmx5x" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00304.png" id="306_tmvqi"]
+[ext_resource type="Texture2D" uid="uid://ba5n4tjqrp8kw" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00305.png" id="307_na1wd"]
+[ext_resource type="Texture2D" uid="uid://dib43nkquhsbc" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00306.png" id="308_db20s"]
+[ext_resource type="Texture2D" uid="uid://c4xaaonceg1jb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00307.png" id="309_uffqu"]
+[ext_resource type="Texture2D" uid="uid://dn173in6dhapb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00308.png" id="310_fvden"]
+[ext_resource type="Texture2D" uid="uid://de4kokw28rrs7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00309.png" id="311_ts1p0"]
+[ext_resource type="Texture2D" uid="uid://nhmvfvr4qy6j" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00310.png" id="312_kfxgy"]
+[ext_resource type="Texture2D" uid="uid://clwwln0ydwr0v" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00311.png" id="313_yij6b"]
+[ext_resource type="Texture2D" uid="uid://jypxe6dqe1fb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00312.png" id="314_u67cm"]
+[ext_resource type="Texture2D" uid="uid://dkhrb2wxka7wq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00313.png" id="315_bq1ut"]
+[ext_resource type="Texture2D" uid="uid://bokedka4prt76" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00314.png" id="316_27lpl"]
+[ext_resource type="Texture2D" uid="uid://owytcucsm40f" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00315.png" id="317_gettl"]
+[ext_resource type="Texture2D" uid="uid://basgnkyox5jfr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00316.png" id="318_pihkx"]
+[ext_resource type="Texture2D" uid="uid://v0u5g4pvlyva" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00317.png" id="319_ktvud"]
+[ext_resource type="Texture2D" uid="uid://bclb2l5qf58jt" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00318.png" id="320_860dd"]
+[ext_resource type="Texture2D" uid="uid://8najxn1iwymr" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00319.png" id="321_3hcfq"]
+[ext_resource type="Texture2D" uid="uid://b3ddy1cdicocs" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00320.png" id="322_eojp7"]
+[ext_resource type="Texture2D" uid="uid://lu72n2vy8y3p" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00321.png" id="323_yfw4d"]
+[ext_resource type="Texture2D" uid="uid://bxjrjyh3hyuqp" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00322.png" id="324_rhyb0"]
+[ext_resource type="Texture2D" uid="uid://2br1pdemeide" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00323.png" id="325_yispn"]
+[ext_resource type="Texture2D" uid="uid://cr8o1m324bah6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00324.png" id="326_7jrnk"]
+[ext_resource type="Texture2D" uid="uid://bp0oykfdpgi" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00325.png" id="327_t7r5s"]
+[ext_resource type="Texture2D" uid="uid://bb57jj2xpv2nb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00326.png" id="328_8hmwt"]
+[ext_resource type="Texture2D" uid="uid://bmn5ugds4yc7x" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00327.png" id="329_64hq3"]
+[ext_resource type="Texture2D" uid="uid://dgm3ci8mb2ebk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00328.png" id="330_wwbnq"]
+[ext_resource type="Texture2D" uid="uid://c76dml00qfvbk" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00329.png" id="331_7xbhp"]
+[ext_resource type="Texture2D" uid="uid://cwd8grh3sjnxo" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00330.png" id="332_w161y"]
+[ext_resource type="Texture2D" uid="uid://b31qty0u6cmj6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00331.png" id="333_ljw24"]
+[ext_resource type="Texture2D" uid="uid://b2nbwtk76ymkq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00332.png" id="334_cm0gn"]
+[ext_resource type="Texture2D" uid="uid://dlmltk7uf6jni" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00333.png" id="335_t5qtw"]
+[ext_resource type="Texture2D" uid="uid://da0htwrn8eml0" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00334.png" id="336_375v5"]
+[ext_resource type="Texture2D" uid="uid://b35ewdg0p4ij4" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00335.png" id="337_qyr8m"]
+[ext_resource type="Texture2D" uid="uid://3nvxluxbhdl" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00336.png" id="338_fux1p"]
+[ext_resource type="Texture2D" uid="uid://4uh4tno33vpb" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00337.png" id="339_21qfr"]
+[ext_resource type="Texture2D" uid="uid://3mvl21ss0o0e" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00338.png" id="340_6tnig"]
+[ext_resource type="Texture2D" uid="uid://cwmdnxkjxso6t" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00339.png" id="341_5vhy7"]
+[ext_resource type="Texture2D" uid="uid://cm2n5la5tye8y" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00340.png" id="342_r74x1"]
+[ext_resource type="Texture2D" uid="uid://bkkrjn6qhoy7s" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00341.png" id="343_ckcw1"]
+[ext_resource type="Texture2D" uid="uid://bfpxvx57smhin" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00342.png" id="344_om1iv"]
+[ext_resource type="Texture2D" uid="uid://by1ecdwxorth6" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00343.png" id="345_uexk1"]
+[ext_resource type="Texture2D" uid="uid://tffiq2js2w0p" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00344.png" id="346_dsifn"]
+[ext_resource type="Texture2D" uid="uid://bcvgdv68qc08b" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00345.png" id="347_alh06"]
+[ext_resource type="Texture2D" uid="uid://biq12ns3iw2n5" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00346.png" id="348_jmjt2"]
+[ext_resource type="Texture2D" uid="uid://dakx7moxo48ac" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00347.png" id="349_l51m2"]
+[ext_resource type="Texture2D" uid="uid://ipblpgnqbjqe" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00348.png" id="350_lw02t"]
+[ext_resource type="Texture2D" uid="uid://cw6mhqnw0epqv" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00349.png" id="351_rohbf"]
+[ext_resource type="Texture2D" uid="uid://dqbcfiw2fbgf2" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00350.png" id="352_bpq21"]
+[ext_resource type="Texture2D" uid="uid://bc8suh824j2k7" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00351.png" id="353_3hinw"]
+[ext_resource type="Texture2D" uid="uid://djj8kx6k71if" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00352.png" id="354_fkj6v"]
+[ext_resource type="Texture2D" uid="uid://hphvs2dfeeqm" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00353.png" id="355_82t1y"]
+[ext_resource type="Texture2D" uid="uid://cetvnesjmyctd" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00354.png" id="356_5mdig"]
+[ext_resource type="Texture2D" uid="uid://dmcl57r0o3518" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00355.png" id="357_gretq"]
+[ext_resource type="Texture2D" uid="uid://c03d5o4plgnm8" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00356.png" id="358_iciwe"]
+[ext_resource type="Texture2D" uid="uid://bva20o8eff2yx" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00357.png" id="359_onvnn"]
+[ext_resource type="Texture2D" uid="uid://cqrhs1estpgnq" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00358.png" id="360_bmygy"]
+[ext_resource type="Texture2D" uid="uid://c36dgc6qykwom" path="res://tests/assets/fire-droid_logo_opening/frames/fire-droid-logo-animated-transparent-bg_frame-00359.png" id="361_thu3y"]
+[ext_resource type="AudioStream" uid="uid://gfrmdr1xi5y1" path="res://addons/fire_droid_core/media/fire-droid_logo_opening/fire-droid-logo-animated-audio.ogg" id="362_pxbl6"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_73gor"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_0kasx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_h3q6q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_bpf4s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_bx4vy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_jjtuo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_r4gn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("8_wicit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("9_ujbhn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("10_ra3t6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("11_oaa4r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("12_xyqbo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("13_0hx71")
+}, {
+"duration": 1.0,
+"texture": ExtResource("14_ectjx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("15_gl3xj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("16_lcrfp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("17_m4j56")
+}, {
+"duration": 1.0,
+"texture": ExtResource("18_ylq0x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("19_atxu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("20_ha4j0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("21_a4njr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("22_5x5xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("23_ic0rw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("24_x1ue1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("25_nogog")
+}, {
+"duration": 1.0,
+"texture": ExtResource("26_8em1k")
+}, {
+"duration": 1.0,
+"texture": ExtResource("27_3csoi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("28_qooxb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("29_jdkl2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("30_x3of2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("31_07f7s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("32_hhw50")
+}, {
+"duration": 1.0,
+"texture": ExtResource("33_ok5sd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("34_6n2ql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("35_yrk1r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("36_3u176")
+}, {
+"duration": 1.0,
+"texture": ExtResource("37_c30ge")
+}, {
+"duration": 1.0,
+"texture": ExtResource("38_nigma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("39_e7c3o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("40_4eavt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("41_swc6s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("42_26qla")
+}, {
+"duration": 1.0,
+"texture": ExtResource("43_i1tau")
+}, {
+"duration": 1.0,
+"texture": ExtResource("44_kjn8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("45_uaheq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("46_316su")
+}, {
+"duration": 1.0,
+"texture": ExtResource("47_0hdmr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("48_ufxqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("49_0sqgc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("50_8w3cp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("51_ak08b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("52_0iwox")
+}, {
+"duration": 1.0,
+"texture": ExtResource("53_bbtih")
+}, {
+"duration": 1.0,
+"texture": ExtResource("54_6532a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("55_q3w08")
+}, {
+"duration": 1.0,
+"texture": ExtResource("56_cx5fb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("57_7qvdi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("58_arojg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("59_alrtx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("60_m1ua7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("61_143xb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("62_f1few")
+}, {
+"duration": 1.0,
+"texture": ExtResource("63_5awb2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("64_61j5h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("65_376vl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("66_tloak")
+}, {
+"duration": 1.0,
+"texture": ExtResource("67_5kkg7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("68_emai6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("69_eu3u5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("70_6sojb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("71_h7im6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("72_gt0iw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("73_7h8ab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("74_2gpug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("75_0bflp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("76_pvwyt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("77_q6ao4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("78_dduxl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("79_2xtfj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("80_hjpxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("81_r2lax")
+}, {
+"duration": 1.0,
+"texture": ExtResource("82_jwddp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("83_m8hkw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("84_t0vj4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("85_pspul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("86_d82ef")
+}, {
+"duration": 1.0,
+"texture": ExtResource("87_sn2xw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("88_p1twj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("89_kygfn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("90_j75d6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("91_ghu1a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("92_e61hd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("93_bwg6a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("94_xtbd1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("95_1hvcv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("96_rbeua")
+}, {
+"duration": 1.0,
+"texture": ExtResource("97_4qkbu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("98_hiobr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("99_sy21o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("100_lb7tp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("101_gca2a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("102_qph55")
+}, {
+"duration": 1.0,
+"texture": ExtResource("103_sgic4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("104_anuyv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("105_3h684")
+}, {
+"duration": 1.0,
+"texture": ExtResource("106_dhsdj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("107_dpwvd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("108_s5j8w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("109_if2io")
+}, {
+"duration": 1.0,
+"texture": ExtResource("110_8lfr2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("111_cow4t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("112_wbq0d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("113_7p5us")
+}, {
+"duration": 1.0,
+"texture": ExtResource("114_ixj28")
+}, {
+"duration": 1.0,
+"texture": ExtResource("115_o7wpc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("116_c6nao")
+}, {
+"duration": 1.0,
+"texture": ExtResource("117_ll4rd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("118_py16e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("119_01gve")
+}, {
+"duration": 1.0,
+"texture": ExtResource("120_n5bg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("121_yb7yc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("122_qosm2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("123_4a64d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("124_3dbu0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("125_f138o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("126_38nw6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("127_oi83x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("128_6dsa1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("129_eglyj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("130_t0gqg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("131_3fh47")
+}, {
+"duration": 1.0,
+"texture": ExtResource("132_3umsc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("133_4pscc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("134_hjrwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("135_ydsu3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("136_5oxbr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("137_bhtql")
+}, {
+"duration": 1.0,
+"texture": ExtResource("138_imcho")
+}, {
+"duration": 1.0,
+"texture": ExtResource("139_08jlj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("140_u2bco")
+}, {
+"duration": 1.0,
+"texture": ExtResource("141_vjamy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("142_53ywa")
+}, {
+"duration": 1.0,
+"texture": ExtResource("143_x2kkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("144_6q0lp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("145_865jr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("146_gprgb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("147_kkhw4")
+}, {
+"duration": 1.0,
+"texture": ExtResource("148_t2874")
+}, {
+"duration": 1.0,
+"texture": ExtResource("149_ypanc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("150_nubmh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("151_rw5bq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("152_870w3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("153_vy0xr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("154_vpcev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("155_lni2p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("156_fwgy3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("157_q3lc3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("158_i8kde")
+}, {
+"duration": 1.0,
+"texture": ExtResource("159_rhbxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("160_ptkh3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("161_8d8r0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("162_an5h0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("163_ksdo2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("164_aiop1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("165_iipj5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("166_g3ura")
+}, {
+"duration": 1.0,
+"texture": ExtResource("167_cmm6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("168_8wykb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("169_lfnok")
+}, {
+"duration": 1.0,
+"texture": ExtResource("170_h6tu7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("171_e0trb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("172_p7vqp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("173_371sw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("174_7yxyq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("175_uiyru")
+}, {
+"duration": 1.0,
+"texture": ExtResource("176_n2enx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("177_h6mn6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("178_ccx8h")
+}, {
+"duration": 1.0,
+"texture": ExtResource("179_jcgi0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("180_v25dq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("181_n65dh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("182_7u8mh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("183_fof3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("184_ag67c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("185_imyq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("186_nyh4n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("187_vnuw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("188_dncyr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("189_eo8em")
+}, {
+"duration": 1.0,
+"texture": ExtResource("190_gntdu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("191_3y3hv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("192_4q756")
+}, {
+"duration": 1.0,
+"texture": ExtResource("193_fx61a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("194_2x15u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("195_s6lgg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("196_6ic1n")
+}, {
+"duration": 1.0,
+"texture": ExtResource("197_23gg2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("198_6v1wp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("199_l2ghl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("200_evj7w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("201_20qjd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("202_5l0l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("203_hikuw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("204_ppxd0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("205_vcuo0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("206_ovvyh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("207_5owkq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("208_lg3ja")
+}, {
+"duration": 1.0,
+"texture": ExtResource("209_jqiwb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("210_ya1ny")
+}, {
+"duration": 1.0,
+"texture": ExtResource("211_d2xxh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("212_uj36v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("213_omgpn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("214_6qka1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("215_5i7sr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("216_poaeo")
+}, {
+"duration": 1.0,
+"texture": ExtResource("217_khwyl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("218_ginv7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("219_rwamd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("220_w58l8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("221_elin2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("222_ha64a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("223_u84w5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("224_8lknn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("225_sx228")
+}, {
+"duration": 1.0,
+"texture": ExtResource("226_cwk0w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("227_r8p4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("228_4icce")
+}, {
+"duration": 1.0,
+"texture": ExtResource("229_g63nq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("230_2142w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("231_dxm0q")
+}, {
+"duration": 1.0,
+"texture": ExtResource("232_rla88")
+}, {
+"duration": 1.0,
+"texture": ExtResource("233_l022o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("234_buy78")
+}, {
+"duration": 1.0,
+"texture": ExtResource("235_jsfug")
+}, {
+"duration": 1.0,
+"texture": ExtResource("236_gbryj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("237_oxhwf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("238_fdvo6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("239_a0h5w")
+}, {
+"duration": 1.0,
+"texture": ExtResource("240_jwsa7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("241_gwg52")
+}, {
+"duration": 1.0,
+"texture": ExtResource("242_1mbjp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("243_y5ih3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("244_svus5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("245_6m56a")
+}, {
+"duration": 1.0,
+"texture": ExtResource("246_6xpww")
+}, {
+"duration": 1.0,
+"texture": ExtResource("247_q08tm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("248_u1gm7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("249_wuy36")
+}, {
+"duration": 1.0,
+"texture": ExtResource("250_g5odm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("251_db2le")
+}, {
+"duration": 1.0,
+"texture": ExtResource("252_fsx4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("253_b0jg1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("254_burxd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("255_lhjjy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("256_8036e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("257_fmi0e")
+}, {
+"duration": 1.0,
+"texture": ExtResource("258_i7j3f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("259_wycv6")
+}, {
+"duration": 1.0,
+"texture": ExtResource("260_psm7x")
+}, {
+"duration": 1.0,
+"texture": ExtResource("261_dh25d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("262_ttjnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("263_kh6qj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("264_2i64c")
+}, {
+"duration": 1.0,
+"texture": ExtResource("265_kio4u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("266_nrdj2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("267_hwr03")
+}, {
+"duration": 1.0,
+"texture": ExtResource("268_57spe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("269_d8tcc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("270_mnim8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("271_retqm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("272_bui5t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("273_03olb")
+}, {
+"duration": 1.0,
+"texture": ExtResource("274_rd2de")
+}, {
+"duration": 1.0,
+"texture": ExtResource("275_7xydc")
+}, {
+"duration": 1.0,
+"texture": ExtResource("276_m3d3p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("277_dnf57")
+}, {
+"duration": 1.0,
+"texture": ExtResource("278_sfbab")
+}, {
+"duration": 1.0,
+"texture": ExtResource("279_uyoxy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("280_kclq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("281_e6e8u")
+}, {
+"duration": 1.0,
+"texture": ExtResource("282_2q0mt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("283_7k26o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("284_54lq8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("285_cr1df")
+}, {
+"duration": 1.0,
+"texture": ExtResource("286_0qovk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("287_bwv38")
+}, {
+"duration": 1.0,
+"texture": ExtResource("288_by3lx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("289_q83dt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("290_7crwg")
+}, {
+"duration": 1.0,
+"texture": ExtResource("291_u4jul")
+}, {
+"duration": 1.0,
+"texture": ExtResource("292_f53iy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("293_t0bnr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("294_w77s0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("295_xhtqh")
+}, {
+"duration": 1.0,
+"texture": ExtResource("296_6nbm8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("297_flwgj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("298_kskev")
+}, {
+"duration": 1.0,
+"texture": ExtResource("299_xr0tv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("300_2jyex")
+}, {
+"duration": 1.0,
+"texture": ExtResource("301_o5vit")
+}, {
+"duration": 1.0,
+"texture": ExtResource("302_ds0bm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("303_0te3i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("304_mrhcj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("305_hspek")
+}, {
+"duration": 1.0,
+"texture": ExtResource("306_tmvqi")
+}, {
+"duration": 1.0,
+"texture": ExtResource("307_na1wd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("308_db20s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("309_uffqu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("310_fvden")
+}, {
+"duration": 1.0,
+"texture": ExtResource("311_ts1p0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("312_kfxgy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("313_yij6b")
+}, {
+"duration": 1.0,
+"texture": ExtResource("314_u67cm")
+}, {
+"duration": 1.0,
+"texture": ExtResource("315_bq1ut")
+}, {
+"duration": 1.0,
+"texture": ExtResource("316_27lpl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("317_gettl")
+}, {
+"duration": 1.0,
+"texture": ExtResource("318_pihkx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("319_ktvud")
+}, {
+"duration": 1.0,
+"texture": ExtResource("320_860dd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("321_3hcfq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("322_eojp7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("323_yfw4d")
+}, {
+"duration": 1.0,
+"texture": ExtResource("324_rhyb0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("325_yispn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("326_7jrnk")
+}, {
+"duration": 1.0,
+"texture": ExtResource("327_t7r5s")
+}, {
+"duration": 1.0,
+"texture": ExtResource("328_8hmwt")
+}, {
+"duration": 1.0,
+"texture": ExtResource("329_64hq3")
+}, {
+"duration": 1.0,
+"texture": ExtResource("330_wwbnq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("331_7xbhp")
+}, {
+"duration": 1.0,
+"texture": ExtResource("332_w161y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("333_ljw24")
+}, {
+"duration": 1.0,
+"texture": ExtResource("334_cm0gn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("335_t5qtw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("336_375v5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("337_qyr8m")
+}, {
+"duration": 1.0,
+"texture": ExtResource("338_fux1p")
+}, {
+"duration": 1.0,
+"texture": ExtResource("339_21qfr")
+}, {
+"duration": 1.0,
+"texture": ExtResource("340_6tnig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("341_5vhy7")
+}, {
+"duration": 1.0,
+"texture": ExtResource("342_r74x1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("343_ckcw1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("344_om1iv")
+}, {
+"duration": 1.0,
+"texture": ExtResource("345_uexk1")
+}, {
+"duration": 1.0,
+"texture": ExtResource("346_dsifn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("347_alh06")
+}, {
+"duration": 1.0,
+"texture": ExtResource("348_jmjt2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("349_l51m2")
+}, {
+"duration": 1.0,
+"texture": ExtResource("350_lw02t")
+}, {
+"duration": 1.0,
+"texture": ExtResource("351_rohbf")
+}, {
+"duration": 1.0,
+"texture": ExtResource("352_bpq21")
+}, {
+"duration": 1.0,
+"texture": ExtResource("353_3hinw")
+}, {
+"duration": 1.0,
+"texture": ExtResource("354_fkj6v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("355_82t1y")
+}, {
+"duration": 1.0,
+"texture": ExtResource("356_5mdig")
+}, {
+"duration": 1.0,
+"texture": ExtResource("357_gretq")
+}, {
+"duration": 1.0,
+"texture": ExtResource("358_iciwe")
+}, {
+"duration": 1.0,
+"texture": ExtResource("359_onvnn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("360_bmygy")
+}, {
+"duration": 1.0,
+"texture": ExtResource("361_thu3y")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[sub_resource type="Animation" id="Animation_dkvjq"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_wicit")]
+}
+
+[sub_resource type="Animation" id="Animation_qsduy"]
+resource_name = "default"
+length = 6.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("MarginContainer/TextureRect:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.0166667, 0.0333333, 0.05, 0.0666667, 0.0833333, 0.1, 0.116667, 0.133333, 0.15, 0.166667, 0.183333, 0.2, 0.216667, 0.233333, 0.25, 0.266667, 0.283333, 0.3, 0.316667, 0.333333, 0.35, 0.366667, 0.383333, 0.4, 0.416667, 0.433333, 0.45, 0.466667, 0.483333, 0.5, 0.516667, 0.533333, 0.55, 0.566667, 0.583333, 0.6, 0.616667, 0.633333, 0.65, 0.666667, 0.683333, 0.7, 0.716667, 0.733333, 0.75, 0.766667, 0.783333, 0.8, 0.816667, 0.833333, 0.85, 0.866667, 0.883333, 0.9, 0.916667, 0.933333, 0.95, 0.966667, 0.983333, 1, 1.01667, 1.03333, 1.05, 1.06667, 1.08333, 1.1, 1.11667, 1.13333, 1.15, 1.16667, 1.18333, 1.2, 1.21667, 1.23333, 1.25, 1.26667, 1.28333, 1.3, 1.31667, 1.33333, 1.35, 1.36667, 1.38333, 1.4, 1.41667, 1.43333, 1.45, 1.46667, 1.48333, 1.5, 1.51667, 1.53333, 1.55, 1.56667, 1.58333, 1.6, 1.61667, 1.63333, 1.65, 1.66667, 1.68333, 1.7, 1.71667, 1.73333, 1.75, 1.76667, 1.78333, 1.8, 1.81667, 1.83333, 1.85, 1.86667, 1.88333, 1.9, 1.91667, 1.93333, 1.95, 1.96667, 1.98333, 2, 2.01667, 2.03333, 2.05, 2.06667, 2.08333, 2.1, 2.11667, 2.13333, 2.15, 2.16667, 2.18333, 2.2, 2.21667, 2.23333, 2.25, 2.26667, 2.28333, 2.3, 2.31667, 2.33333, 2.35, 2.36667, 2.38333, 2.4, 2.41667, 2.43333, 2.45, 2.46667, 2.48333, 2.5, 2.51667, 2.53333, 2.55, 2.56667, 2.58333, 2.6, 2.61667, 2.63333, 2.65, 2.66667, 2.68333, 2.7, 2.71667, 2.73333, 2.75, 2.76667, 2.78333, 2.8, 2.81667, 2.83333, 2.85, 2.86667, 2.88333, 2.9, 2.91667, 2.93333, 2.95, 2.96667, 2.98333, 3, 3.01667, 3.03333, 3.05, 3.06667, 3.08333, 3.1, 3.11667, 3.13333, 3.15, 3.16667, 3.18333, 3.2, 3.21667, 3.23333, 3.25, 3.26667, 3.28333, 3.3, 3.31667, 3.33333, 3.35, 3.36667, 3.38333, 3.4, 3.41667, 3.43333, 3.45, 3.46667, 3.48333, 3.5, 3.51667, 3.53333, 3.55, 3.56667, 3.58333, 3.6, 3.61667, 3.63333, 3.65, 3.66667, 3.68333, 3.7, 3.71667, 3.73333, 3.75, 3.76667, 3.78333, 3.8, 3.81667, 3.83333, 3.85, 3.86667, 3.88333, 3.9, 3.91667, 3.93333, 3.95, 3.96667, 3.98333, 4, 4.01667, 4.03333, 4.05, 4.06667, 4.08333, 4.1, 4.11667, 4.13333, 4.15, 4.16667, 4.18333, 4.2, 4.21667, 4.23333, 4.25, 4.26667, 4.28333, 4.3, 4.31667, 4.33333, 4.35, 4.36667, 4.38333, 4.4, 4.41667, 4.43333, 4.45, 4.46667, 4.48333, 4.5, 4.51667, 4.53333, 4.55, 4.56667, 4.58333, 4.6, 4.61667, 4.63333, 4.65, 4.66667, 4.68333, 4.7, 4.71667, 4.73333, 4.75, 4.76667, 4.78333, 4.8, 4.81667, 4.83333, 4.85, 4.86667, 4.88333, 4.9, 4.91667, 4.93333, 4.95, 4.96667, 4.98333, 5, 5.01667, 5.03333, 5.05, 5.06667, 5.08333, 5.1, 5.11667, 5.13333, 5.15, 5.16667, 5.18333, 5.2, 5.21667, 5.23333, 5.25, 5.26667, 5.28333, 5.3, 5.31667, 5.33333, 5.35, 5.36667, 5.38333, 5.4, 5.41667, 5.43333, 5.45, 5.46667, 5.48333, 5.5, 5.51667, 5.53333, 5.55, 5.56667, 5.58333, 5.6, 5.61667, 5.63333, 5.65, 5.66667, 5.68333, 5.7, 5.71667, 5.73333, 5.75, 5.76667, 5.78333, 5.8, 5.81667, 5.83333, 5.85, 5.86667, 5.88333, 5.9, 5.91667, 5.93333, 5.95, 5.96667, 5.98333),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1),
+"update": 0,
+"values": [ExtResource("2_0kasx"), ExtResource("3_h3q6q"), ExtResource("4_bpf4s"), ExtResource("5_bx4vy"), ExtResource("6_jjtuo"), ExtResource("7_r4gn6"), ExtResource("8_wicit"), ExtResource("9_ujbhn"), ExtResource("10_ra3t6"), ExtResource("11_oaa4r"), ExtResource("12_xyqbo"), ExtResource("13_0hx71"), ExtResource("14_ectjx"), ExtResource("15_gl3xj"), ExtResource("16_lcrfp"), ExtResource("17_m4j56"), ExtResource("18_ylq0x"), ExtResource("19_atxu0"), ExtResource("20_ha4j0"), ExtResource("21_a4njr"), ExtResource("22_5x5xw"), ExtResource("23_ic0rw"), ExtResource("24_x1ue1"), ExtResource("25_nogog"), ExtResource("26_8em1k"), ExtResource("27_3csoi"), ExtResource("28_qooxb"), ExtResource("29_jdkl2"), ExtResource("30_x3of2"), ExtResource("31_07f7s"), ExtResource("32_hhw50"), ExtResource("33_ok5sd"), ExtResource("34_6n2ql"), ExtResource("35_yrk1r"), ExtResource("36_3u176"), ExtResource("37_c30ge"), ExtResource("38_nigma"), ExtResource("39_e7c3o"), ExtResource("40_4eavt"), ExtResource("41_swc6s"), ExtResource("42_26qla"), ExtResource("43_i1tau"), ExtResource("44_kjn8m"), ExtResource("45_uaheq"), ExtResource("46_316su"), ExtResource("47_0hdmr"), ExtResource("48_ufxqg"), ExtResource("49_0sqgc"), ExtResource("50_8w3cp"), ExtResource("51_ak08b"), ExtResource("52_0iwox"), ExtResource("53_bbtih"), ExtResource("54_6532a"), ExtResource("55_q3w08"), ExtResource("56_cx5fb"), ExtResource("57_7qvdi"), ExtResource("58_arojg"), ExtResource("59_alrtx"), ExtResource("60_m1ua7"), ExtResource("61_143xb"), ExtResource("62_f1few"), ExtResource("63_5awb2"), ExtResource("64_61j5h"), ExtResource("65_376vl"), ExtResource("66_tloak"), ExtResource("67_5kkg7"), ExtResource("68_emai6"), ExtResource("69_eu3u5"), ExtResource("70_6sojb"), ExtResource("71_h7im6"), ExtResource("72_gt0iw"), ExtResource("73_7h8ab"), ExtResource("74_2gpug"), ExtResource("75_0bflp"), ExtResource("76_pvwyt"), ExtResource("77_q6ao4"), ExtResource("78_dduxl"), ExtResource("79_2xtfj"), ExtResource("80_hjpxh"), ExtResource("81_r2lax"), ExtResource("82_jwddp"), ExtResource("83_m8hkw"), ExtResource("84_t0vj4"), ExtResource("85_pspul"), ExtResource("86_d82ef"), ExtResource("87_sn2xw"), ExtResource("88_p1twj"), ExtResource("89_kygfn"), ExtResource("90_j75d6"), ExtResource("91_ghu1a"), ExtResource("92_e61hd"), ExtResource("93_bwg6a"), ExtResource("94_xtbd1"), ExtResource("95_1hvcv"), ExtResource("96_rbeua"), ExtResource("97_4qkbu"), ExtResource("98_hiobr"), ExtResource("99_sy21o"), ExtResource("100_lb7tp"), ExtResource("101_gca2a"), ExtResource("102_qph55"), ExtResource("103_sgic4"), ExtResource("104_anuyv"), ExtResource("105_3h684"), ExtResource("106_dhsdj"), ExtResource("107_dpwvd"), ExtResource("108_s5j8w"), ExtResource("109_if2io"), ExtResource("110_8lfr2"), ExtResource("111_cow4t"), ExtResource("112_wbq0d"), ExtResource("113_7p5us"), ExtResource("114_ixj28"), ExtResource("115_o7wpc"), ExtResource("116_c6nao"), ExtResource("117_ll4rd"), ExtResource("118_py16e"), ExtResource("119_01gve"), ExtResource("120_n5bg2"), ExtResource("121_yb7yc"), ExtResource("122_qosm2"), ExtResource("123_4a64d"), ExtResource("124_3dbu0"), ExtResource("125_f138o"), ExtResource("126_38nw6"), ExtResource("127_oi83x"), ExtResource("128_6dsa1"), ExtResource("129_eglyj"), ExtResource("130_t0gqg"), ExtResource("131_3fh47"), ExtResource("132_3umsc"), ExtResource("133_4pscc"), ExtResource("134_hjrwe"), ExtResource("135_ydsu3"), ExtResource("136_5oxbr"), ExtResource("137_bhtql"), ExtResource("138_imcho"), ExtResource("139_08jlj"), ExtResource("140_u2bco"), ExtResource("141_vjamy"), ExtResource("142_53ywa"), ExtResource("143_x2kkx"), ExtResource("144_6q0lp"), ExtResource("145_865jr"), ExtResource("146_gprgb"), ExtResource("147_kkhw4"), ExtResource("148_t2874"), ExtResource("149_ypanc"), ExtResource("150_nubmh"), ExtResource("151_rw5bq"), ExtResource("152_870w3"), ExtResource("153_vy0xr"), ExtResource("154_vpcev"), ExtResource("155_lni2p"), ExtResource("156_fwgy3"), ExtResource("157_q3lc3"), ExtResource("158_i8kde"), ExtResource("159_rhbxd"), ExtResource("160_ptkh3"), ExtResource("161_8d8r0"), ExtResource("162_an5h0"), ExtResource("163_ksdo2"), ExtResource("164_aiop1"), ExtResource("165_iipj5"), ExtResource("166_g3ura"), ExtResource("167_cmm6b"), ExtResource("168_8wykb"), ExtResource("169_lfnok"), ExtResource("170_h6tu7"), ExtResource("171_e0trb"), ExtResource("172_p7vqp"), ExtResource("173_371sw"), ExtResource("174_7yxyq"), ExtResource("175_uiyru"), ExtResource("176_n2enx"), ExtResource("177_h6mn6"), ExtResource("178_ccx8h"), ExtResource("179_jcgi0"), ExtResource("180_v25dq"), ExtResource("181_n65dh"), ExtResource("182_7u8mh"), ExtResource("183_fof3i"), ExtResource("184_ag67c"), ExtResource("185_imyq8"), ExtResource("186_nyh4n"), ExtResource("187_vnuw1"), ExtResource("188_dncyr"), ExtResource("189_eo8em"), ExtResource("190_gntdu"), ExtResource("191_3y3hv"), ExtResource("192_4q756"), ExtResource("193_fx61a"), ExtResource("194_2x15u"), ExtResource("195_s6lgg"), ExtResource("196_6ic1n"), ExtResource("197_23gg2"), ExtResource("198_6v1wp"), ExtResource("199_l2ghl"), ExtResource("200_evj7w"), ExtResource("201_20qjd"), ExtResource("202_5l0l8"), ExtResource("203_hikuw"), ExtResource("204_ppxd0"), ExtResource("205_vcuo0"), ExtResource("206_ovvyh"), ExtResource("207_5owkq"), ExtResource("208_lg3ja"), ExtResource("209_jqiwb"), ExtResource("210_ya1ny"), ExtResource("211_d2xxh"), ExtResource("212_uj36v"), ExtResource("213_omgpn"), ExtResource("214_6qka1"), ExtResource("215_5i7sr"), ExtResource("216_poaeo"), ExtResource("217_khwyl"), ExtResource("218_ginv7"), ExtResource("219_rwamd"), ExtResource("220_w58l8"), ExtResource("221_elin2"), ExtResource("222_ha64a"), ExtResource("223_u84w5"), ExtResource("224_8lknn"), ExtResource("225_sx228"), ExtResource("226_cwk0w"), ExtResource("227_r8p4u"), ExtResource("228_4icce"), ExtResource("229_g63nq"), ExtResource("230_2142w"), ExtResource("231_dxm0q"), ExtResource("232_rla88"), ExtResource("233_l022o"), ExtResource("234_buy78"), ExtResource("235_jsfug"), ExtResource("236_gbryj"), ExtResource("237_oxhwf"), ExtResource("238_fdvo6"), ExtResource("239_a0h5w"), ExtResource("240_jwsa7"), ExtResource("241_gwg52"), ExtResource("242_1mbjp"), ExtResource("243_y5ih3"), ExtResource("244_svus5"), ExtResource("245_6m56a"), ExtResource("246_6xpww"), ExtResource("247_q08tm"), ExtResource("248_u1gm7"), ExtResource("249_wuy36"), ExtResource("250_g5odm"), ExtResource("251_db2le"), ExtResource("252_fsx4d"), ExtResource("253_b0jg1"), ExtResource("254_burxd"), ExtResource("255_lhjjy"), ExtResource("256_8036e"), ExtResource("257_fmi0e"), ExtResource("258_i7j3f"), ExtResource("259_wycv6"), ExtResource("260_psm7x"), ExtResource("261_dh25d"), ExtResource("262_ttjnn"), ExtResource("263_kh6qj"), ExtResource("264_2i64c"), ExtResource("265_kio4u"), ExtResource("266_nrdj2"), ExtResource("267_hwr03"), ExtResource("268_57spe"), ExtResource("269_d8tcc"), ExtResource("270_mnim8"), ExtResource("271_retqm"), ExtResource("272_bui5t"), ExtResource("273_03olb"), ExtResource("274_rd2de"), ExtResource("275_7xydc"), ExtResource("276_m3d3p"), ExtResource("277_dnf57"), ExtResource("278_sfbab"), ExtResource("279_uyoxy"), ExtResource("280_kclq8"), ExtResource("281_e6e8u"), ExtResource("282_2q0mt"), ExtResource("283_7k26o"), ExtResource("284_54lq8"), ExtResource("285_cr1df"), ExtResource("286_0qovk"), ExtResource("287_bwv38"), ExtResource("288_by3lx"), ExtResource("289_q83dt"), ExtResource("290_7crwg"), ExtResource("291_u4jul"), ExtResource("292_f53iy"), ExtResource("293_t0bnr"), ExtResource("294_w77s0"), ExtResource("295_xhtqh"), ExtResource("296_6nbm8"), ExtResource("297_flwgj"), ExtResource("298_kskev"), ExtResource("299_xr0tv"), ExtResource("300_2jyex"), ExtResource("301_o5vit"), ExtResource("302_ds0bm"), ExtResource("303_0te3i"), ExtResource("304_mrhcj"), ExtResource("305_hspek"), ExtResource("306_tmvqi"), ExtResource("307_na1wd"), ExtResource("308_db20s"), ExtResource("309_uffqu"), ExtResource("310_fvden"), ExtResource("311_ts1p0"), ExtResource("312_kfxgy"), ExtResource("313_yij6b"), ExtResource("314_u67cm"), ExtResource("315_bq1ut"), ExtResource("316_27lpl"), ExtResource("317_gettl"), ExtResource("318_pihkx"), ExtResource("319_ktvud"), ExtResource("320_860dd"), ExtResource("321_3hcfq"), ExtResource("322_eojp7"), ExtResource("323_yfw4d"), ExtResource("324_rhyb0"), ExtResource("325_yispn"), ExtResource("326_7jrnk"), ExtResource("327_t7r5s"), ExtResource("328_8hmwt"), ExtResource("329_64hq3"), ExtResource("330_wwbnq"), ExtResource("331_7xbhp"), ExtResource("332_w161y"), ExtResource("333_ljw24"), ExtResource("334_cm0gn"), ExtResource("335_t5qtw"), ExtResource("336_375v5"), ExtResource("337_qyr8m"), ExtResource("338_fux1p"), ExtResource("339_21qfr"), ExtResource("340_6tnig"), ExtResource("341_5vhy7"), ExtResource("342_r74x1"), ExtResource("343_ckcw1"), ExtResource("344_om1iv"), ExtResource("345_uexk1"), ExtResource("346_dsifn"), ExtResource("347_alh06"), ExtResource("348_jmjt2"), ExtResource("349_l51m2"), ExtResource("350_lw02t"), ExtResource("351_rohbf"), ExtResource("352_bpq21"), ExtResource("353_3hinw"), ExtResource("354_fkj6v"), ExtResource("355_82t1y"), ExtResource("356_5mdig"), ExtResource("357_gretq"), ExtResource("358_iciwe"), ExtResource("359_onvnn"), ExtResource("360_bmygy"), ExtResource("361_thu3y")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5vo02"]
+_data = {
+"RESET": SubResource("Animation_dkvjq"),
+"default": SubResource("Animation_qsduy")
+}
+
+[node name="FireDroidLogoIntro" instance=ExtResource("1_8yiqw")]
+background_color = Color(0.309804, 0.290196, 0.270588, 1)
+frames = SubResource("SpriteFrames_73gor")
+initial_delay = 0.5
+audio_stream = ExtResource("362_pxbl6")
+audio_stream_delay = 0.5
+
+[node name="BackgroundColorRect" parent="." index="0"]
+color = Color(0.309804, 0.290196, 0.270588, 1)
+
+[node name="TextureRect" parent="MarginContainer" index="0"]
+texture = ExtResource("8_wicit")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="2"]
+libraries = {
+"": SubResource("AnimationLibrary_5vo02")
+}
+
+[node name="AudioStreamPlayer" parent="." index="3"]
+stream = ExtResource("362_pxbl6")
