@@ -1,5 +1,75 @@
 extends Node
-
+## Singleton class containing util methods for background loading.
+##
+## This class works as a manager for dynamic background loading. It allows to
+## enqueue paths of resources to load [b](see [method add_to_queue])[/b].
+## Loadings can occurr in a sub-thread or in the main thread.[br]All paths
+## must be relative to the project (example:[code]"res://path/to/resource"[/code]).
+## [br][br][b]Example:[/b]
+## [codeblock]
+## # In loading screen:
+## func _ready() -> void:
+##     # Connect FDLoad signals to local methods
+##     FDLoad.finished.connect(_on_loading_finished)
+##     FDLoad.progress_changed.connect(_on_progress_changed)
+##
+##     # Add resources to queue (only first argument is mandatory)
+##     FDLoad.add_to_queue( # Passing all arguments
+##         "res://scenes/cutscene.tscn", "Control", true, 1,
+##         ResourceLoader.CacheMode.CACHE_MODE_REPLACE
+##     )
+##     FDLoad.add_to_queue("res://scenes/level_scene.tscn") # Passing only path
+##
+##     # Start loading
+##     FDLoad.start()
+##
+##
+## func _on_loading_finished(_has_failures: bool) -> void:
+##     # Disconnect FDLoad signals
+##     FDLoad.finished.disconnect(_on_loading_finished)
+##     FDLoad.progress_changed.disconnect(_on_progress_changed)
+##
+##     # Change scene to loaded resource
+##     FDCore.change_scene_to(
+##         await FDLoad.get_loaded("res://scenes/cutscene.tscn")
+##     )
+##
+##
+## func _on_progress_changed(progress: float) -> void:
+##     $ProgressBar.set_value(progress * 100) # Update progress bar from loading scene
+## [/codeblock]
+## Internally, FDLoad loads all resources by creating load requests
+## (inner class FDLoadRequest). Those requests are grouped and loaded in batches
+## (inner class FDLoadBatch).[br][br]The maximum amount of requests inside each
+## batch is defined by [member batch_size]. Large batches can reduce processing
+## at cost of increase memory usage and longer delay when aborting the loading
+## process. Smaller batches can reduce memory usage and short the abortion
+## delay, at cost of increase processing.[br][br]
+## [b]Recommended [member batch_size] values:[/b][br]
+## ▪ Low memory devices (such as mobile, web or VR): [b]3-10 Requests/Batch[/b][br]
+## ▪ Projects with lightweight assets: [b]10-20 Requests/Batch[/b][br]
+## ▪ Projects with heavy assets: [b]50-100 Requests/Batch[/b][br]
+## ▪ Background processing: [b]30-50 Requests/Batch[/b][br]
+## [br]In some cases, resources may fail to load.
+## If a resource load fails, resource's path is added to a list that can be
+## accessed by calling [method get_failure_paths].[br][br]
+## [b]Example:[/b]
+## [codeblock]
+## func _ready() -> void:
+##     # Connect failed signal
+##     FDLoad.failed.connect(_on_loading_failed)
+##
+## func _on_loading_failed() -> void:
+##     FDLoad.failed.disconnect(_on_loading_failed) # Disconnect FDLoad signal
+##     FDCore.warning("Loading has failed. List of failures path:")
+##     for failure_path: String in FDLoad.get_failure_paths():
+##         print("> %s" % failure_path)
+## [/codeblock]
+## It is also possible to change behaviour of load on fails. To abort the
+## load on first fail, set flag [member abort_on_failure].[br]If the load is
+## aborted, by default all remaining requests are discarded. To keep unprocessed
+## requests after abortion, set flag [member keep_unloaded_on_fail].[br][br]
+## To get the paths in the queue, use [member get_queue_paths].
 
 signal started()
 signal finished(has_failures: bool)
