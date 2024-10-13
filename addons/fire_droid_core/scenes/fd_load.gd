@@ -4,7 +4,7 @@ extends Node
 ## This class works as a manager for dynamic background loading. It allows to
 ## enqueue paths of resources to load [b](see [method add_to_queue])[/b].
 ## Loadings can occurr in a sub-thread or in the main thread.[br]All paths
-## must be relative to the project (example:[code]"res://path/to/resource"[/code]).
+## must be relative to the project (example: [code]"res://path/to/resource"[/code]).
 ## [br][br][b]Example:[/b]
 ## [codeblock]
 ## # In loading screen:
@@ -38,9 +38,9 @@ extends Node
 ## func _on_progress_changed(progress: float) -> void:
 ##     $ProgressBar.set_value(progress * 100) # Update progress bar from loading scene
 ## [/codeblock]
-## Internally, FDLoad loads all resources by creating load requests
-## (inner class FDLoadRequest). Those requests are grouped and loaded in batches
-## (inner class FDLoadBatch).[br][br]The maximum amount of requests inside each
+## Internally, [FDLoad] loads all resources by creating load requests
+## (inner class [FDLoad.FDLoadRequest]). Those requests are grouped and loaded in batches
+## (inner class [FDLoad.FDLoadBatch]).[br][br]The maximum amount of requests inside each
 ## batch is defined by [member batch_size]. Large batches can reduce processing
 ## at cost of increase memory usage and longer delay when aborting the loading
 ## process. Smaller batches can reduce memory usage and short the abortion
@@ -58,6 +58,7 @@ extends Node
 ## func _ready() -> void:
 ##     # Connect failed signal
 ##     FDLoad.failed.connect(_on_loading_failed)
+##     # ...more code...
 ##
 ## func _on_loading_failed() -> void:
 ##     FDLoad.failed.disconnect(_on_loading_failed) # Disconnect FDLoad signal
@@ -66,24 +67,59 @@ extends Node
 ##         print("> %s" % failure_path)
 ## [/codeblock]
 ## It is also possible to change behaviour of load on fails. To abort the
-## load on first fail, set flag [member abort_on_failure].[br]If the load is
+## load on request fail, set flag [member abort_on_failure].[br]If the load is
 ## aborted, by default all remaining requests are discarded. To keep unprocessed
 ## requests after abortion, set flag [member keep_unloaded_on_fail].[br][br]
-## To get the paths in the queue, use [member get_queue_paths].
+## To get the paths in the queue, use [method get_queue_paths].
 
+
+## Emitted when a load starts. [b]See [method start].[/b]
 signal started()
+## Emitted when all batches have finished loading. If [member abort_on_failure]
+## is [code]true[/code], this signal means there was no errors in the loading.
 signal finished(has_failures: bool)
+## Emitted when [member abort_on_failure] is [code]true[/code] and a batch failed
+## to load. If [member abort_on_failure] is [code]false[/code], signal
+## [signal finished] is emitted with parameter [param has_failure] set to
+## [code]true[/code].
 signal failed()
+## Emitted when the value of a loading is changed. Parameter [param progress] is
+## a value between [code]0.0[/code] and [code]1.0[/code]. Connect a method to
+## this signal to update visual progress, such as progress bars or labels.
 signal progress_changed(progress: float)
 
 
+## Default retry limit for requests on fail. This value can be overriden for a
+## request, when adding the path to the load queue. Set this value to
+## [code]0[/code] to avoid retry when a request fail.
+## [b]See [method add_to_queue][/b].
 var default_retry_limit: int = 1
+## Default cache mode for loaded resource. This value can be overriden for a
+## request, when adding the path to the load queue.
+## [b]See [method add_to_queue], [enum ResourceLoader.CacheMode][/b].
 var default_cache_mode: ResourceLoader.CacheMode = (
 	ResourceLoader.CacheMode.CACHE_MODE_REUSE
 )
 
+## This flag defines the behaviour of loading process on failures. If set to
+## [code]true[/code], the entire load process is aborted when a fail occurs.
+## If set to [code]false[/code], the loading process will continue even if a
+## fail occurs (failed paths can be retrieved by calling [method get_failure_paths]).
 var abort_on_failure: bool = false
+## This property defines the maximum amount of requests inside each
+## batch. Large batches can reduce processing but increase memory usage and
+## require a longer delay when aborting the loading process. Smaller batches
+## can reduce memory usage and abortion delays, at cost of increase processing.
+## [br][br][b]Recommended batch size values:[/b][br]
+## ▪ Low memory devices (such as mobile, web or VR): [b]3-10 Requests/Batch[/b][br]
+## ▪ Projects with lightweight assets: [b]10-20 Requests/Batch[/b][br]
+## ▪ Projects with heavy assets: [b]50-100 Requests/Batch[/b][br]
+## ▪ Background processing: [b]30-50 Requests/Batch[/b]
 var batch_size: int = 10
+## This flag defines the behaviour of remaining requests on failures. If set to
+## [code]false[/code], all requests in queue are discarded if the loading process
+## fails. If set to [code]true[/code], the remaining unloaded requests are kept
+## in the queue and the loading process can be manually restarted.
 var keep_unloaded_on_fail: bool = false
 var _load_queue: Array[FDLoadRequest] = []
 var _batches: Array[FDLoadBatch] = []
@@ -106,6 +142,16 @@ func _physics_process(_delta: float) -> void:
 	pass
 
 
+## This method create a request and add it to the loading queue. [b]Loading queue
+## can only be modified if no loading is in progress.[/b][br][br]Adding a resource
+## to the loading queue requires only its relative path (example:
+## [code]"res://path/to/resource"[/code]), passed by [param path] paremeter.[br]
+## [br]The type of the resource can be specified in [param type_hint] as a [String]
+## (default value is [code]""[/code]). If [param use_subthread] is
+## [code]false[/code], main thread is used to load instead of subthread (this
+## can cause some lag). It is possible to override [member default_retry_limit]
+## and [member default_cache_mode] by changing values of [param retry_limit] and
+## [param cache_mode], respectively ([b]See ResourceLoader.CacheMode[/b]).
 func add_to_queue(
 	path: String, type_hint: String = "", use_subthread: bool = true,
 	retry_limit: int = default_retry_limit,
