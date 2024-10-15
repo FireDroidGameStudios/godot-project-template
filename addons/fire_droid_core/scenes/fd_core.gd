@@ -133,11 +133,11 @@ func _ready() -> void:
 		StringName(ProjectSettings.get_setting("fd_core/project_manager", ""))
 	)
 
-	const DEFAULT_INTRO_PATHS: Array[String] = [
+	const DEFAULT_INTRO_PATHS: PackedStringArray = [
 		"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
 		"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
 	]
-	var intro_paths: Array[String] = (
+	var intro_paths: PackedStringArray = (
 		ProjectSettings.get_setting("fd_core/intro_paths", DEFAULT_INTRO_PATHS)
 	)
 	for intro_path: String in intro_paths:
