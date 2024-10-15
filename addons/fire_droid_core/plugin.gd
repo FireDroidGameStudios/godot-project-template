@@ -35,7 +35,6 @@ func _update_custom_settings() -> void:
 			"hint_string": (
 				str(TYPE_STRING) + "/" + str(PROPERTY_HINT_FILE) + ":*.tscn"
 			),
-			#"hint_string": "*.tscn",
 			"initial_value": [
 				"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
 				"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
