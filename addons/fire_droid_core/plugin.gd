@@ -5,10 +5,12 @@ extends EditorPlugin
 func _enter_tree() -> void:
 	_update_custom_settings()
 	add_autoload_singleton("FDCore", "res://addons/fire_droid_core/scenes/fd_core.gd")
+	add_autoload_singleton("FDLoad", "res://addons/fire_droid_core/scenes/fd_load.gd")
 
 
 func _exit_tree() -> void:
 	remove_autoload_singleton("FDCore")
+	remove_autoload_singleton("FDLoad")
 
 
 func _update_custom_settings() -> void:
