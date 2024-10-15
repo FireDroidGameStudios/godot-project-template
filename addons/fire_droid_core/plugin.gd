@@ -15,7 +15,7 @@ func _exit_tree() -> void:
 
 func _update_custom_settings() -> void:
 	# Format -> "setting_name": "default_value"
-	const custom_settings: Array[Dictionary] = [
+	var custom_settings: Array[Dictionary] = [
 		{
 			"name": "fd_core/project_manager",
 			"type": TYPE_STRING,
@@ -27,6 +27,19 @@ func _update_custom_settings() -> void:
 			"name": "fd_core/enable_debug_mode",
 			"type": TYPE_BOOL,
 			"initial_value": false,
+		},
+		{
+			"name": "fd_core/intro_paths",
+			"type": TYPE_ARRAY,
+			"hint": PROPERTY_HINT_TYPE_STRING,
+			"hint_string": (
+				str(TYPE_STRING) + "/" + str(PROPERTY_HINT_FILE) + ":*.tscn"
+			),
+			#"hint_string": "*.tscn",
+			"initial_value": [
+				"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
+				"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
+			],
 		}
 	]
 	for setting in custom_settings:
