@@ -13,6 +13,9 @@ signal finished
 @export var background_color: Color = Color.DIM_GRAY: ## Color of static background.
 	set = _set_background_color
 
+@export_group("Transition Overrides")
+@export var transition_override_properties: Dictionary = {}
+
 @export_group("Frames Options")
 @export var frames: SpriteFrames: set = _set_frames ## Desired frames to be in the animation.
 @export var auto_update_animation_frames: bool = false  ## Used only when editing logo intro
@@ -23,7 +26,7 @@ signal finished
 @export_group("Skip Options")
 @export var can_be_skipped: bool = true
 @export_range(0.0, 5.0, 0.1, "or_greater") var skip_lock_delay: float = 1.5
-@export var skip_key: Key = KEY_ESCAPE
+@export var skip_action: StringName = &"ui_cancel"
 
 @export_group("Audio Options")
 @export var audio_stream: AudioStream = null
@@ -45,6 +48,8 @@ var _has_been_skipped: bool = false
 func _ready() -> void:
 	if not Engine.is_editor_hint():
 		#timer_start_animation.timeout.connect(_start_animation)
+		if not skip_action in InputMap.get_actions():
+			FDCore.warning("Invalid skip_action on intro")
 		animation_player.animation_finished.connect(_on_finished)
 		animation_player.set_current_animation("default")
 		animation_player.stop()
@@ -61,8 +66,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _input(event: InputEvent) -> void:
-	if event is InputEventKey:
-		if event.keycode == skip_key and _can_skip:
+	if event.is_action(skip_action) and _can_skip:
+		if event.is_pressed() and not event.is_echo():
 			skip()
 
 
