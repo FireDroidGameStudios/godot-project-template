@@ -57,8 +57,6 @@ enum ErrorCodes {
 	DEFAULT_ERROR, ## Default error for general purposes.
 }
 
-const _GodotLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn")
-const _FireDroidLogoIntroScene = preload("res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn")
 const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
 
 ## Default values for every transition. Some functions allows overriding these values.[br][br]
@@ -135,11 +133,17 @@ func _ready() -> void:
 		StringName(ProjectSettings.get_setting("fd_core/project_manager", ""))
 	)
 
-	await change_scene_to(_GodotLogoIntroScene.instantiate(), {"duration_out": 0.8})
-	await _current_scene.finished
-
-	await change_scene_to(_FireDroidLogoIntroScene.instantiate())
-	await _current_scene.finished
+	const DEFAULT_INTRO_PATHS: PackedStringArray = [
+		"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
+		"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
+	]
+	var intro_paths: PackedStringArray = (
+		ProjectSettings.get_setting("fd_core/intro_paths", DEFAULT_INTRO_PATHS)
+	)
+	for intro_path: String in intro_paths:
+		var intro: Control = load(intro_path).instantiate()
+		await change_scene_to(intro, intro.transition_override_properties)
+		await _current_scene.finished
 
 	await change_scene_to(_project_manager.initial_scene.instantiate())
 

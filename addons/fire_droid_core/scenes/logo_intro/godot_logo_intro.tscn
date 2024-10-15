@@ -1489,6 +1489,9 @@ _data = {
 
 [node name="GodotLogoIntro" instance=ExtResource("1_fk86y")]
 background_color = Color(0.227451, 0.254902, 0.345098, 1)
+transition_override_properties = {
+"duration_out": 0.8
+}
 frames = SubResource("SpriteFrames_mlvdw")
 audio_stream_delay = 1.5
 
