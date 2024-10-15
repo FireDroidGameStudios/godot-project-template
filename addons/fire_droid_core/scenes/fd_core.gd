@@ -130,7 +130,10 @@ func _ready() -> void:
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
 	_setup_project_manager(
-		StringName(ProjectSettings.get_setting("fd_core/project_manager", ""))
+		StringName(ProjectSettings.get_setting(
+			"fd_core/project_manager",
+			"res://addons/fire_droid_core/scenes/defaults/default_project_manager.gd"
+		))
 	)
 
 	const DEFAULT_INTRO_PATHS: PackedStringArray = [
