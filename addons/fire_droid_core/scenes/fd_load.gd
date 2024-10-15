@@ -248,7 +248,7 @@ func start() -> void:
 ## float value between [code]0.0[/code] and [code]1.0[/code].[br][br]If the queue
 ## is empty or no load is in progress, the returned value is [code]1.0[/code].
 func get_progress() -> float:
-	if _load_queue.is_empty():
+	if _load_queue.is_empty() or not _is_loading:
 		return 1.0
 	var total_sum: int = 0
 	for batch: FDLoadBatch in _batches:
