@@ -169,6 +169,7 @@ func add_to_queue(
 	_load_queue.append(request)
 
 
+## Return a list containing all paths added to queue.
 func get_queue_paths() -> PackedStringArray:
 	var queue_paths: PackedStringArray = []
 	queue_paths.resize(_load_queue.size())
@@ -177,13 +178,17 @@ func get_queue_paths() -> PackedStringArray:
 	return queue_paths
 
 
+## Remove a request from the load queue by it's [param index]. If the index is
+## invalid, nothing happens.
 func queue_remove_by_index(index: int) -> void:
 	if _is_loading:
-		FDCore.warning("Cannot remove from load queue when loading is in progress.")
+		FDCore.warning("Cannot remove from load queue when loading is in progress")
 		return
 	_load_queue.remove_at(index)
 
 
+## Remove a request from the load queue by it's [param path]. If the path is
+## invalid, nothing happens.
 func queue_remove_by_path(path: String) -> void:
 	if _is_loading:
 		FDCore.warning("Cannot remove from load queue when loading is in progress")
@@ -194,6 +199,7 @@ func queue_remove_by_path(path: String) -> void:
 	_load_queue.remove_at(index)
 
 
+## Remove all requests from the load queue.
 func clear_queue() -> void:
 	if _is_loading:
 		FDCore.warning("Cannot clear load queue when loading is in progress")
@@ -203,9 +209,14 @@ func clear_queue() -> void:
 	_load_queue.clear()
 
 
+## Start the load process. If another loading is in progress, a warning is shown
+## and the new loading is not started.[br][br]Internally, this method group all
+## requests in batches, them process them one by one.[br][br]When the loading
+## is started, signal [signal started] is emitted. If the load queue is empty,
+## signal [signal finished] is emitted imediatelly.
 func start() -> void:
 	if _is_loading:
-		FDCore.warning("Cannot start loading when another loading is in progress.")
+		FDCore.warning("Cannot start loading when another loading is in progress")
 		return
 	_clear_all_batches()
 	_is_loading = true
@@ -233,6 +244,9 @@ func start() -> void:
 	_batches[0].start_load()
 
 
+## Return the loading progress of the current loading process. The progress is a
+## float value between [code]0.0[/code] and [code]1.0[/code].[br][br]If the queue
+## is empty or no load is in progress, the returned value is [code]1.0[/code].
 func get_progress() -> float:
 	if _load_queue.is_empty():
 		return 1.0
@@ -242,10 +256,23 @@ func get_progress() -> float:
 	return float(total_sum) / float(_load_queue.size() * 100)
 
 
+## Check if the resource located in [param path] is loaded in the memory cache.
 func has_loaded(path: String) -> bool:
 	return ResourceLoader.has_cached(path)
 
 
+## Return a loaded resource by passing it's [param path]. Optional parameters
+## can be passed:[br][br]
+## ▪ [param type_hint] is the target type of the resource, as a [String];[br]
+## ▪ [param use_subthread] is a flag to select wich thread will be used to the
+## load. If [code]false[/code], main thread is used instead of sub-thread;[br]
+## ▪ [param retry_limit] is the max amount of retry for resource loadings with
+## errors. This value can be different to each request ([b]See
+## [member default_retry_limit][/b]);[br]
+## ▪ [param cache_mode] is the mode that must be used to manage the resource
+## once it is loaded to the memory cache ([b]See [ResourceLoader.CacheMode],
+## [member default_cache_mode][/b]).[br][br]If a resource isn't cached in
+## memory, it is loaded individually and returned.
 func get_loaded(
 	path: String,
 	type_hint: String = "", use_subthread: bool = true,
@@ -264,14 +291,20 @@ func get_loaded(
 	return loaded
 
 
+## Return [code]true[/code] if a loading is currently in progress, or
+## [code]false[/code] if not.
 func is_loading() -> bool:
 	return _is_loading
 
 
+## Return a list of every resource path with failure. If [member abort_on_failure]
+## is [code]true[/code], the list will contain only the first failure path.[br][br]
+## When a new load is started, the previous failure paths array is discarded.
 func get_failure_paths() -> PackedStringArray:
 	return _failure_paths
 
 
+# This method is an auxiliar to queue_remove_by_path.
 func _find_request_index_by_path(path: String) -> int:
 	var index: int = 0
 	for request: FDLoadRequest in _load_queue:
@@ -281,6 +314,7 @@ func _find_request_index_by_path(path: String) -> int:
 	return -1
 
 
+# This method is called when the signal failed is received from a resource.
 func _append_failure(path: String) -> void:
 	_failure_paths[_current_failure_index] = path
 	_current_failure_index += 1
@@ -291,9 +325,11 @@ func _abort_all_batches() -> void:
 		batch.abort()
 
 
+# This method clear the requests array from all batches.
+# If param free_requests is true, all requests in the batches are deleted.
 func _clear_all_batches(free_requests: bool = false) -> void:
 	if _is_loading:
-		FDCore.warning("Cannot clear batches when loading is in progress.")
+		FDCore.warning("Cannot clear batches when loading is in progress")
 		return
 	for batch: FDLoadBatch in _batches:
 		batch.clear(free_requests)
@@ -301,6 +337,10 @@ func _clear_all_batches(free_requests: bool = false) -> void:
 	_batches.clear()
 
 
+# When a batch finish the loading of it's requests, the batch is removed from
+# scene tree and the next batch is added. If finished batch is the last one,
+# the loading process is finished, the signal finished is emitted and all batches
+# are clean.
 func _on_batch_finished() -> void:
 	remove_child(_batches[_current_batch_index])
 	FDCore.log_message("Finished to load batch %d" % _current_batch_index)
@@ -319,6 +359,9 @@ func _on_batch_finished() -> void:
 	_batches[_current_batch_index].start_load()
 
 
+# This method clean a batch when it fails. If abort_on_failure is true, the
+# loading process is aborted. On abort, if keep_unloaded_on_fail is false, all
+# requests are deleted and clean.
 func _on_batch_failed(_failure_batch: FDLoadBatch) -> void:
 	var can_clear_requests: bool = (not keep_unloaded_on_fail)
 	_failure_batch.clear(can_clear_requests)
@@ -328,6 +371,11 @@ func _on_batch_failed(_failure_batch: FDLoadBatch) -> void:
 		return
 
 
+# Emitted at every progress sum from a batch. Progress sum is the sum of the
+# progress of every request in a batch. The value of sum is an integer, to
+# optimize divisions and multiplications, adding instead of multiplying and
+# dividing only when getting total progress (one division for all requests
+# instead of one division for each request).
 func _on_batch_progress_sum_changed(_progress_sum: int) -> void:
 	progress_changed.emit(get_progress())
 
