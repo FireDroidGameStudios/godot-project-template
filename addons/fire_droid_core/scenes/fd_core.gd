@@ -144,6 +144,9 @@ func _ready() -> void:
 		ProjectSettings.get_setting("fd_core/intro_paths", DEFAULT_INTRO_PATHS)
 	)
 	for intro_path: String in intro_paths:
+		FDLoad.add_to_queue(intro_path)
+	await _project_manager.start_loading_with_screen()
+	for intro_path: String in intro_paths:
 		var intro: Control = load(intro_path).instantiate()
 		await change_scene_to(intro, intro.transition_override_properties)
 		await _current_scene.finished
@@ -157,6 +160,18 @@ func _process(delta: float) -> void:
 
 func _physics_process(delta: float) -> void:
 	pass
+
+## Return the default loading screen scene, defined in Project Settings. If no
+## path is set, return the built-in default loading screen.
+func get_default_loading_screen() -> PackedScene:
+	const DEFAULT_LOADING_SCREEN: PackedScene = preload(
+		"res://addons/fire_droid_core/scenes/defaults/default_loading_screen.tscn"
+	)
+	return (
+		ProjectSettings.get_setting(
+			"fd_core/default_loading_screen_path", DEFAULT_LOADING_SCREEN
+		)
+	)
 
 
 ## Checks if debug mode is enabled in Project Settings.

@@ -41,6 +41,7 @@ extends Node
 ## func _init():
 ##     initial_scene = preload("res://scenes/main_screen.tscn")
 ## [/codeblock]
+
 var initial_scene: PackedScene = null
 
 
@@ -62,6 +63,24 @@ func _physics_process(delta: float) -> void:
 ## To change how this function handles actions, override [method _on_action_triggered].
 func on_action_triggered(action: StringName, context: StringName = &"") -> void:
 	_on_action_triggered(action, context)
+
+
+func start_loading_with_screen(
+	loading_screen_scene: PackedScene = null,
+	override_transition_defaults: Dictionary = {},
+	type_hint: String = "",
+	use_subthread: bool = true,
+	retry_limit: int = FDLoad.default_retry_limit,
+	cache_mode: ResourceLoader.CacheMode = FDLoad.default_cache_mode
+) -> void:
+	var loading_screen: FDLoadingScreen = null
+	if loading_screen_scene == null:
+		loading_screen_scene = FDCore.get_default_loading_screen()
+	loading_screen = loading_screen_scene.instantiate()
+	await FDCore.change_scene_to(loading_screen)
+	await FDCore.scene_changed
+	FDLoad.start()
+	await loading_screen.finished
 
 
 ## This is an overridable method.[br][br]
