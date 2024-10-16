@@ -4,6 +4,10 @@ extends FDLoadingScreen
 var _text_dot_count: int = 0
 
 
+func _process(delta: float) -> void:
+	%LabelProgress.set_text(str(%TextureProgressBar.value) + '%')
+
+
 func _on_started() -> void:
 	%TextureProgressBar.set_value(0)
 	%LabelProgress.set_text("0%")
@@ -18,9 +22,8 @@ func _on_failed() -> void:
 
 
 func _on_progress_changed(progress: float) -> void:
-	var int_progress: int = int(progress * 100)
-	%TextureProgressBar.set_value(int_progress)
-	%LabelProgress.set_text(str(int_progress) + '%')
+	var tween: Tween = get_tree().create_tween()
+	tween.tween_property(%TextureProgressBar, "value", int(progress * 100), 0.8)
 
 
 func _on_timer_timeout() -> void:
