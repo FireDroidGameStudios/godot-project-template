@@ -6,17 +6,35 @@ signal finished(has_failures: bool, aborted: bool)
 
 
 func _enter_tree() -> void:
-	FDLoad.started.connect(_on_started)
-	FDLoad.finished.connect(_on_finished)
-	FDLoad.failed.connect(_on_failed)
-	FDLoad.progress_changed.connect(_on_progress_changed)
+	FDLoad.started.connect(_handle_on_started)
+	FDLoad.finished.connect(_handle_on_finished)
+	FDLoad.failed.connect(_handle_on_failed)
+	FDLoad.progress_changed.connect(_handle_on_progress_changed)
 
 
 func _exit_tree() -> void:
-	FDLoad.started.disconnect(_on_started)
-	FDLoad.finished.disconnect(_on_finished)
-	FDLoad.failed.disconnect(_on_failed)
-	FDLoad.progress_changed.disconnect(_on_progress_changed)
+	FDLoad.started.disconnect(_handle_on_started)
+	FDLoad.finished.disconnect(_handle_on_finished)
+	FDLoad.failed.disconnect(_handle_on_failed)
+	FDLoad.progress_changed.disconnect(_handle_on_progress_changed)
+
+
+func _handle_on_started() -> void:
+	_on_started()
+
+
+func _handle_on_finished(has_failures: bool) -> void:
+	_on_finished(has_failures)
+	finished.emit(has_failures, false)
+
+
+func _handle_on_failed() -> void:
+	_on_failed()
+	finished.emit(true, true)
+
+
+func _handle_on_progress_changed(progress: float) -> void:
+	_on_progress_changed(progress)
 
 
 func _on_started() -> void:
