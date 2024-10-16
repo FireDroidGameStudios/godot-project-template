@@ -356,7 +356,7 @@ func _on_batch_finished() -> void:
 	_current_batch_index += 1
 	if _current_batch_index >= _batches.size():
 		FDCore.log_message("Finished to load all batches")
-		finished.emit()
+		finished.emit(not _failure_paths.is_empty())
 		_last_was_aborted = false
 		_clear_all_batches(true)
 		_load_queue.clear()
