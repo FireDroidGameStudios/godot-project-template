@@ -78,7 +78,6 @@ func start_loading_with_screen(
 		loading_screen_scene = FDCore.get_default_loading_screen()
 	loading_screen = loading_screen_scene.instantiate()
 	await FDCore.change_scene_to(loading_screen)
-	await FDCore.scene_changed
 	FDLoad.start()
 	await loading_screen.finished
 
