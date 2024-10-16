@@ -20,7 +20,7 @@ func _on_failed() -> void:
 func _on_progress_changed(progress: float) -> void:
 	var int_progress: int = int(progress * 100)
 	%TextureProgressBar.set_value(int_progress)
-	%LabelProgress.set_text("%d%" % int_progress)
+	%LabelProgress.set_text(str(int_progress) + '%')
 
 
 func _on_timer_timeout() -> void:
