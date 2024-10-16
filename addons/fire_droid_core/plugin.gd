@@ -39,7 +39,14 @@ func _update_custom_settings() -> void:
 				"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
 				"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
 			],
-		}
+		},
+		{
+			"name": "fd_core/default_loading_screen_path",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_FILE,
+			"hint_string": "*.gd",
+			"initial_value": "",
+		},
 	]
 	for setting in custom_settings:
 		var setting_name: String = setting.get("name")

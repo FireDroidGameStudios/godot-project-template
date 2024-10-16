@@ -127,6 +127,7 @@ var _current_batch_index: int = 0
 var _failure_paths: PackedStringArray = []
 var _current_failure_index: int = 0
 var _is_loading: bool = false
+var _last_was_aborted: bool = false
 
 
 func _ready() -> void:
@@ -227,6 +228,7 @@ func start() -> void:
 		FDCore.log_message("Loading finished with empty queue")
 		finished.emit()
 		_is_loading = false
+		_last_was_aborted = false
 		return
 	var batches_count: int = ceil(float(_load_queue.size()) / float(batch_size))
 	_batches.resize(batches_count)
@@ -304,6 +306,13 @@ func get_failure_paths() -> PackedStringArray:
 	return _failure_paths
 
 
+## Return [code]true[/code] if last loading was aborted. If the load has finished
+## with failures but [member abort_on_fail] is set to [code]false[/code], this
+## method return [code]false[/code].
+func last_was_aborted() -> bool:
+	return _last_was_aborted
+
+
 # This method is an auxiliar to queue_remove_by_path.
 func _find_request_index_by_path(path: String) -> int:
 	var index: int = 0
@@ -347,7 +356,8 @@ func _on_batch_finished() -> void:
 	_current_batch_index += 1
 	if _current_batch_index >= _batches.size():
 		FDCore.log_message("Finished to load all batches")
-		finished.emit()
+		finished.emit(not _failure_paths.is_empty())
+		_last_was_aborted = false
 		_clear_all_batches(true)
 		_load_queue.clear()
 		_is_loading = false
@@ -368,6 +378,7 @@ func _on_batch_failed(_failure_batch: FDLoadBatch) -> void:
 	if abort_on_failure:
 		_clear_all_batches(can_clear_requests)
 		failed.emit()
+		_last_was_aborted = true
 		return
 
 
