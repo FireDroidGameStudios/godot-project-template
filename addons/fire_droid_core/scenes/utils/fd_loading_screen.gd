@@ -4,6 +4,8 @@ extends Control
 
 signal finished(has_failures: bool, aborted: bool)
 
+@export var ending_delay: float = 0.0
+
 
 func _enter_tree() -> void:
 	FDLoad.started.connect(_handle_on_started)
@@ -24,11 +26,15 @@ func _handle_on_started() -> void:
 
 
 func _handle_on_finished(has_failures: bool) -> void:
+	if not is_zero_approx(ending_delay):
+		await get_tree().create_timer(ending_delay).timeout
 	_on_finished(has_failures)
 	finished.emit(has_failures, false)
 
 
 func _handle_on_failed() -> void:
+	if not is_zero_approx(ending_delay):
+		await get_tree().create_timer(ending_delay).timeout
 	_on_failed()
 	finished.emit(true, true)
 
