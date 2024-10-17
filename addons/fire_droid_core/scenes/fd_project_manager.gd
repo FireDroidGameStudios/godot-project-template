@@ -5,13 +5,11 @@ extends Node
 ## This class works as a template, and all project managers compatible with FDCore
 ## must inherit from this.[br]There are two mandatory actions for a project
 ## manager creation:[br][br]
-## 1. Set [member initial_scene]: this can be done by assigning a [PackedScene]
-## to [member initial_scene] inside [method Object._init].[br][br][b]Example:[/b]
-## [codeblock]
-## func _init() -> void:
-##     initial_scene = preload("res://scenes/main_screen.tscn")
-## [/codeblock]
-## 2. Override [method _on_action_triggered]: this method is the main handler for
+## 1. Set [member initial_scene]: this can be done by picking up the desired
+## scene location at [code]ProjectSettings->FDCore->Initial Scene[/code];[br]
+## 2. Implement [method _setup]: [b]Do not override the [method _ready]
+## method![/b] Instead implement all initializations inside [method _setup];[br]
+## 3. Override [method _on_action_triggered]: this method is the main handler for
 ## all triggered actions coming from FDCore. Override this to define interactions
 ## over the project.[br][br][b]Example:[/b]
 ## [codeblock]
@@ -34,18 +32,14 @@ extends Node
 
 
 ## This is the first scene that will be loaded after the logo intros animations.
-## If this is [code]null[/code] at begin of execution, the program will be
-## terminated with exit code 1. To prevent it, set the property value inside the
-## built-in method [method _init].[br][br][b]Example:[/b]
-## [codeblock]
-## func _init():
-##     initial_scene = preload("res://scenes/main_screen.tscn")
-## [/codeblock]
-
+## The scene is loaded at the initialization of [FDProjectManager], inside [FDCore].
+## [br]The path of initial scene must be set in
+## [code]ProjectSettings->FDCore->Initial Scene[/code].
 var initial_scene: PackedScene = null
 
 
 func _ready() -> void:
+	_setup(ProjectSettings.get_setting("fd_core/project_manager_parameters", {}))
 	pass
 
 
@@ -80,6 +74,16 @@ func start_loading_with_screen(
 	await FDCore.change_scene_to(loading_screen)
 	FDLoad.start()
 	await loading_screen.finished
+
+
+## This is an overridable method.[br][br]
+## Use this method to setup project manager instead of using [method _ready]
+## (overriding default FDProjectManager _ready method can cause unexpected
+## behaviours).[br][br][param params] is a [Dictionary] containing custom
+## parameters defined previously in Project Settings. To modify the dictionary,
+## change the value of setting [code]"fd_core/project_manager_parameters"[/code].
+func _setup(params: Dictionary) -> void:
+	pass
 
 
 ## This is an overridable method.[br][br]
