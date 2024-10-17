@@ -47,6 +47,18 @@ func _update_custom_settings() -> void:
 			"hint_string": "*.gd",
 			"initial_value": "",
 		},
+		{
+			"name": "fd_core/initial_scene",
+			"type": TYPE_STRING,
+			"hint": PROPERTY_HINT_FILE,
+			"hint_string": "*.tscn",
+			"initial_value": "",
+		},
+		{
+			"name": "fd_core/project_manager_parameters",
+			"type": TYPE_DICTIONARY,
+			"initial_value": {}
+		},
 	]
 	for setting in custom_settings:
 		var setting_name: String = setting.get("name")
