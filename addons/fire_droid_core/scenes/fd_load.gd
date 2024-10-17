@@ -263,6 +263,12 @@ func has_loaded(path: String) -> bool:
 	return ResourceLoader.has_cached(path)
 
 
+## Return [code]true[/code] if last loading had any failure.[br]This method is
+## a short way to [code]FDLoad.get_failure_paths().size() > 0[/code].
+func has_failures() -> bool:
+	return _failure_paths.size() > 0
+
+
 ## Return a loaded resource by passing it's [param path]. Optional parameters
 ## can be passed:[br][br]
 ## ▪ [param type_hint] is the target type of the resource, as a [String];[br]

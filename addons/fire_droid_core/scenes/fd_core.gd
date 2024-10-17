@@ -59,6 +59,17 @@ enum ErrorCodes {
 
 const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
 
+const DEFAULT_PROJECT_MANAGER_PATH: String = (
+	"res://addons/fire_droid_core/scenes/defaults/default_project_manager.gd"
+)
+const DEFAULT_INTRO_PATHS: PackedStringArray = [
+	"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
+	"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
+]
+const DEFAULT_INITIAL_SCENE_PATH: String = (
+	"res://addons/fire_droid_core/scenes/defaults/main.tscn"
+)
+
 ## Default values for every transition. Some functions allows overriding these values.[br][br]
 ## [b]Required fields:[/b] [code]style_in[/code], [code]trans_type_in[/code], [code]ease_type_in[/code],
 ## [code]duration_in[/code], [code]style_out[/code], [code]trans_type_out[/code],
@@ -126,32 +137,14 @@ func _init() -> void:
 func _ready() -> void:
 	if is_debug_mode_enabled():
 		return
-
 	get_tree().current_scene.queue_free()	# Experimental
 	get_tree().current_scene = self			# Experimental
 	_setup_project_manager(
 		StringName(ProjectSettings.get_setting(
-			"fd_core/project_manager",
-			"res://addons/fire_droid_core/scenes/defaults/default_project_manager.gd"
+			"fd_core/project_manager", DEFAULT_PROJECT_MANAGER_PATH
 		))
 	)
-
-	const DEFAULT_INTRO_PATHS: PackedStringArray = [
-		"res://addons/fire_droid_core/scenes/logo_intro/godot_logo_intro.tscn",
-		"res://addons/fire_droid_core/scenes/logo_intro/fire_droid_logo_intro.tscn"
-	]
-	var intro_paths: PackedStringArray = (
-		ProjectSettings.get_setting("fd_core/intro_paths", DEFAULT_INTRO_PATHS)
-	)
-	for intro_path: String in intro_paths:
-		FDLoad.add_to_queue(intro_path)
-	await _project_manager.start_loading_with_screen()
-	for intro_path: String in intro_paths:
-		var intro: Control = load(intro_path).instantiate()
-		await change_scene_to(intro, intro.transition_override_properties)
-		await _current_scene.finished
-
-	await change_scene_to(_project_manager.initial_scene.instantiate())
+	await _initial_setup()
 
 
 func _process(delta: float) -> void:
@@ -419,6 +412,36 @@ func trigger_action(action: StringName, context: StringName = &"") -> void:
 ## [/codeblock]
 func warning(message: String) -> void:
 	log_message("Warning: " + message, "yellow")
+
+
+func _initial_setup() -> void:
+	var intro_paths: PackedStringArray = (
+		ProjectSettings.get_setting("fd_core/intro_paths", DEFAULT_INTRO_PATHS)
+	)
+	var initial_scene_path: String = (
+		ProjectSettings.get_setting("fd_core/initial_scene", "")
+	)
+	if initial_scene_path.is_empty():
+		initial_scene_path = DEFAULT_INITIAL_SCENE_PATH
+	elif not ResourceLoader.exists(initial_scene_path):
+		critical_error("Invalid initial_scene")
+		return
+	FDLoad.add_to_queue(initial_scene_path)
+	for intro_path: String in intro_paths:
+		FDLoad.add_to_queue(intro_path)
+	await _project_manager.start_loading_with_screen()
+	if FDLoad.has_failures():
+		critical_error(
+			"Initial resources failed to load: "
+			+ "\t> ".join(FDLoad.get_failure_paths())
+		)
+		return
+	_project_manager.initial_scene = await FDLoad.get_loaded(initial_scene_path)
+	for intro_path: String in intro_paths:
+		var intro: Control = (await FDLoad.get_loaded(intro_path)).instantiate()
+		await change_scene_to(intro, intro.transition_override_properties)
+		await _current_scene.finished
+	await change_scene_to(_project_manager.initial_scene.instantiate())
 
 
 func _set_project_manager(new_value: FDProjectManager) -> void:
