@@ -57,7 +57,7 @@ enum ErrorCodes {
 	DEFAULT_ERROR, ## Default error for general purposes.
 }
 
-const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
+#const _TransitionScene = preload("res://addons/fire_droid_core/scenes/transitions/transition.tscn")
 
 const DEFAULT_PROJECT_MANAGER_PATH: String = (
 	"res://addons/fire_droid_core/scenes/defaults/default_project_manager.gd"
@@ -70,28 +70,7 @@ const DEFAULT_INITIAL_SCENE_PATH: String = (
 	"res://addons/fire_droid_core/scenes/defaults/main.tscn"
 )
 
-## Default values for every transition. Some functions allows overriding these values.[br][br]
-## [b]Required fields:[/b] [code]style_in[/code], [code]trans_type_in[/code], [code]ease_type_in[/code],
-## [code]duration_in[/code], [code]style_out[/code], [code]trans_type_out[/code],
-## [code]ease_type_out[/code], [code]duration_out[/code], [code]fill_type[/code],
-## [code]color_1[/code], [code]color_2[/code], [code]texture_1[/code] and [code]texture_2[/code].
-## [br][br]See [Transition].
-var transition_defaults: Dictionary = {
-	&"style_in": Transition.TransitionStyle.FADE,
-	&"trans_type_in": Tween.TRANS_LINEAR,
-	&"ease_type_in": Tween.EASE_IN,
-	&"duration_in": 1.2,
-	&"style_out": Transition.TransitionStyle.FADE,
-	&"trans_type_out": Tween.TRANS_LINEAR,
-	&"ease_type_out": Tween.EASE_OUT,
-	&"duration_out": 1.2,
-	&"fill_type": Transition.FillType.COLOR,
-	&"color_1": Color.BLACK,
-	&"color_2": Color.WHITE,
-	&"texture_1": null,
-	&"texture_2": null,
-}
-
+var default_transition: Transition = FadeTransition.new()
 var _current_scene = null
 var _permanent_nodes: Dictionary = {}
 var _project_manager: FDProjectManager = null:
@@ -174,6 +153,11 @@ func is_debug_mode_enabled() -> bool:
 	)
 
 
+func set_default_transition(transition: Transition) -> void:
+	default_transition = transition
+	log_message("Set default transition")
+
+
 ## Change current scene to [code]scene[/code], applying a transition. Default
 ## transition values can be overwritten by optional
 ## [code]override_transition_defaults[/code] values (as a [Dictionary]).
@@ -186,17 +170,19 @@ func is_debug_mode_enabled() -> bool:
 ## [/codeblock]
 func change_scene_to(scene: Node, override_transition_defaults: Dictionary = {}) -> void:
 	log_message("Changing scene to " + str(scene))
-	var transition: Transition = _new_transition(override_transition_defaults)
+	var transition: Transition = (
+		default_transition.duplicate() if default_transition else FadeTransition.new()
+	)
 	_transition_layer.add_child(transition)
-	if _current_scene:
-		await transition.play()
-		clear_children(_temporary_layer)
-	else:
+	if not _current_scene:
 		transition.set_forced_status(Transition.Status.OUT)
+	else:
+		await transition.play(override_transition_defaults)
+		clear_children(_temporary_layer)
 	_temporary_layer.add_child(scene)
 	_current_scene = scene
 	log_message("Changed scene to " + str(_current_scene))
-	await transition.play()
+	await transition.play(override_transition_defaults)
 	clear_children(_transition_layer)
 	scene_changed.emit()
 
@@ -223,14 +209,16 @@ func play_transition(
 	await_call: bool = false, override_transition_defaults: Dictionary = {}
 ) -> void:
 	log_message("Playing transition")
-	var transition: Transition = _new_transition(override_transition_defaults)
+	var transition: Transition = (
+		default_transition.duplicate() if default_transition else FadeTransition.new()
+	)
 	_transition_layer.add_child(transition)
-	await transition.play()
+	await transition.play(override_transition_defaults)
 	if await_call:
 		await to_call.callv(args)
 	else:
 		to_call.callv(args)
-	await transition.play()
+	await transition.play(override_transition_defaults)
 	clear_children(_transition_layer)
 	transition_finished.emit()
 
@@ -276,14 +264,6 @@ func critical_error(
 ):
 	log_message("Error (" + str(error_code) + "): " + message, "red")
 	get_tree().quit(exit_code)
-
-
-## Update a property of [member transition_defaults]. Those values will be using
-## every new transition (unless override dictionary is passed as argument of
-## transition creation function call).
-func set_transition_default_value(property: StringName, value) -> void:
-	if property in transition_defaults.keys():
-		transition_defaults[property] = value
 
 
 ## Print [param message] prefixed with a timestamp of current time of printed message.[br]
@@ -469,13 +449,3 @@ func _setup_project_manager(project_manager_path: String) -> void:
 	_project_manager.set_name("ProjectManager")
 	_project_manager.process_mode = Node.PROCESS_MODE_DISABLED
 	add_child(_project_manager)
-
-
-func _new_transition(override_defaults: Dictionary = {}) -> Transition:
-	var transition: Transition = _TransitionScene.instantiate()
-	for property in transition_defaults.keys():
-		transition.set(property, transition_defaults[property])
-	for override in override_defaults:
-		if override in transition_defaults.keys():
-			transition.set(override, override_defaults[override])
-	return transition
