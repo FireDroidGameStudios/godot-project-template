@@ -19,19 +19,15 @@ func _init() -> void:
 	if not has_node("ColorRect"):
 		_color_rect = ColorRect.new()
 		_color_rect.set_color(color)
-		_color_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 		_color_rect.set_name("ColorRect")
 		add_child(_color_rect)
+		_color_rect.set_anchors_preset(PRESET_FULL_RECT)
 	if not has_node("TextureRect"):
 		_texture_rect = TextureRect.new()
 		_texture_rect.set_texture(texture)
-		_texture_rect.set_anchors_preset(Control.PRESET_FULL_RECT)
 		_texture_rect.set_name("TextureRect")
 		add_child(_texture_rect)
-
-
-func _ready() -> void:
-	set_anchors_preset(PRESET_FULL_RECT)
+		_texture_rect.set_anchors_preset(PRESET_FULL_RECT)
 
 
 func set_mode(new_mode: Mode) -> void:

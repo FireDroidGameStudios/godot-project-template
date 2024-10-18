@@ -43,6 +43,15 @@ var _thereshold: float = 0.0:
 var _tweener: Tween = null
 
 
+func _enter_tree() -> void:
+	await get_tree().process_frame
+	set_anchors_preset(PRESET_FULL_RECT)
+	offset_left = 0
+	offset_right = 0
+	offset_bottom = 0
+	offset_top = 0
+
+
 func _ready() -> void:
 	pass
 
