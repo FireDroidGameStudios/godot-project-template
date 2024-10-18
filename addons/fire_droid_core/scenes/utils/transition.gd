@@ -108,7 +108,7 @@ func _on_transition_step(thereshold: float) -> void:
 
 func _set_custom(custom: Dictionary) -> void:
 	for property: StringName in custom.keys():
-		if property == null:
+		if property == null: # Get only StringNames
 			continue
 		set(property, custom[property])
 
