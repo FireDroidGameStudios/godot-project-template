@@ -9,7 +9,7 @@ const DIAMONDS_SHADER: Shader = (
 
 enum Mode { COLOR, TEXTURE }
 
-@export_range(0.01, 20.0, 0.01, "or_greater") var diamonds_size: float = 10.0:
+@export_range(0.01, 20.0, 0.01, "or_greater") var diamonds_size: float = 30.0:
 	set = set_diamonds_size
 @export var mode: Mode = Mode.COLOR:
 	set = set_mode
