@@ -37,6 +37,18 @@ func _init() -> void:
 		_texture_rect.use_parent_material = true
 		add_child(_texture_rect)
 		_texture_rect.set_anchors_preset(PRESET_FULL_RECT)
+	trans_type_in = Tween.TRANS_CUBIC
+	trans_type_out = Tween.TRANS_CUBIC
+	ease_type_out = Tween.EASE_OUT
+
+
+func _ready() -> void:
+	_color_rect.set_visible(mode == Mode.COLOR)
+	_texture_rect.set_visible(mode == Mode.TEXTURE)
+
+
+func _process(_delta: float) -> void:
+	_update_screen_size()
 
 
 func set_mode(new_mode: Mode) -> void:
@@ -60,4 +72,13 @@ func set_texture(new_texture: Texture) -> void:
 
 
 func _on_transition_step(thereshold: float) -> void:
-	material.set_shader_parameter("circle_size", 1.0 - thereshold)
+	material.set_shader_parameter(
+		"circle_size",
+		lerp(0.0, 1.1, 1.0 - thereshold)
+	)
+
+
+func _update_screen_size() -> void:
+	var screen_size: Vector2i = get_viewport_rect().size
+	material.set_shader_parameter("screen_width", screen_size.x)
+	material.set_shader_parameter("screen_height", screen_size.y)
