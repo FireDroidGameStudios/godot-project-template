@@ -379,6 +379,8 @@ func remove_permanent_node(id: String, delete_node: bool = true) -> bool:
 ##     FDCore.trigger_action("player_died", "level")
 ## [/codeblock]
 func trigger_action(action: StringName, context: StringName = &"") -> void:
+	if is_debug_mode_enabled():
+		return
 	log_message("Action triggered: <" + context + "#" + action + ">")
 	if _project_manager == null:
 		critical_error("Internal error")
