@@ -1,3 +1,4 @@
+@tool
 class_name ActionHUD
 extends CanvasLayer
 ## Basic node to create interactive HUDs capable to trigger actions on [FDCore].
@@ -72,10 +73,15 @@ var _tween: Tween = null
 @export var enable_autohide: bool = false
 ## Delay before autohiding this HUD (only if [member enable_autohide] is enabled).
 @export_range(0.0, 10.0, 0.01, "or_greater") var autohide_delay: float = DefaultAutohideDelay
-## If enabled, [member key_trigger] key will play animation when pressed.
-@export var enable_trigger_key: bool = true
-## Key used to play animation (only if [member enable_trigger_key] is enabled).
-@export var trigger_key: Key = KEY_ESCAPE
+## If enabled, animation will be played when [member trigger_input_action] is triggered.
+## This is useful for in-game menus.
+## [br][br][b]See: [member trigger_input_action_on_release].[/b]
+@export var enable_trigger_input_action: bool = true
+## Key used to play animation (only if [member enable_trigger_input_action] is enabled).
+var trigger_input_action: StringName = &""
+## If true, action is triggered when [member trigger_input_action] is released.
+## Otherwise, action trigger will occurr when just pressed.
+@export var trigger_input_action_on_release: bool = false
 
 
 func _ready() -> void:
@@ -90,14 +96,45 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
-	pass
-
-
-func _input(event: InputEvent) -> void:
-	if enable_trigger_key and event is InputEventKey:
-		var is_just_pressed: bool = event.is_pressed() and not event.is_echo()
-		if event.keycode == trigger_key and is_just_pressed:
+	if Engine.is_editor_hint():
+		return
+	if enable_trigger_input_action:
+		var has_pressed: bool = Input.is_action_just_pressed(trigger_input_action)
+		var has_released: bool = Input.is_action_just_released(trigger_input_action)
+		var can_trigger: bool = (
+			(not trigger_input_action_on_release and has_pressed)
+			or (trigger_input_action_on_release and has_released)
+		)
+		if can_trigger:
 			play_animation()
+
+
+func _get_property_list() -> Array[Dictionary]:
+	var properties: Array[Dictionary] = []
+	properties.append({
+		&"name": &"More Options",
+		&"type": TYPE_NIL,
+		&"usage": PROPERTY_USAGE_GROUP,
+	})
+	properties.append({
+		&"name": &"trigger_input_action",
+		&"type": TYPE_STRING_NAME,
+		&"hint": PROPERTY_HINT_ENUM_SUGGESTION,
+		&"hint_string": ",".join(InputMap.get_actions())
+	})
+	return properties
+
+
+func _property_can_revert(property: StringName) -> bool:
+	if property == &"trigger_input_action":
+		return true
+	return false
+
+
+func _property_get_revert(property: StringName) -> Variant:
+	if property == &"trigger_input_action":
+		return &""
+	return null
 
 
 ## Play the animation interpolating from current state (in or out) to next state.[br]
