@@ -1484,8 +1484,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_5vo02"]
 _data = {
-"RESET": SubResource("Animation_dkvjq"),
-"default": SubResource("Animation_qsduy")
+&"RESET": SubResource("Animation_dkvjq"),
+&"default": SubResource("Animation_qsduy")
 }
 
 [node name="FireDroidLogoIntro" instance=ExtResource("1_gjbhp")]

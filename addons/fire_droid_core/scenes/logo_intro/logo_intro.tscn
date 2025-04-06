@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=3 uid="uid://x3ky66ytp5je"]
 
-[ext_resource type="Script" path="res://addons/fire_droid_core/scenes/logo_intro/logo_intro.gd" id="1_cgtve"]
+[ext_resource type="Script" uid="uid://b7yuv8u111hyk" path="res://addons/fire_droid_core/scenes/logo_intro/logo_intro.gd" id="1_cgtve"]
 
 [node name="LogoIntro" type="Control"]
 layout_mode = 3

@@ -1,6 +1,6 @@
 [gd_scene load_steps=6 format=3 uid="uid://d3o8e8ctimxns"]
 
-[ext_resource type="Script" path="res://addons/fire_droid_core/scenes/defaults/default_loading_screen.gd" id="1_fb0b3"]
+[ext_resource type="Script" uid="uid://bur0vq05tcc7a" path="res://addons/fire_droid_core/scenes/defaults/default_loading_screen.gd" id="1_fb0b3"]
 
 [sub_resource type="Gradient" id="Gradient_6uef6"]
 interpolation_mode = 1
