@@ -1483,8 +1483,8 @@ tracks/0/keys = {
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_57tns"]
 _data = {
-"RESET": SubResource("Animation_1w27c"),
-"default": SubResource("Animation_borw8")
+&"RESET": SubResource("Animation_1w27c"),
+&"default": SubResource("Animation_borw8")
 }
 
 [node name="GodotLogoIntro" instance=ExtResource("1_fk86y")]
