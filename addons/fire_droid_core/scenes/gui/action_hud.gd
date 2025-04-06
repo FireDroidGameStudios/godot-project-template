@@ -1,3 +1,4 @@
+@tool
 class_name ActionHUD
 extends CanvasLayer
 ## Basic node to create interactive HUDs capable to trigger actions on [FDCore].
@@ -77,7 +78,7 @@ var _tween: Tween = null
 ## [br][br][b]See: [member trigger_input_action_on_release].[/b]
 @export var enable_trigger_input_action: bool = true
 ## Key used to play animation (only if [member enable_trigger_input_action] is enabled).
-@export var trigger_input_action: StringName = &""
+var trigger_input_action: StringName = &""
 ## If true, action is triggered when [member trigger_input_action] is released.
 ## Otherwise, action trigger will occurr when just pressed.
 @export var trigger_input_action_on_release: bool = false
@@ -95,6 +96,8 @@ func _process(delta: float) -> void:
 
 
 func _physics_process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
 	if enable_trigger_input_action:
 		var has_pressed: bool = Input.is_action_just_pressed(trigger_input_action)
 		var has_released: bool = Input.is_action_just_released(trigger_input_action)
@@ -104,6 +107,34 @@ func _physics_process(delta: float) -> void:
 		)
 		if can_trigger:
 			play_animation()
+
+
+func _get_property_list() -> Array[Dictionary]:
+	var properties: Array[Dictionary] = []
+	properties.append({
+		&"name": &"More Options",
+		&"type": TYPE_NIL,
+		&"usage": PROPERTY_USAGE_GROUP,
+	})
+	properties.append({
+		&"name": &"trigger_input_action",
+		&"type": TYPE_STRING_NAME,
+		&"hint": PROPERTY_HINT_ENUM_SUGGESTION,
+		&"hint_string": ",".join(InputMap.get_actions())
+	})
+	return properties
+
+
+func _property_can_revert(property: StringName) -> bool:
+	if property == &"trigger_input_action":
+		return true
+	return false
+
+
+func _property_get_revert(property: StringName) -> Variant:
+	if property == &"trigger_input_action":
+		return &""
+	return null
 
 
 ## Play the animation interpolating from current state (in or out) to next state.[br]
